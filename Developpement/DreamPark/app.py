@@ -1,2 +1,2 @@
 
-print "coucou Alex! :)"
+print("coucou Alex! :)")
