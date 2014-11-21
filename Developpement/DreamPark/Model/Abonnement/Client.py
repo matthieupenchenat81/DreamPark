@@ -1,14 +1,17 @@
 class Client:
-    def __init__(self, nom, prenom, typeAabonnement, code):
+
+    def __init__(self, nom, prenom, typeAbonnement, code):
         self.__nom = nom
         self.__prenom = prenom
         self.__typeAbonnement = typeAbonnement
         self.code = code
 
     def changerAbonnement(self, typeAbonnement):
+
+        from Abonnement import Type
         if typeAbonnement == None :
             del self
             #shelve
 
-        else :
+        else if Type.ABONNE:
             self.typeAbonnement = typeAbonnement
