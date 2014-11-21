@@ -8,7 +8,6 @@ class Client:
 
     def changerAbonnement(self, typeAbonnement):
 
-        from Abonnement import Type
         if typeAbonnement == None :
             del self
             #shelve
