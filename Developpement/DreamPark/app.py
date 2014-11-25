@@ -7,7 +7,7 @@ print("Démarrage...")
 places = []
 
 for i in range(0,10) :
-    places.append(Place(id, 1, 1, 1, voiture=None))
+    places.append(Place(id, 1, 1, 1))
 
 
 p1 = Parking(places)
