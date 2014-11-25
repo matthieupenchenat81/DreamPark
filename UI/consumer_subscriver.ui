@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>550</width>
-    <height>339</height>
+    <height>341</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -381,8 +381,258 @@ disponible pour vous :</string>
      </property>
     </widget>
    </widget>
+   <widget class="QFrame" name="guest">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>551</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QTabWidget" name="tabWidget_2">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>551</width>
+       <height>341</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab_3">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <attribute name="title">
+       <string>Se garer</string>
+      </attribute>
+      <widget class="QWidget" name="gridLayoutWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>90</y>
+         <width>198</width>
+         <height>104</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="1" column="1">
+         <widget class="QLabel" name="txt_lrgv_2">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLabel" name="txt_immv_2">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="txt_imm_2">
+          <property name="text">
+           <string>Immatriculation :</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="txt_lng_2">
+          <property name="text">
+           <string>Longueur :</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLabel" name="txt_hauv_2">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="txt_hau_2">
+          <property name="text">
+           <string>Hauteur :</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="txt_lngv_2">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="txt_lrg_2">
+          <property name="text">
+           <string>Largeur :</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>60</y>
+         <width>301</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Nous avons détecter le véhicule suivant :</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_teleport_2">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>250</y>
+         <width>161</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Valider</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_name_2">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>20</y>
+         <width>241</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Bonjour Alexandre,</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_4">
+      <attribute name="title">
+       <string>Récupérer le véhicule</string>
+      </attribute>
+      <widget class="QPushButton" name="btn_getCar_2">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>150</y>
+         <width>291</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Récupérer maintenant</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>40</y>
+         <width>351</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Veuillez saisir votre numéro de ticket :</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="input_numTicket">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>70</y>
+         <width>461</width>
+         <height>33</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_5">
+      <attribute name="title">
+       <string>S'abonner</string>
+      </attribute>
+      <widget class="QWidget" name="formLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>20</y>
+         <width>160</width>
+         <height>80</height>
+        </rect>
+       </property>
+       <layout class="QFormLayout" name="formLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="nomLabel">
+          <property name="text">
+           <string>Nom</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="input_lastName"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="prenomLabel">
+          <property name="text">
+           <string>Prenom</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="input_firstName"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
    <zorder>home</zorder>
    <zorder>subscribed</zorder>
+   <zorder>guest</zorder>
   </widget>
  </widget>
  <resources/>
