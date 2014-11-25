@@ -7,4 +7,4 @@ class Voiture:
         self.__immatriculation = immatriculation
 
     def __str__(self):
-         return "foo"
+         return "Voiture, " + str(self.__longueur) + "x" + str(self.__largeur) + "x" + str(self.hauteur)
