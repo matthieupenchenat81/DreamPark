@@ -1,4 +1,5 @@
 from View.consumer_home import *
+from Model.Abonnement import Client
 import sys
 import shelve
 
@@ -8,6 +9,7 @@ class HomeControler:
         #self.clients = shelve.open('Database/clients.bin')
 
         #self.clients['12131'] = Client(12131, "Alexandre", "PEREIRA")
+
 
 
 
