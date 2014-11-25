@@ -6,3 +6,6 @@ class Place:
         self.__largeur = largeur
         self.__longueur = longueur
         self.__voiture = voiture
+
+    def __str__(self):
+         return "Place, id : " + str(self.__id)
