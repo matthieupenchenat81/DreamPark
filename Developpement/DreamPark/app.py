@@ -1,3 +1,4 @@
+from Controler.HomeControler import HomeControler
 from Model.Parking.Parking import Parking
 from Model.Parking.Place import Place
 
@@ -13,3 +14,7 @@ p1 = Parking(places)
 
 for p in p1.places:
     print(p)
+
+
+hc = HomeControler()
+

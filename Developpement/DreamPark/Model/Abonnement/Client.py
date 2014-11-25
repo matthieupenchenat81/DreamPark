@@ -12,5 +12,5 @@ class Client:
             del self
             #shelve
 
-        else if Type.ABONNE:
+        else if Type.ABONNE :
             self.typeAbonnement = typeAbonnement

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/malibu/Documents/Cours/MIASHS/Python/Project/consumer_home.ui'
+# Form implementation generated from reading ui file 'consumer_home.ui'
 #
-# Created: Fri Nov 21 15:21:20 2014
+# Created: Mon Nov 24 17:05:16 2014
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -23,11 +23,11 @@ except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(500, 279)
-        self.centralwidget = QtGui.QWidget(MainWindow)
+class Ui_consumer_home(object):
+    def setupUi(self, consumer_home):
+        consumer_home.setObjectName(_fromUtf8("consumer_home"))
+        consumer_home.resize(500, 279)
+        self.centralwidget = QtGui.QWidget(consumer_home)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.label = QtGui.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(30, 30, 161, 41))
@@ -46,15 +46,25 @@ class Ui_MainWindow(object):
         self.btn_guest = QtGui.QPushButton(self.centralwidget)
         self.btn_guest.setGeometry(QtCore.QRect(270, 150, 201, 111))
         self.btn_guest.setObjectName(_fromUtf8("btn_guest"))
-        MainWindow.setCentralWidget(self.centralwidget)
+        consumer_home.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(consumer_home)
+        QtCore.QMetaObject.connectSlotsByName(consumer_home)
 
-    def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow", None))
-        self.label.setText(_translate("MainWindow", "Bienvenue!", None))
-        self.label_2.setText(_translate("MainWindow", "Veuillez choisir votre status:", None))
-        self.btn_subscriber.setText(_translate("MainWindow", "Abonné", None))
-        self.btn_guest.setText(_translate("MainWindow", "Non abonné", None))
+    def retranslateUi(self, consumer_home):
+        consumer_home.setWindowTitle(_translate("consumer_home", "MainWindow", None))
+        self.label.setText(_translate("consumer_home", "Bienvenue!", None))
+        self.label_2.setText(_translate("consumer_home", "Veuillez choisir votre statut :", None))
+        self.btn_subscriber.setText(_translate("consumer_home", "Abonné", None))
+        self.btn_guest.setText(_translate("consumer_home", "Non abonné", None))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtGui.QApplication(sys.argv)
+    consumer_home = QtGui.QMainWindow()
+    ui = Ui_consumer_home()
+    ui.setupUi(consumer_home)
+    consumer_home.show()
+    sys.exit(app.exec_())
 
