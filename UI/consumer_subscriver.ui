@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>553</width>
-    <height>344</height>
+    <width>550</width>
+    <height>339</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QFrame" name="frame">
+   <widget class="QFrame" name="subscribed">
     <property name="enabled">
      <bool>true</bool>
     </property>
@@ -54,7 +54,7 @@
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab">
       <property name="enabled">
@@ -68,18 +68,15 @@
         <rect>
          <x>100</x>
          <y>60</y>
-         <width>191</width>
+         <width>198</width>
          <height>104</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout">
-        <item row="3" column="0">
-         <widget class="QLabel" name="txt_imm">
+        <item row="1" column="1">
+         <widget class="QLabel" name="txt_lrgv">
           <property name="text">
-           <string>Immatriculation :</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           <string>TextLabel</string>
           </property>
          </widget>
         </item>
@@ -87,6 +84,16 @@
          <widget class="QLabel" name="txt_immv">
           <property name="text">
            <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="txt_imm">
+          <property name="text">
+           <string>Immatriculation :</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
           </property>
          </widget>
         </item>
@@ -100,18 +107,8 @@
           </property>
          </widget>
         </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="txt_lrg">
-          <property name="text">
-           <string>Largeur :</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLabel" name="txt_lngv">
+        <item row="2" column="1">
+         <widget class="QLabel" name="txt_hauv">
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -127,17 +124,20 @@
           </property>
          </widget>
         </item>
-        <item row="1" column="1">
-         <widget class="QLabel" name="txt_lrgv">
+        <item row="0" column="1">
+         <widget class="QLabel" name="txt_lngv">
           <property name="text">
            <string>TextLabel</string>
           </property>
          </widget>
         </item>
-        <item row="2" column="1">
-         <widget class="QLabel" name="txt_hauv">
+        <item row="1" column="0">
+         <widget class="QLabel" name="txt_lrg">
           <property name="text">
-           <string>TextLabel</string>
+           <string>Largeur :</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
           </property>
          </widget>
         </item>
@@ -303,6 +303,86 @@ disponible pour vous :</string>
      </widget>
     </widget>
    </widget>
+   <widget class="QFrame" name="home">
+    <property name="geometry">
+     <rect>
+      <x>-1</x>
+      <y>-1</y>
+      <width>551</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="btn_guest">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>190</y>
+       <width>231</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Non abonné</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>30</y>
+       <width>221</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>28</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Bienvenue!</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>140</y>
+       <width>221</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Veuillez choisir votre statut :</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_subscriber">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>190</y>
+       <width>221</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Abonné</string>
+     </property>
+    </widget>
+   </widget>
+   <zorder>home</zorder>
+   <zorder>subscribed</zorder>
   </widget>
  </widget>
  <resources/>
