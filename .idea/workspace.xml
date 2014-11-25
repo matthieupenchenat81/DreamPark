@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b440f61-fb3b-4844-bb89-85f24a8b28c2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Developpement/DreamPark/Controler/HomeControler.py" afterPath="$PROJECT_DIR$/Developpement/DreamPark/Controler/HomeControler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Developpement/DreamPark/app.py" afterPath="$PROJECT_DIR$/Developpement/DreamPark/app.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DreamPark.iws" />
@@ -546,7 +544,11 @@
       <created>1416925491276</created>
       <updated>1416925491276</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ss">
+      <created>1416930445181</created>
+      <updated>1416930445181</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
