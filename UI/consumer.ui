@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>550</width>
-    <height>341</height>
+    <width>549</width>
+    <height>336</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -54,7 +54,7 @@
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab">
       <property name="enabled">
@@ -421,7 +421,7 @@ disponible pour vous :</string>
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab_3">
       <property name="enabled">
@@ -598,13 +598,16 @@ disponible pour vous :</string>
       <widget class="QWidget" name="formLayoutWidget">
        <property name="geometry">
         <rect>
-         <x>60</x>
-         <y>20</y>
-         <width>160</width>
-         <height>80</height>
+         <x>30</x>
+         <y>50</y>
+         <width>491</width>
+         <height>71</height>
         </rect>
        </property>
        <layout class="QFormLayout" name="formLayout">
+        <property name="fieldGrowthPolicy">
+         <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+        </property>
         <item row="0" column="0">
          <widget class="QLabel" name="nomLabel">
           <property name="text">
@@ -627,11 +630,142 @@ disponible pour vous :</string>
         </item>
        </layout>
       </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>20</y>
+         <width>311</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Pour vous abonner veuillez remplir ces champs:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>130</y>
+         <width>151</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Mode de paiement:</string>
+       </property>
+      </widget>
+      <widget class="QWidget" name="formLayoutWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>130</y>
+         <width>341</width>
+         <height>95</height>
+        </rect>
+       </property>
+       <layout class="QFormLayout" name="formLayout_2">
+        <item row="0" column="0">
+         <widget class="QLabel" name="numeroDeCarteLabel">
+          <property name="text">
+           <string>Numero de carte</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="numeroDeCarteLineEdit"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="dateDExpirationLabel">
+          <property name="text">
+           <string>Date d'expiration</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QDateEdit" name="input_date"/>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="cryptogrammeVisuelLabel">
+          <property name="text">
+           <string>Cryptogramme Visuel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="input_crypto"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QCheckBox" name="check_packGaranti">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>240</y>
+         <width>131</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Pack garanti</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>430</x>
+         <y>270</y>
+         <width>92</width>
+         <height>27</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Je m'abonne</string>
+       </property>
+      </widget>
      </widget>
     </widget>
    </widget>
-   <zorder>home</zorder>
+   <widget class="QFrame" name="guest_recover">
+    <property name="geometry">
+     <rect>
+      <x>-1</x>
+      <y>-1</y>
+      <width>551</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>10</y>
+       <width>381</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Vous avez garé votre voiture durant 10 jours:
+
+
+Le montant à payer est de 79 euros.
+Veuillez choisir votre moyen de paiement:</string>
+     </property>
+    </widget>
+   </widget>
+   <zorder>guest_recover</zorder>
    <zorder>subscribed</zorder>
+   <zorder>home</zorder>
    <zorder>guest</zorder>
   </widget>
  </widget>
