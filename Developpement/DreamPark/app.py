@@ -1,19 +1,13 @@
-from Controler.HomeControler import HomeControler
-from Model.Parking.Parking import Parking
-from Model.Parking.Place import Place
+from Developpement.DreamPark.Controler.HomeControler import *
+from Developpement.DreamPark.Model.Parking.Place import *
+from Developpement.DreamPark.Model.Abonnement.Client import *
+from Developpement.DreamPark.Model.Voiture import *
 
-print("Démarrage...")
-
-places = []
-
-for i in range(0,10) :
-    places.append(Place(i, 1, 1, 1))
-
-
-p1 = Parking(places)
-
-for p in p1.places:
-    print(p)
+# on charge la bdd
+Client.loadAll()
+Place.loadAll()
+Voiture.loadAll()
+#Placement.loadAll()
 
 
 hc = HomeControler()
