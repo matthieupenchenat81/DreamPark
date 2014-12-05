@@ -421,7 +421,7 @@ disponible pour vous :</string>
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab_3">
       <property name="enabled">
@@ -601,7 +601,7 @@ disponible pour vous :</string>
          <x>30</x>
          <y>50</y>
          <width>491</width>
-         <height>71</height>
+         <height>74</height>
         </rect>
        </property>
        <layout class="QFormLayout" name="formLayout">
@@ -662,7 +662,7 @@ disponible pour vous :</string>
          <x>180</x>
          <y>130</y>
          <width>341</width>
-         <height>95</height>
+         <height>113</height>
         </rect>
        </property>
        <layout class="QFormLayout" name="formLayout_2">
@@ -759,14 +759,14 @@ disponible pour vous :</string>
 
 
 Le montant à payer est de 79 euros.
-Veuillez choisir votre moyen de paiement:</string>
+Veuillez insérer les coordonnées de votre carte bancaire:</string>
      </property>
     </widget>
    </widget>
-   <zorder>guest_recover</zorder>
-   <zorder>subscribed</zorder>
    <zorder>home</zorder>
+   <zorder>guest_recover</zorder>
    <zorder>guest</zorder>
+   <zorder>subscribed</zorder>
   </widget>
  </widget>
  <resources/>
