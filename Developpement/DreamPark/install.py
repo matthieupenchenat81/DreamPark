@@ -1,29 +1,23 @@
-from Model.Parking import Parking, Place
+from random import *
+from Developpement.DreamPark.Model.Parking.Place import *
+from Developpement.DreamPark.Model.Parking.Parking import *
+from Developpement.DreamPark.Model.Abonnement.Client import *
 
-print("Définition des places de bases...")
-
-places = []
-hauteurs = ['a', 'b', 'c', 'd', 'e']
-print(random.choice(foo))
+print("Définition des places de bases...", end="")
+placeType = [[1.2,2.3,1.5],[1.8,3.0,1.9],[3,5,2.6]] # hauteur, largeur, longueur de 3 types de places
 for i in range(0,20) :
-    places.append(Place(i, 1, uniform(1.2, 2.2), uniform(1, 2)))
+    choosenPlaceType = placeType[randint(0,2)];
+    Place(i, randint(1,2), choosenPlaceType[0], choosenPlaceType[1], choosenPlaceType[2])
+print("OK\n")
+
+print("Définition du Parking...", end="")
+Parking(Place.all)
+print("OK\n")
 
 
-(self, id, niveau, hauteur, largeur, longueur
 
-    def capturerHauteur(self):
-        return uniform(1, 2)
-
-    def capturerLongueur(self):
-        return uniform(2, 4)
-
-    def capturerLargeur(self):
-        return uniform(1.3, 2.2)
-
-
-p1 = Parking(places)
-
-for p in p1.places:
-    print(p)
-
+print("Définition des Clients...", end="")
+Client("PEREIRA", "Alexandre", "4 Boulevard Koenings\n31300 Toulouse", Type.SUPER_ABONNE, "ABC")
+Client("PENCHENAT", "Mathieu", "2 Impasse Louis Tharaud\n31300 Toulouse", Type.ABONNE, "ABCD")
+Client.saveAll()
 print("OK\n")
