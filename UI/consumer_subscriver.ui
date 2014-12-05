@@ -381,8 +381,6 @@ disponible pour vous :</string>
      </property>
     </widget>
    </widget>
-   <zorder>home</zorder>
-   <zorder>subscribed</zorder>
   </widget>
  </widget>
  <resources/>

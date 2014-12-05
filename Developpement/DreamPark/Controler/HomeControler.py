@@ -8,7 +8,7 @@ class HomeControler:
     def __init__(self):
         self.clients = shelve.open('Database/clients.bin')
 
-        self.clients['12131'] = Client(12131, "Alexandre", "PEREIRA")
+        self.clients['12312312032103012'] = Client("Alexandre", "PEREIRA", "1313-1231-3131-1313")
 
 
 
