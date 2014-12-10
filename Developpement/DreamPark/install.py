@@ -1,6 +1,36 @@
 from random import *
 from Developpement.DreamPark.Model.Parking.Place import *
-from Developpement.DreamPark.Model.Abonnement.Client import *
+from Developpement.DreamPark.Model.Abonnement import *
+import sqlite3
+
+# Test connexion base de données
+
+conn = sqlite3.connect("test.db")
+
+curseur = conn.cursor()
+
+curseur.execute("""create table client (numClient int(4) PRIMARY KEY, nomClient varchar(30), prenomClient varchar(30), adrClient varchar(50), typeClient int(1))""")
+curseur.execute("""create table etudiants (numEtud int(4) PRIMARY KEY, nomEtud varchar(30))""")
+
+curseur.execute("""insert into etudiants values (100, 'Brahim')""")
+conn.commit()
+conn.close()
+
+# On teste la persistance
+
+conn = sqlite3.connect("test.db")
+
+curseur = conn.cursor()
+
+for ligne in curseur.execute("""select * from etudiants"""):
+    print(ligne)
+
+conn.close()
+
+
+
+
+
 
 print("Définition des places de bases...", end="")
 placeType = [[1.2,2.3,1.5],[1.8,3.0,1.9],[3,5,2.6]] # hauteur, largeur, longueur de 3 types de places
@@ -11,7 +41,7 @@ Place.saveAll()
 print("OK\n")
 
 print("Définition des Clients...", end="")
-Client("PEREIRA", "Alexandre", "4 Boulevard Koenings\n31300 Toulouse", Type.SUPER_ABONNE, "ABC")
-Client("PENCHENAT", "Mathieu", "2 Impasse Louis Tharaud\n31300 Toulouse", Type.ABONNE, "ABCD")
+Client("ABC", "PEREIRA", "Alexandre", "4 Boulevard Koenings\n 31300 Toulouse", Type.SUPER_ABONNE)
+Client("ABCD", "PENCHENAT", "Mathieu", "2 Impasse Louis Tharaud\n 31300 Toulouse", Type.ABONNE)
 Client.saveAll()
 print("OK\n")

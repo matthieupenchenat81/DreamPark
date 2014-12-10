@@ -182,15 +182,6 @@
         <string>Heure : </string>
        </property>
       </widget>
-      <zorder>btn_teleport</zorder>
-      <zorder>label_name</zorder>
-      <zorder>check_Maintenir</zorder>
-      <zorder>check_Entretien</zorder>
-      <zorder>check_Livraison</zorder>
-      <zorder>input_adrLivaison</zorder>
-      <zorder>input_timeLivraison</zorder>
-      <zorder>label_9</zorder>
-      <zorder>guest</zorder>
      </widget>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
@@ -402,6 +393,9 @@ disponible pour vous :</string>
      </property>
      <property name="toolTip">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
      </property>
      <property name="currentIndex">
       <number>0</number>

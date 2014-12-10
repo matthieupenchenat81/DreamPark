@@ -10,3 +10,5 @@ class Client:
     @classmethod
     def loadAll(self):
         ...
+
+
