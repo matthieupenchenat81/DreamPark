@@ -11,10 +11,6 @@ class HomeControler:
         self.clients['12312312032103012'] = Client("Alexandre", "PEREIRA", "1313-1231-3131-1313")
 
 
-
-
-
-
         app = QtGui.QApplication(sys.argv)
         self.view = QtGui.QMainWindow()
         ui = Ui_consumer_home()
