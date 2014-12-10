@@ -9,7 +9,7 @@ class HomeControler:
         app = QtGui.QApplication(sys.argv)
         self.view = QtGui.QMainWindow()
         ui = Ui_consumer_home()
-        ui.setupUi(view, self)
+        ui.setupUi(self.view, self)
         self.view.show()
         sys.exit(app.exec_())
 

@@ -9,7 +9,9 @@ class Place:
         self.__niveau = niveau
 
     def __str__(self):
-         return "Place, id : " + str(self.__id)
+        return "Place, id : " + str(self.__id)
 
-    def estLibre(self):
-        ...
+    @staticmethod
+    def saveAll(self):
+        for p in Place.tous:
+            "UPDATE FROM places WHERE id="
