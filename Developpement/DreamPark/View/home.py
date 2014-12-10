@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '/home/malibu/Git/DreamPark/UI/consumer.ui'
 #
-# Created: Wed Dec 10 16:20:09 2014
+# Created: Wed Dec 10 17:10:53 2014
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -24,8 +24,7 @@ except AttributeError:
         return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_consumer_home(object):
-    def setupUi(self, consumer_home, controler):
-        self.controler = controler
+    def setupUi(self, consumer_home):
         consumer_home.setObjectName(_fromUtf8("consumer_home"))
         consumer_home.resize(549, 336)
         self.centralwidget = QtGui.QWidget(consumer_home)
@@ -135,6 +134,7 @@ class Ui_consumer_home(object):
         self.tabWidget_2 = QtGui.QTabWidget(self.guest)
         self.tabWidget_2.setEnabled(True)
         self.tabWidget_2.setGeometry(QtCore.QRect(0, 0, 551, 341))
+        self.tabWidget_2.setAutoFillBackground(True)
         self.tabWidget_2.setObjectName(_fromUtf8("tabWidget_2"))
         self.tab_3 = QtGui.QWidget()
         self.tab_3.setEnabled(True)
