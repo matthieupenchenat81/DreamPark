@@ -11,8 +11,8 @@ class HomeControler:
 
         #signaux
         #
-        self.ui.btn_subscriber.clicked.connect(lambda : self.controler.chooseInterface(0))
-        self.ui.btn_guest.clicked.connect(lambda : self.controler.chooseInterface(1))
+        self.ui.btn_subscriber.clicked.connect(lambda : self.ui.controler.chooseInterface(0))
+        self.ui.btn_guest.clicked.connect(lambda : self.ui.controler.chooseInterface(1))
 
         self.ui.home.raise_()
         self.view.show()
