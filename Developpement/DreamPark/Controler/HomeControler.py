@@ -1,21 +1,25 @@
-from View.home import *
-from Model.Abonnement import Client
+from Developpement.DreamPark.View.home import *
 import sys
-import shelve
 
 class HomeControler:
 
     def __init__(self):
         app = QtGui.QApplication(sys.argv)
         self.view = QtGui.QMainWindow()
-        ui = Ui_consumer_home()
-        ui.setupUi(self.view, self)
+        self.ui = Ui_consumer_home()
+        self.ui.setupUi(self.view, self)
+
+        #signaux
+        #
+        self.ui.btn_subscriber.clicked.connect(lambda : self.controler.chooseInterface(0))
+        self.ui.btn_guest.clicked.connect(lambda : self.controler.chooseInterface(1))
+
+        self.ui.home.raise_()
         self.view.show()
         sys.exit(app.exec_())
 
-    def choose_interface(self, type):
+    def chooseInterface(self, type):
         if type==0:
-            consumer_home = QtGui.QMainWindow()
-            ui = Ui_consumer_home()
-            ui.setupUi(consumer_home, self)
-            consumer_home.show()
+            self.ui.subscribed.raise_()
+        if type==1:
+            self.ui.guest.raise_()
