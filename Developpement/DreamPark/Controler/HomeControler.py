@@ -1,4 +1,4 @@
-from View.consumer_home import *
+from View.home import *
 from Model.Abonnement import Client
 import sys
 import shelve

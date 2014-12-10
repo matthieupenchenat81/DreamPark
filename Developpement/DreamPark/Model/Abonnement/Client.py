@@ -7,3 +7,6 @@ class Client:
         self.__adresse = adresse
         self.__placements = []
 
+    @classmethod
+    def loadAll(self):
+        ...

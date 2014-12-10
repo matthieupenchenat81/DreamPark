@@ -24,7 +24,8 @@ except AttributeError:
         return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_consumer_home(object):
-    def setupUi(self, consumer_home):
+    def setupUi(self, consumer_home, controler):
+        self.controler = controler
         consumer_home.setObjectName(_fromUtf8("consumer_home"))
         consumer_home.resize(549, 336)
         self.centralwidget = QtGui.QWidget(consumer_home)

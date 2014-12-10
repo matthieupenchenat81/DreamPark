@@ -15,13 +15,14 @@ class Place:
 
     @property
     def estLibre(self):
-        return self.__estLibre
+        return 0
 
     def utiliserPlace(self):
-        if self.estLibre
+        if self.estLibre():
             self.__estLibre = False
-        else
+        else:
             print("Erreur, place non libre")
 
-    def addPlacement(self):
-        pass
+    @classmethod
+    def loadAll(self):
+        ...

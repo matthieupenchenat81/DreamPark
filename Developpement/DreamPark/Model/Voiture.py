@@ -8,3 +8,7 @@ class Voiture:
 
     def __str__(self):
          return "Voiture, " + str(self.__longueur) + "x" + str(self.__largeur) + "x" + str(self.hauteur) + ", Immatr : " + self.__immatriculation
+
+    @classmethod
+    def loadAll(self):
+        ...
