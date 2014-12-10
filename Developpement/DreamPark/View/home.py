@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '/home/malibu/Git/DreamPark/UI/consumer.ui'
 #
-# Created: Wed Dec 10 17:10:53 2014
+# Created: Wed Dec 10 17:29:26 2014
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -24,7 +24,8 @@ except AttributeError:
         return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_consumer_home(object):
-    def setupUi(self, consumer_home):
+    def setupUi(self, consumer_home, controler):
+        self.controler = controler
         consumer_home.setObjectName(_fromUtf8("consumer_home"))
         consumer_home.resize(549, 336)
         self.centralwidget = QtGui.QWidget(consumer_home)
@@ -43,6 +44,7 @@ class Ui_consumer_home(object):
         self.tabWidget.setObjectName(_fromUtf8("tabWidget"))
         self.tab = QtGui.QWidget()
         self.tab.setEnabled(True)
+        self.tab.setAutoFillBackground(True)
         self.tab.setObjectName(_fromUtf8("tab"))
         self.btn_teleport = QtGui.QPushButton(self.tab)
         self.btn_teleport.setGeometry(QtCore.QRect(360, 250, 161, 31))
@@ -76,6 +78,7 @@ class Ui_consumer_home(object):
         self.label_9.setObjectName(_fromUtf8("label_9"))
         self.tabWidget.addTab(self.tab, _fromUtf8(""))
         self.tab_2 = QtGui.QWidget()
+        self.tab_2.setAutoFillBackground(True)
         self.tab_2.setObjectName(_fromUtf8("tab_2"))
         self.btn_getCar = QtGui.QPushButton(self.tab_2)
         self.btn_getCar.setGeometry(QtCore.QRect(100, 170, 291, 51))
@@ -86,6 +89,7 @@ class Ui_consumer_home(object):
         self.label_immat.setObjectName(_fromUtf8("label_immat"))
         self.tabWidget.addTab(self.tab_2, _fromUtf8(""))
         self.tab_settings = QtGui.QWidget()
+        self.tab_settings.setAutoFillBackground(True)
         self.tab_settings.setObjectName(_fromUtf8("tab_settings"))
         self.btn_desinscrire = QtGui.QPushButton(self.tab_settings)
         self.btn_desinscrire.setGeometry(QtCore.QRect(320, 160, 171, 31))
@@ -138,6 +142,7 @@ class Ui_consumer_home(object):
         self.tabWidget_2.setObjectName(_fromUtf8("tabWidget_2"))
         self.tab_3 = QtGui.QWidget()
         self.tab_3.setEnabled(True)
+        self.tab_3.setAutoFillBackground(True)
         self.tab_3.setObjectName(_fromUtf8("tab_3"))
         self.btn_teleport_2 = QtGui.QPushButton(self.tab_3)
         self.btn_teleport_2.setGeometry(QtCore.QRect(190, 200, 161, 31))
@@ -147,6 +152,7 @@ class Ui_consumer_home(object):
         self.label_name_2.setObjectName(_fromUtf8("label_name_2"))
         self.tabWidget_2.addTab(self.tab_3, _fromUtf8(""))
         self.tab_4 = QtGui.QWidget()
+        self.tab_4.setAutoFillBackground(True)
         self.tab_4.setObjectName(_fromUtf8("tab_4"))
         self.btn_getCar_2 = QtGui.QPushButton(self.tab_4)
         self.btn_getCar_2.setGeometry(QtCore.QRect(120, 150, 291, 51))
@@ -159,6 +165,7 @@ class Ui_consumer_home(object):
         self.input_numTicket.setObjectName(_fromUtf8("input_numTicket"))
         self.tabWidget_2.addTab(self.tab_4, _fromUtf8(""))
         self.tab_5 = QtGui.QWidget()
+        self.tab_5.setAutoFillBackground(True)
         self.tab_5.setObjectName(_fromUtf8("tab_5"))
         self.formLayoutWidget = QtGui.QWidget(self.tab_5)
         self.formLayoutWidget.setGeometry(QtCore.QRect(30, 50, 491, 74))
@@ -228,8 +235,8 @@ class Ui_consumer_home(object):
         consumer_home.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(consumer_home)
-        self.tabWidget.setCurrentIndex(0)
-        self.tabWidget_2.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget_2.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(consumer_home)
 
     def retranslateUi(self, consumer_home):
