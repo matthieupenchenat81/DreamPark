@@ -6,3 +6,14 @@ class Placement:
         self.__client = client
         self.__dateD = dateD
         self.__dateF = dateF
+
+
+    def partirPlace(self, dateF):
+        self.__dateF = dateF
+
+        # on libere la place
+        self.__place
+
+    @property
+    def estEnCours(self):
+        return (self.__dateF == None)
