@@ -18,13 +18,16 @@ def initClient():
 
 initClient()
 Client.loadAll();
+
+print("Définition des Clients...")
+Client("ABCD", "PENCHENAT", "Mathieu", "2 Impasse Louis Tharaud 31300 Toulouse", Type.ABONNE)
+Client.saveAll()
+
 for client in Client.tous:
     print(client)
 
-print("Définition des Clients...", end="")
-print(Client("ABCD", "PENCHENAT", "Mathieu", "2 Impasse Louis Tharaud 31300 Toulouse", Type.ABONNE))
-Client.saveAll()
-print("OK\n")
+
+
 
 
 # print("Définition des places de bases...", end="")
