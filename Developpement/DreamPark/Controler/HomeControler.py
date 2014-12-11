@@ -4,6 +4,7 @@ import sys
 class HomeControler:
 
     def __init__(self):
+        QtGui.QApplication.setStyle(QtGui.QStyleFactory.create('Cleanlooks'))
         app = QtGui.QApplication(sys.argv)
         self.view = QtGui.QMainWindow()
         self.ui = Ui_consumer_home()
@@ -20,6 +21,7 @@ class HomeControler:
 
     def chooseInterface(self, type):
         if type==0:
+            self.quelclient.setWindowModality(QtCore.Qt.ApplicationModal)
             self.ui.subscribed.raise_()
         if type==1:
             self.ui.guest.raise_()
