@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'consumer.ui'
 #
-# Created: Thu Dec 11 11:05:27 2014
+# Created: Thu Dec 11 18:26:04 2014
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -24,8 +24,7 @@ except AttributeError:
         return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_consumer_home(object):
-    def setupUi(self, consumer_home, controler):
-        self.controler = controler
+    def setupUi(self, consumer_home):
         consumer_home.setObjectName(_fromUtf8("consumer_home"))
         consumer_home.resize(549, 336)
         self.centralwidget = QtGui.QWidget(consumer_home)
@@ -59,24 +58,25 @@ class Ui_consumer_home(object):
         self.check_Entretien = QtGui.QCheckBox(self.tab)
         self.check_Entretien.setGeometry(QtCore.QRect(60, 210, 371, 26))
         self.check_Entretien.setObjectName(_fromUtf8("check_Entretien"))
-        self.check_Livraison = QtGui.QCheckBox(self.tab)
-        self.check_Livraison.setGeometry(QtCore.QRect(60, 60, 131, 26))
-        self.check_Livraison.setObjectName(_fromUtf8("check_Livraison"))
-        self.input_adrLivaison = QtGui.QLineEdit(self.tab)
-        self.input_adrLivaison.setEnabled(False)
-        self.input_adrLivaison.setGeometry(QtCore.QRect(120, 90, 251, 33))
+        self.groupBox = QtGui.QGroupBox(self.tab)
+        self.groupBox.setGeometry(QtCore.QRect(50, 50, 391, 121))
+        self.groupBox.setCheckable(True)
+        self.groupBox.setObjectName(_fromUtf8("groupBox"))
+        self.input_adrLivaison = QtGui.QLineEdit(self.groupBox)
+        self.input_adrLivaison.setEnabled(True)
+        self.input_adrLivaison.setGeometry(QtCore.QRect(20, 32, 351, 31))
         self.input_adrLivaison.setInputMask(_fromUtf8(""))
         self.input_adrLivaison.setDragEnabled(False)
         self.input_adrLivaison.setReadOnly(False)
         self.input_adrLivaison.setObjectName(_fromUtf8("input_adrLivaison"))
-        self.input_timeLivraison = QtGui.QTimeEdit(self.tab)
-        self.input_timeLivraison.setEnabled(False)
-        self.input_timeLivraison.setGeometry(QtCore.QRect(170, 130, 118, 33))
-        self.input_timeLivraison.setObjectName(_fromUtf8("input_timeLivraison"))
-        self.label_9 = QtGui.QLabel(self.tab)
-        self.label_9.setEnabled(False)
-        self.label_9.setGeometry(QtCore.QRect(120, 140, 66, 21))
+        self.label_9 = QtGui.QLabel(self.groupBox)
+        self.label_9.setEnabled(True)
+        self.label_9.setGeometry(QtCore.QRect(230, 80, 41, 21))
         self.label_9.setObjectName(_fromUtf8("label_9"))
+        self.input_timeLivraison = QtGui.QTimeEdit(self.groupBox)
+        self.input_timeLivraison.setEnabled(True)
+        self.input_timeLivraison.setGeometry(QtCore.QRect(280, 80, 91, 21))
+        self.input_timeLivraison.setObjectName(_fromUtf8("input_timeLivraison"))
         self.tabWidget.addTab(self.tab, _fromUtf8(""))
         self.tab_2 = QtGui.QWidget()
         self.tab_2.setAutoFillBackground(True)
@@ -102,7 +102,7 @@ class Ui_consumer_home(object):
         self.label_3.setGeometry(QtCore.QRect(30, 130, 341, 21))
         self.label_3.setObjectName(_fromUtf8("label_3"))
         self.btn_packGaranti = QtGui.QPushButton(self.tab_settings)
-        self.btn_packGaranti.setGeometry(QtCore.QRect(384, 70, 111, 31))
+        self.btn_packGaranti.setGeometry(QtCore.QRect(380, 70, 111, 31))
         self.btn_packGaranti.setObjectName(_fromUtf8("btn_packGaranti"))
         self.tabWidget.addTab(self.tab_settings, _fromUtf8(""))
         self.home = QtGui.QFrame(self.centralwidget)
@@ -237,8 +237,8 @@ class Ui_consumer_home(object):
         consumer_home.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(consumer_home)
-        self.tabWidget.setCurrentIndex(2)
-        self.tabWidget_2.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget_2.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(consumer_home)
 
     def retranslateUi(self, consumer_home):
@@ -247,9 +247,10 @@ class Ui_consumer_home(object):
         self.label_name.setText(_translate("consumer_home", "Bonjour Alexandre,", None))
         self.check_Maintenir.setText(_translate("consumer_home", "Maintenir mon véhicule (+3 euros)", None))
         self.check_Entretien.setText(_translate("consumer_home", "Entretenir mon véhicule (+4 euros)", None))
-        self.check_Livraison.setText(_translate("consumer_home", "Se faire livrer", None))
+        self.groupBox.setTitle(_translate("consumer_home", "se faire livrer", None))
         self.input_adrLivaison.setText(_translate("consumer_home", "Adresse de livraison", None))
         self.label_9.setText(_translate("consumer_home", "Heure : ", None))
+        self.input_timeLivraison.setDisplayFormat(_translate("consumer_home", "HH:mm", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("consumer_home", "Se garer", None))
         self.btn_getCar.setText(_translate("consumer_home", "Récupérer maintenant", None))
         self.label_immat.setText(_translate("consumer_home", "Votre véhicule immaticulé 12-ABS-31  est actuellement dans notre parking.", None))

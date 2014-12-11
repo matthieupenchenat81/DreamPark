@@ -10,12 +10,12 @@ class HomeControler:
         app = QtGui.QApplication(sys.argv)
         self.view = QtGui.QMainWindow()
         self.ui = Ui_consumer_home()
-        self.ui.setupUi(self.view, self)
+        self.ui.setupUi(self.view)
         self.view.setWindowIcon(QtGui.QIcon("icon.png"));
         #signaux
         #
-        self.ui.btn_subscriber.clicked.connect(lambda : self.ui.controler.chooseInterface(0))
-        self.ui.btn_guest.clicked.connect(lambda : self.ui.controler.chooseInterface(1))
+        self.ui.btn_subscriber.clicked.connect(lambda : self.chooseInterface(0))
+        self.ui.btn_guest.clicked.connect(lambda : self.chooseInterface(1))
         #regex
         #firstname
         regexp = QtCore.QRegExp('^([a-zA-Z\'àâéèêôùûçñãõÀÂÉÈÔÙÛÑÃÕÇ\+\@\s-]{2,30})$')
