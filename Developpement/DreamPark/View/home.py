@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/malibu/Git/DreamPark/UI/consumer.ui'
+# Form implementation generated from reading ui file 'consumer.ui'
 #
-# Created: Wed Dec 10 17:29:26 2014
+# Created: Thu Dec 11 11:05:27 2014
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -41,6 +41,7 @@ class Ui_consumer_home(object):
         self.tabWidget = QtGui.QTabWidget(self.subscribed)
         self.tabWidget.setEnabled(True)
         self.tabWidget.setGeometry(QtCore.QRect(0, 0, 551, 341))
+        self.tabWidget.setToolTip(_fromUtf8(""))
         self.tabWidget.setObjectName(_fromUtf8("tabWidget"))
         self.tab = QtGui.QWidget()
         self.tab.setEnabled(True)
@@ -138,6 +139,7 @@ class Ui_consumer_home(object):
         self.tabWidget_2 = QtGui.QTabWidget(self.guest)
         self.tabWidget_2.setEnabled(True)
         self.tabWidget_2.setGeometry(QtCore.QRect(0, 0, 551, 341))
+        self.tabWidget_2.setToolTip(_fromUtf8(""))
         self.tabWidget_2.setAutoFillBackground(True)
         self.tabWidget_2.setObjectName(_fromUtf8("tabWidget_2"))
         self.tab_3 = QtGui.QWidget()
@@ -236,12 +238,11 @@ class Ui_consumer_home(object):
 
         self.retranslateUi(consumer_home)
         self.tabWidget.setCurrentIndex(2)
-        self.tabWidget_2.setCurrentIndex(2)
+        self.tabWidget_2.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(consumer_home)
 
     def retranslateUi(self, consumer_home):
-        consumer_home.setWindowTitle(_translate("consumer_home", "MainWindow", None))
-        self.tabWidget.setToolTip(_translate("consumer_home", "<html><head/><body><p><br/></p></body></html>", None))
+        consumer_home.setWindowTitle(_translate("consumer_home", "DreamPark", None))
         self.btn_teleport.setText(_translate("consumer_home", "Valider", None))
         self.label_name.setText(_translate("consumer_home", "Bonjour Alexandre,", None))
         self.check_Maintenir.setText(_translate("consumer_home", "Maintenir mon véhicule (+3 euros)", None))
@@ -263,7 +264,6 @@ class Ui_consumer_home(object):
         self.label.setText(_translate("consumer_home", "Bienvenue!", None))
         self.label_4.setText(_translate("consumer_home", "Veuillez choisir votre statut :", None))
         self.btn_subscriber.setText(_translate("consumer_home", "Abonné", None))
-        self.tabWidget_2.setToolTip(_translate("consumer_home", "<html><head/><body><p><br/></p></body></html>", None))
         self.btn_teleport_2.setText(_translate("consumer_home", "Se garer", None))
         self.label_name_2.setText(_translate("consumer_home", "Bonjour,\n"
 "Nous avons détecté votre véhicule, vous pouvez vous garer. ", None))

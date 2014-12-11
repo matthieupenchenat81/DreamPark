@@ -1,4 +1,5 @@
 from Developpement.DreamPark.View.home import *
+from Developpement.DreamPark.View.test import *
 import sys
 
 class HomeControler:
@@ -21,7 +22,9 @@ class HomeControler:
 
     def chooseInterface(self, type):
         if type==0:
-            self.quelclient.setWindowModality(QtCore.Qt.ApplicationModal)
-            self.ui.subscribed.raise_()
+            Dialog = QtGui.QDialog()
+            u = Ui_consumer_connexion()
+            u.setupUi(Dialog)
+            Dialog.exec_()
         if type==1:
             self.ui.guest.raise_()
