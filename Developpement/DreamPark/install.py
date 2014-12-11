@@ -10,27 +10,29 @@ conn = sqlite3.connect("test.db")
 
 curseur = conn.cursor()
 
+curseur.execute("DROP TABLE IF EXISTS Client")
 curseur.execute("""create table Client (numClient varchar(10) PRIMARY KEY, nomClient varchar(30), prenomClient varchar(30), adrClient varchar(50), typeClient int(1))""")
-#curseur.execute("""create table etudiants (numEtud int(4) PRIMARY KEY, nomEtud varchar(30))""")
 
-#curseur.execute("""insert into etudiants values (100, 'Brahim')""")
+curseur.execute("""insert into etudiants values (100, 'Brahim')""")
 curseur.execute("""insert into Client values ("ABC", "PEREIRA", "Alexandre", "4 Boulevard Koenings\n 31300 Toulouse", 0)""")
 conn.commit()
 conn.close()
 
 # On teste la persistance
 
-conn = sqlite3.connect("test.db")
+con = sqlite3.connect("test.db")
 
-curseur = conn.cursor()
+with con:
 
-for ligne in curseur.execute("""select * from client"""):
-    print(ligne)
+    con.row_factory = sqlite3.Row
 
-conn.close()
+    cur = con.cursor()
+    cur.execute("SELECT * FROM Client")
 
+    rows = cur.fetchall()
 
-
+    for row in rows:
+        print("%s %s %s" % (row["Id"], row["Name"], row["Price"]))
 
 
 
