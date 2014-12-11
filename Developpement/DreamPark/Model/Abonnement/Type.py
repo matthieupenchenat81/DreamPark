@@ -1,5 +1,5 @@
 from enum import Enum
 
-class Type(Enum):
-    ABONNE = 1
-    SUPER_ABONNE = 2
+class Type:
+    ABONNE = 0
+    SUPER_ABONNE = 1

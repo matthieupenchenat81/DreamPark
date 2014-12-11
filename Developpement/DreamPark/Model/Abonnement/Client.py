@@ -11,6 +11,26 @@ class Client:
                 return client
         return None
 
+    @property
+    def prenom(self):
+        return self.__prenom
+
+    @property
+    def nom(self):
+        return self.__nom
+
+    @property
+    def num(self):
+        return self.__num
+
+    @property
+    def adr(self):
+        return self.__adresse
+
+    @property
+    def abonnement(self):
+        return self.__typeAbonnement
+
     def __init__(self, num, nom, prenom, adresse, typeAbonnement):
         self.__num = num
         self.__nom = nom
