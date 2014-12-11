@@ -1,5 +1,6 @@
 from Developpement.DreamPark.View.home import *
 from Developpement.DreamPark.View.test import *
+from Developpement.DreamPark.Model.Abonnement.Client import *
 import sys
 
 class HomeControler:
@@ -32,5 +33,7 @@ class HomeControler:
     def GetDialogOutput(self, val):
         self.currentUser = Client.get(val)
         if self.currentUser != None:
-            self.ui.subscribed.label_name.text = "Bonjour "+self.currentUser.__prenom+","
+            print(self.currentUser)
+            print(self.currentUser.__prenom)
+            self.ui.subscribed.label_name.text = "Bonjour " + self.currentUser.prenom + ","
             self.ui.subscribed.raise_()

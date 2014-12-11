@@ -7,7 +7,7 @@ class Client:
     @staticmethod
     def get(num):
         for client in Client.tous:
-            if client.num == num:
+            if client.__num == num:
                 return client
         return None
 
