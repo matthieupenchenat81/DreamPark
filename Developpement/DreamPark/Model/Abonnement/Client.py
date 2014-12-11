@@ -54,7 +54,18 @@ class Client:
 
     @staticmethod
     def saveAll():
-        ...
+
+        # connect table
+        conn = sqlite3.connect("test.db")
+        curseur = conn.cursor()
+        #reset table Client
+        curseur.execute("DROP TABLE IF EXISTS Client")
+        curseur.execute("""create table Client (numClient varchar(10) PRIMARY KEY, nomClient varchar(30), prenomClient varchar(30), adrClient varchar(50), typeClient int(1))""")
+        # insert clients
+        for c in Client.tous:
+            curseur.execute("insert into Client values (?, ?, ?, ?, ?)", (c.num, c.nom, c.prenom, c.adr, c.abonnement))
+        conn.commit()
+        conn.close()
 
     def __str__( self ):
         return "( " + self.__num +", " + self.__nom+", " + self.__prenom+", " + self.__adresse +", " + str(self.__typeAbonnement) +" )"
