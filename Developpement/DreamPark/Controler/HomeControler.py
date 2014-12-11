@@ -34,6 +34,5 @@ class HomeControler:
     def tryLogin(self, val):
         self.currentUser = Client.get(val)
         if self.currentUser != None:
-            print(self.currentUser)
-            self.ui.label_name.text = "Bonjour " + self.currentUser.prenom + ","
+            self.ui.label_name.setText("Bonjour " + self.currentUser.prenom + ",")
             self.ui.subscribed.raise_()
