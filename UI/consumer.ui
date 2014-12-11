@@ -54,7 +54,7 @@
       <string/>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab">
       <property name="enabled">
@@ -118,72 +118,75 @@
         <string>Entretenir mon véhicule (+4 euros)</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="check_Livraison">
+      <widget class="QGroupBox" name="groupBox">
        <property name="geometry">
         <rect>
-         <x>60</x>
-         <y>60</y>
-         <width>131</width>
-         <height>26</height>
+         <x>50</x>
+         <y>50</y>
+         <width>391</width>
+         <height>121</height>
         </rect>
        </property>
-       <property name="text">
-        <string>Se faire livrer</string>
+       <property name="title">
+        <string>se faire livrer</string>
        </property>
-      </widget>
-      <widget class="QLineEdit" name="input_adrLivaison">
-       <property name="enabled">
-        <bool>false</bool>
+       <property name="checkable">
+        <bool>true</bool>
        </property>
-       <property name="geometry">
-        <rect>
-         <x>120</x>
-         <y>90</y>
-         <width>251</width>
-         <height>33</height>
-        </rect>
-       </property>
-       <property name="inputMask">
-        <string/>
-       </property>
-       <property name="text">
-        <string>Adresse de livraison</string>
-       </property>
-       <property name="dragEnabled">
-        <bool>false</bool>
-       </property>
-       <property name="readOnly">
-        <bool>false</bool>
-       </property>
-      </widget>
-      <widget class="QTimeEdit" name="input_timeLivraison">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>170</x>
-         <y>130</y>
-         <width>118</width>
-         <height>33</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_9">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>120</x>
-         <y>140</y>
-         <width>66</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Heure : </string>
-       </property>
+       <widget class="QLineEdit" name="input_adrLivaison">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>20</y>
+          <width>251</width>
+          <height>33</height>
+         </rect>
+        </property>
+        <property name="inputMask">
+         <string/>
+        </property>
+        <property name="text">
+         <string>Adresse de livraison</string>
+        </property>
+        <property name="dragEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_9">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>80</y>
+          <width>66</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Heure : </string>
+        </property>
+       </widget>
+       <widget class="QTimeEdit" name="input_timeLivraison">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>70</y>
+          <width>118</width>
+          <height>33</height>
+         </rect>
+        </property>
+       </widget>
       </widget>
      </widget>
      <widget class="QWidget" name="tab_2">
@@ -667,9 +670,9 @@ Veuillez insérer les coordonnées de votre carte bancaire:</string>
     </widget>
    </widget>
    <zorder>guest_recover</zorder>
-   <zorder>subscribed</zorder>
    <zorder>home</zorder>
    <zorder>guest</zorder>
+   <zorder>subscribed</zorder>
   </widget>
  </widget>
  <resources/>
