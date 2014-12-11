@@ -22,9 +22,15 @@ class HomeControler:
 
     def chooseInterface(self, type):
         if type==0:
-            Dialog = QtGui.QDialog()
+            self.Dialog = QtGui.QDialog()
             u = Ui_consumer_connexion()
-            u.setupUi(Dialog)
-            Dialog.exec_()
+            u.setupUi(self.Dialog)
+            self.Dialog.accepted.connect(lambda: self.GetDialogOutput(u.idCard.text()))
+            self.Dialog.exec_()
         if type==1:
             self.ui.guest.raise_()
+    def GetDialogOutput(self, val):
+        self.currentUser = Client.get(val)
+        if self.currentUser != None:
+            self.ui.subscribed.label_name.text = "Bonjour "+self.currentUser.__prenom+","
+            self.ui.subscribed.raise_()
