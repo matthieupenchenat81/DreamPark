@@ -37,7 +37,6 @@ class Client:
         self.__prenom = prenom
         self.__typeAbonnement = typeAbonnement
         self.__adresse = adresse
-        self.__placements = []
         self.tous.append(self)
 
     @staticmethod
