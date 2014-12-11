@@ -4,6 +4,13 @@ class Client:
 
     tous = []
 
+    @staticmethod
+    def get(num):
+        for client in Client.tous:
+            if client.num == num:
+                return client
+        return None
+
     def __init__(self, num, nom, prenom, adresse, typeAbonnement):
         self.__num = num
         self.__nom = nom
@@ -15,16 +22,21 @@ class Client:
 
     @staticmethod
     def loadAll():
-        # On teste la persistance
-
-        conn = sqlite3.connect("test.db")
-        curseur = conn.cursor()
-        for ligne in curseur.execute("""select * from client"""):
-            print(ligne)
-        conn.close()
+        con = sqlite3.connect("test.db")
+        with con:
+            con.row_factory = sqlite3.Row
+            cur = con.cursor()
+            cur.execute("SELECT * FROM Client")
+            rows = cur.fetchall()
+            for row in rows:
+                Client(row["numClient"], row["nomClient"], row["prenomClient"], row["adrClient"], int(row["typeClient"]))
+        con.close()
 
     @staticmethod
     def saveAll():
         ...
+
+    def __str__( self ):
+        return "( " + self.__num +", " + self.__nom+", " + self.__prenom+", " + self.__adresse +", " + str(self.__typeAbonnement) +" )"
 
 
