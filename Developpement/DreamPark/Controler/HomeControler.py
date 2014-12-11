@@ -26,14 +26,14 @@ class HomeControler:
             self.Dialog = QtGui.QDialog()
             u = Ui_consumer_connexion()
             u.setupUi(self.Dialog)
-            self.Dialog.accepted.connect(lambda: self.GetDialogOutput(u.idCard.text()))
+            self.Dialog.accepted.connect(lambda: self.tryLogin(u.idCard.text()))
             self.Dialog.exec_()
         if type==1:
             self.ui.guest.raise_()
-    def GetDialogOutput(self, val):
+
+    def tryLogin(self, val):
         self.currentUser = Client.get(val)
         if self.currentUser != None:
             print(self.currentUser)
-            print(self.currentUser.__prenom)
-            self.ui.subscribed.label_name.text = "Bonjour " + self.currentUser.prenom + ","
+            self.ui.label_name.text = "Bonjour " + self.currentUser.prenom + ","
             self.ui.subscribed.raise_()
