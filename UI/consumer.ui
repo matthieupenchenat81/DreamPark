@@ -54,10 +54,13 @@
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab">
       <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="autoFillBackground">
        <bool>true</bool>
       </property>
       <attribute name="title">
@@ -184,6 +187,9 @@
       </widget>
      </widget>
      <widget class="QWidget" name="tab_2">
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
       <attribute name="title">
        <string>Récupérer le véhicule</string>
       </attribute>
@@ -218,6 +224,9 @@
       </widget>
      </widget>
      <widget class="QWidget" name="tab_settings">
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
       <attribute name="title">
        <string>Mon compte</string>
       </attribute>
@@ -398,10 +407,13 @@ disponible pour vous :</string>
       <bool>true</bool>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab_3">
       <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="autoFillBackground">
        <bool>true</bool>
       </property>
       <attribute name="title">
@@ -436,6 +448,9 @@ Nous avons détecté votre véhicule, vous pouvez vous garer. </string>
       </widget>
      </widget>
      <widget class="QWidget" name="tab_4">
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
       <attribute name="title">
        <string>Récupérer le véhicule</string>
       </attribute>
@@ -477,6 +492,9 @@ Nous avons détecté votre véhicule, vous pouvez vous garer. </string>
       </widget>
      </widget>
      <widget class="QWidget" name="tab_5">
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
       <attribute name="title">
        <string>S'abonner</string>
       </attribute>
@@ -650,8 +668,8 @@ Veuillez insérer les coordonnées de votre carte bancaire:</string>
    </widget>
    <zorder>guest_recover</zorder>
    <zorder>subscribed</zorder>
-   <zorder>guest</zorder>
    <zorder>home</zorder>
+   <zorder>guest</zorder>
   </widget>
  </widget>
  <resources/>
