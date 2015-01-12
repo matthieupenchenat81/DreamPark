@@ -1,4 +1,6 @@
 from random import uniform
+import uuid
+
 
 class Camera:
 
@@ -13,3 +15,7 @@ class Camera:
     @staticmethod
     def capturerLargeur(self):
         return uniform(100, 250)
+
+    @staticmethod
+    def capturerImmat(self):
+        return uuid.uuid4();

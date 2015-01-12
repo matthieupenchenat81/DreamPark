@@ -1,5 +1,8 @@
 import sqlite3
 from Developpement.DreamPark.Model.Parking import Placement
+from Developpement.DreamPark.Model.Parking.Place import Place
+from Developpement.DreamPark.Model.Parking.Voiture import Voiture
+
 
 class Client:
 
@@ -77,4 +80,5 @@ class Client:
         return False
 
     def canPark(self):
-        #
+        if(self.hasParkedCar()): return False
+        Place.hasSpace(Voiture("imm", None, None, None))

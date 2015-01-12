@@ -44,6 +44,13 @@ class Place:
     def niveau(self):
         return self.__niveau
 
+    @staticmethod
+    def hasSpace(self, voiture):
+        for i in Place.tous:
+            if(i.hauteur >= voiture.hauteur & i.largeur >= voiture.largeur & i.hauteur == voiture.hauteur & i.estLibre): return i.id
+        return False
+
+
     def utiliserPlace(self):
         if self.estLibre():
             self.__estLibre = False
