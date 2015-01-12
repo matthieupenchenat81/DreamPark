@@ -1,14 +1,15 @@
 from random import uniform
 
 class Camera:
-    def __init__(self):
-        ...
 
+    @staticmethod
     def capturerHauteur(self):
-        return uniform(1, 2)
+        return uniform(100, 300)
 
+    @staticmethod
     def capturerLongueur(self):
-        return uniform(2, 4)
+        return uniform(200, 600)
 
+    @staticmethod
     def capturerLargeur(self):
-        return uniform(1.3, 2.2)
+        return uniform(100, 250)
