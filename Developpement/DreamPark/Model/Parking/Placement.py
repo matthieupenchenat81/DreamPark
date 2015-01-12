@@ -22,7 +22,7 @@ class Placement:
     @staticmethod
     def hasParkedCar(place, voiture, client):
         for item in Placement.tous:
-           if(item.place == place & item.voiture == voiture & item.client == client)
+           if(item.place == place & item.voiture == voiture & item.client == client & item.dateF == None):
                return True
         return False
 
