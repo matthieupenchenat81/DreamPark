@@ -14,7 +14,12 @@ def initTable():
     #place
     curseur.execute("DROP TABLE IF EXISTS Place")
     curseur.execute("""create table Place (id int PRIMARY KEY, hauteur decimal(4,2), longueur decimal(4,2), largeur decimal(4,2), idVoiture int, niveau int)""")
-
+    #placement
+    curseur.execute("DROP TABLE IF EXISTS Placement")
+    curseur.execute("""create table Placement (place int, voiture int, client int, dateD date, dateF date)""")
+    #voiture
+    curseur.execute("DROP TABLE IF EXISTS Voiture")
+    curseur.execute("""create table Voiture(immatriculation varchar(20) PRIMARY KEY, longueur decimal(4,2), largeur decimal(4,2), hauteur decimal(4,2))""")
     conn.commit()
     conn.close()
 

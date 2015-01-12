@@ -28,6 +28,10 @@ class Placement:
         return self.__voiture
 
     @property
+    def id(self):
+        return self.__id
+
+    @property
     def place(self):
         return self.__place
 
@@ -57,16 +61,15 @@ class Placement:
 
     @staticmethod
     def saveAll():
-
         # connect table
         conn = sqlite3.connect("test.db")
         curseur = conn.cursor()
-        #reset table Client
+        #reset table Placement
         curseur.execute("DROP TABLE IF EXISTS Placement")
-        curseur.execute("""create table Place (id int PRIMARY KEY, hauteur decimal(4,2), longueur decimal(4,2), largeur decimal(4,2), idVoiture int, niveau int)""")
-        # insert clients
+        curseur.execute("""create table Placement (place int, voiture int, client int, dateD date, dateF date)""")
+        # insert Placement
         for c in Placement.tous:
-            curseur.execute("insert into Placement values (?, ?, ?, ?, ?, ?)", (None, c.voiture, c.place, c.client, c.dateD, c.dateF))
+            curseur.execute("insert into Placement values (?, ?, ?, ?, ?, ?)", (c.place, c.voiture, c.client, c.dateD, c.dateF))
         conn.commit()
         conn.close()
 
