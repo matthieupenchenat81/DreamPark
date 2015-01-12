@@ -18,10 +18,12 @@ class HomeControler:
         self.ui.btn_guest.clicked.connect(lambda : self.chooseInterface(1))
         #regex
         #firstname
-        regexp = QtCore.QRegExp('^([a-zA-Z\'àâéèêôùûçñãõÀÂÉÈÔÙÛÑÃÕÇ\+\@\s-]{2,30})$')
-        validator = QtGui.QRegExpValidator(regexp)
-        self.ui.input_firstName.setValidator(validator)
-        self.ui.input_lastName.setValidator(validator)
+
+        validatorName = QtGui.QRegExpValidator(QtCore.QRegExp('^([a-zA-Z\'àâéèêôùûçñãõÀÂÉÈÔÙÛÑÃÕÇ\+\@\s-]{2,30})$'))
+        validatorCB = QtGui.QRegExpValidator(QtCore.QRegExp('^([4]{1})([0-9]{12,15})$'))
+        self.ui.input_firstName.setValidator(validatorName)
+        self.ui.input_lastName.setValidator(validatorName)
+        self.ui.numeroDeCarteLineEdit.setValidator(validatorCB)
 
         #show main
         self.ui.home.raise_()
