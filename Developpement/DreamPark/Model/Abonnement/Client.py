@@ -1,4 +1,5 @@
 import sqlite3
+from Developpement.DreamPark.Model.Parking import Placement
 
 class Client:
 
@@ -69,4 +70,8 @@ class Client:
     def __str__( self ):
         return "( " + self.__num +", " + self.__nom+", " + self.__prenom+", " + self.__adresse +", " + str(self.__typeAbonnement) +" )"
 
-
+    def hasParkedCar(self):
+        for item in Placement.tous:
+           if(item.client ==  self and item.dateF == None):
+               return True
+        return False

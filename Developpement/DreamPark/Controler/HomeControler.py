@@ -44,7 +44,7 @@ class HomeControler:
     def tryLogin(self, val):
         self.currentUser = Client.get(val)
         if self.currentUser != None:
-            if self.currentUser.hasCar() :
+            if self.currentUser.hasParkedCar() :
                 self.ui.tabWidget.removeTab(0)
             else:
                 self.ui.tabWidget.removeTab(1)
