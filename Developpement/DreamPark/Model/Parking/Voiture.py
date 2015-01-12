@@ -1,9 +1,11 @@
+from Developpement.DreamPark.Model.Parking import Camera
+
 class Voiture:
 
-    def __init__(self, longueur, largeur, hauteur, immatriculation):
-        self.__longueur = longueur
-        self.__largeur = largeur
-        self.__hauteur = hauteur
+    def __init__(self, immatriculation):
+        self.__longueur = Camera.capturerLongueur()
+        self.__largeur = Camera.capturerLargeur()
+        self.__hauteur = Camera.capturerHauteur()
         self.__immatriculation = immatriculation
 
     def __str__(self):
