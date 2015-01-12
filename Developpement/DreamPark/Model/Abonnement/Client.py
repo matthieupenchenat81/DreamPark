@@ -1,5 +1,5 @@
 import sqlite3
-from Developpement.DreamPark.Model.Parking import Placement
+from Developpement.DreamPark.Model.Parking.Placement import *
 
 class Client:
 

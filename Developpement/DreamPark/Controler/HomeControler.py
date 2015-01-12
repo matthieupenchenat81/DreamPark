@@ -54,7 +54,7 @@ class HomeControler:
             self.ui.subscribed.raise_()
 
     def trySubscribe(self):
-        if not self.ui.input_firstName.hasAcceptableInput():
+        if not self.ui.input_firstName.hasAcceptableInput() :
             self.ui.nomLabel.setStyleSheet("QLabel { color : red; }")
         else:
             self.ui.nomLabel.setStyleSheet("QLabel { color : green; }")

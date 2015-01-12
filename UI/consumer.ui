@@ -593,7 +593,11 @@ Nous avons détecté votre véhicule, vous pouvez vous garer. </string>
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QDateEdit" name="input_date"/>
+         <widget class="QDateEdit" name="input_date">
+          <property name="displayFormat">
+           <string>MM/yy</string>
+          </property>
+         </widget>
         </item>
         <item row="2" column="0">
          <widget class="QLabel" name="cryptogrammeVisuelLabel">
