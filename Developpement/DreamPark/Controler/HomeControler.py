@@ -41,5 +41,11 @@ class HomeControler:
     def tryLogin(self, val):
         self.currentUser = Client.get(val)
         if self.currentUser != None:
+            if self.currentUser.hasCar() :
+                self.ui.tabWidget.removeTab(0)
+            else:
+                self.ui.tabWidget.removeTab(1)
+
             self.ui.label_name.setText("Bonjour " + self.currentUser.prenom + ",")
+
             self.ui.subscribed.raise_()
