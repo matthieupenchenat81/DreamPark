@@ -19,6 +19,13 @@ class Placement:
         # on libere la place
         self.__place
 
+    @staticmethod
+    def hasParkedCar(place, voiture, client):
+        for item in Placement.tous:
+           if(item.place == place & item.voiture == voiture & item.client == client)
+               return True
+        return False
+
     @property
     def estEnCours(self):
         return (self.__dateF == None)
