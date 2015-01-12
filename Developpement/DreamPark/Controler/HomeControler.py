@@ -16,10 +16,11 @@ class HomeControler:
         #
         self.ui.btn_subscriber.clicked.connect(lambda : self.chooseInterface(0))
         self.ui.btn_guest.clicked.connect(lambda : self.chooseInterface(1))
+        self.ui.pushButton.clicked.connect(self.trySubscribe)
         #regex
         #firstname
 
-        validatorName = QtGui.QRegExpValidator(QtCore.QRegExp('^([a-zA-Z\'àâéèêôùûçñãõÀÂÉÈÔÙÛÑÃÕÇ\+\@\s-]{2,30})$'))
+        validatorName = QtGui.QRegExpValidator(QtCore.QRegExp('^([a-zA-Z\'àâéèêôùûçñãõÀÂÉÈÔÙÛÑÃÕÇ\s-]{2,30})$'))
         validatorCB = QtGui.QRegExpValidator(QtCore.QRegExp('^([4]{1})([0-9]{12,15})$'))
         self.ui.input_firstName.setValidator(validatorName)
         self.ui.input_lastName.setValidator(validatorName)
@@ -51,3 +52,9 @@ class HomeControler:
             self.ui.label_name.setText("Bonjour " + self.currentUser.prenom + ",")
 
             self.ui.subscribed.raise_()
+
+    def trySubscribe(self):
+        if not self.ui.input_firstName.hasAcceptableInput():
+            self.ui.nomLabel.setStyleSheet("QLabel { color : red; }")
+        else:
+            self.ui.nomLabel.setStyleSheet("QLabel { color : green; }")
