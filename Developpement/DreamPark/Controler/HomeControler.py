@@ -20,7 +20,7 @@ class HomeControler:
         #regex
         #firstname
 
-        validatorName = QtGui.QRegExpValidator(QtCore.QRegExp('^([a-zA-Z\'àâéèêôùûçñãõÀÂÉÈÔÙÛÑÃÕÇ\s-]{2,30})$'))
+        validatorName = QtGui.QRegExpValidator(QtCore.QRegExp('^([a-zA-Z]{2,30})$'))
         validatorCB = QtGui.QRegExpValidator(QtCore.QRegExp('^([4]{1})([0-9]{12,15})$'))
         self.ui.input_firstName.setValidator(validatorName)
         self.ui.input_lastName.setValidator(validatorName)

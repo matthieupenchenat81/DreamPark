@@ -75,6 +75,3 @@ class Client:
            if(item.client ==  self and item.dateF == None):
                return True
         return False
-
-    def canPark(self):
-        #
