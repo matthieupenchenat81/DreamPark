@@ -23,6 +23,26 @@ class Placement:
     def estEnCours(self):
         return (self.__dateF == None)
 
+    @property
+    def voiture(self):
+        return self.__voiture
+
+    @property
+    def place(self):
+        return self.__place
+
+    @property
+    def client(self):
+        return self.__client
+
+    @property
+    def dateD(self):
+        return self.__dateD
+
+    @property
+    def dateF(self):
+        return self.__dateF
+
     @staticmethod
     def loadAll():
         con = sqlite3.connect("test.db")
@@ -46,7 +66,7 @@ class Placement:
         curseur.execute("""create table Place (id int PRIMARY KEY, hauteur decimal(4,2), longueur decimal(4,2), largeur decimal(4,2), idVoiture int, niveau int)""")
         # insert clients
         for c in Placement.tous:
-            curseur.execute("insert into Placement values (?, ?, ?, ?, ?, ?)", (c.id, c.hauteur, c.largeur, c.longueur, c.voiture, c.niveau))
+            curseur.execute("insert into Placement values (?, ?, ?, ?, ?, ?)", (None, c.voiture, c.place, c.client, c.dateD, c.dateF))
         conn.commit()
         conn.close()
 
