@@ -99,9 +99,9 @@ class HomeControler:
             u.setupUi(self.Dialog)
             self.Dialog.accepted.connect(lambda: self.tryLogin(u.idCard.text()))
             self.Dialog.exec_()
-
-            "Félicitation Alexandre,\nVous êtes dorénavant membre du DreamPark parking!\n\nVotre numéro d'abonné est le suivant: "
-            Client(self.ui.input_lastName, self.ui.input_firstName.text(), self.ui.input_adresseI.text(), Type.ABONNE)
+            c = Client(self.ui.input_lastName, self.ui.input_firstName.text(), self.ui.input_adresseI.text(), Type.ABONNE)
+            u.label.setText("Félicitation " + c.prenom +",\nVous êtes dorénavant membre du DreamPark parking!\n\nVotre numéro d'abonné est le suivant: ")
+            u.label_2.setText(c.num)
     def exitProgram(self):
         Client.saveAll()
         Voiture.saveAll()
