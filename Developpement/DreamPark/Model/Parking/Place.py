@@ -13,6 +13,15 @@ class Place:
         self.__niveau = niveau
         self.tous.append(self)
 
+    def __init__(self, id, niveau, hauteur, largeur, longueur, voiture=None):
+        self.__id = id
+        self.__hauteur = hauteur
+        self.__largeur = largeur
+        self.__longueur = longueur
+        self.__voiture = voiture
+        self.__niveau = niveau
+        self.tous.append(self)
+
     def __str__(self):
          return "Place[ id : " + str(self.__id) + ", niveau : " + str(self.__niveau) + ", hauteur : "+ str(self.__hauteur) + ", largeur : "+ str(self.__largeur)+ ", longueur : "+ str(self.__longueur)+ ", voiture : "+str(self.__voiture)+"]"
 
@@ -43,6 +52,13 @@ class Place:
     @property
     def niveau(self):
         return self.__niveau
+
+    @staticmethod
+    def hasSpace(self, voiture):
+        for i in Place.tous:
+            if(i.hauteur >= voiture.hauteur & i.largeur >= voiture.largeur & i.hauteur == voiture.hauteur & i.estLibre): return i.id
+        return False
+
 
     def utiliserPlace(self):
         if self.estLibre():
