@@ -1,6 +1,9 @@
 from Developpement.DreamPark.View.home import *
 from Developpement.DreamPark.View.test import *
 from Developpement.DreamPark.Model.Abonnement.Client import *
+from Developpement.DreamPark.Model.Parking.Placement import *
+from Developpement.DreamPark.Model.Parking.Voiture import *
+from Developpement.DreamPark.Model.Parking.Place import *
 import sys
 
 class HomeControler:
@@ -8,6 +11,7 @@ class HomeControler:
     def __init__(self):
         QtGui.QApplication.setStyle(QtGui.QStyleFactory.create('Cleanlooks'))
         app = QtGui.QApplication(sys.argv)
+        app.aboutToQuit.connect(self.exitProgram)
         self.view = QtGui.QMainWindow()
         self.ui = Ui_consumer_home()
         self.ui.setupUi(self.view)
@@ -68,3 +72,9 @@ class HomeControler:
             failed = True
         else:
             self.ui.prenomLabel.setStyleSheet("QLabel { color : green; }")
+
+    def exitProgram(self):
+        Client.saveAll()
+        Voiture.saveAll()
+        Place.saveAll()
+        Placement.saveAll()
