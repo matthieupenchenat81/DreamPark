@@ -1,5 +1,6 @@
 from Developpement.DreamPark.View.UIHome import *
 from Developpement.DreamPark.View.UIClientConnection import *
+from Developpement.DreamPark.View.UIClientRegistered import *
 from Developpement.DreamPark.Model.Abonnement.Client import *
 from Developpement.DreamPark.Model.Abonnement.Type import *
 from Developpement.DreamPark.Model.Parking.Placement import *
@@ -95,13 +96,15 @@ class HomeControler:
 
         if not failed :
             self.Dialog = QtGui.QDialog()
-            u = UiClientRegistered()
+            u = Ui_ClientRegistered()
             u.setupUi(self.Dialog)
             self.Dialog.accepted.connect(lambda: self.tryLogin(u.idCard.text()))
-            self.Dialog.exec_()
             c = Client(self.ui.input_lastName, self.ui.input_firstName.text(), self.ui.input_adresseI.text(), Type.ABONNE)
             u.label.setText("Félicitation " + c.prenom +",\nVous êtes dorénavant membre du DreamPark parking!\n\nVotre numéro d'abonné est le suivant: ")
             u.label_2.setText(c.num)
+            self.Dialog.exec_()
+
+
     def exitProgram(self):
         Client.saveAll()
         Voiture.saveAll()
