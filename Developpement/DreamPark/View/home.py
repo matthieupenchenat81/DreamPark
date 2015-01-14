@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'consumer.ui'
+# Form implementation generated from reading ui file '/home/malibu/Git/DreamPark/UI/consumer.ui'
 #
-# Created: Thu Dec 11 18:26:04 2014
+# Created: Wed Jan 14 11:35:51 2015
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -195,7 +195,7 @@ class Ui_consumer_home(object):
         self.label_6.setGeometry(QtCore.QRect(30, 130, 151, 21))
         self.label_6.setObjectName(_fromUtf8("label_6"))
         self.formLayoutWidget_2 = QtGui.QWidget(self.tab_5)
-        self.formLayoutWidget_2.setGeometry(QtCore.QRect(180, 130, 341, 113))
+        self.formLayoutWidget_2.setGeometry(QtCore.QRect(180, 130, 341, 71))
         self.formLayoutWidget_2.setObjectName(_fromUtf8("formLayoutWidget_2"))
         self.formLayout_2 = QtGui.QFormLayout(self.formLayoutWidget_2)
         self.formLayout_2.setMargin(0)
@@ -224,6 +224,12 @@ class Ui_consumer_home(object):
         self.pushButton = QtGui.QPushButton(self.tab_5)
         self.pushButton.setGeometry(QtCore.QRect(430, 270, 92, 27))
         self.pushButton.setObjectName(_fromUtf8("pushButton"))
+        self.label_adresseI = QtGui.QLabel(self.tab_5)
+        self.label_adresseI.setGeometry(QtCore.QRect(30, 210, 151, 21))
+        self.label_adresseI.setObjectName(_fromUtf8("label_adresseI"))
+        self.input_adresseI = QtGui.QLineEdit(self.tab_5)
+        self.input_adresseI.setGeometry(QtCore.QRect(90, 210, 431, 20))
+        self.input_adresseI.setObjectName(_fromUtf8("input_adresseI"))
         self.tabWidget_2.addTab(self.tab_5, _fromUtf8(""))
         self.guest_recover = QtGui.QFrame(self.centralwidget)
         self.guest_recover.setGeometry(QtCore.QRect(-1, -1, 551, 341))
@@ -278,9 +284,11 @@ class Ui_consumer_home(object):
         self.label_6.setText(_translate("consumer_home", "Mode de paiement:", None))
         self.numeroDeCarteLabel.setText(_translate("consumer_home", "Numero de carte", None))
         self.dateDExpirationLabel.setText(_translate("consumer_home", "Date d\'expiration", None))
+        self.input_date.setDisplayFormat(_translate("consumer_home", "MM/yy", None))
         self.cryptogrammeVisuelLabel.setText(_translate("consumer_home", "Cryptogramme Visuel", None))
         self.check_packGaranti.setText(_translate("consumer_home", "Pack garantie", None))
         self.pushButton.setText(_translate("consumer_home", "Je m\'abonne", None))
+        self.label_adresseI.setText(_translate("consumer_home", "Adresse :", None))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_5), _translate("consumer_home", "S\'abonner", None))
         self.label_8.setText(_translate("consumer_home", "Vous avez garé votre voiture durant 10 jours:\n"
 "\n"
