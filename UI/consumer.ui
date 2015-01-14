@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>549</width>
-    <height>336</height>
+    <height>334</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -571,7 +571,7 @@ Nous avons détecté votre véhicule, vous pouvez vous garer. </string>
          <x>180</x>
          <y>130</y>
          <width>341</width>
-         <height>71</height>
+         <height>74</height>
         </rect>
        </property>
        <layout class="QFormLayout" name="formLayout_2">
