@@ -19,11 +19,14 @@ class Client:
 
     @staticmethod
     def generateId(self):
-        d = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(8));
-        for item in self.tous:
-            if(item.id == d):
-                True
-
+        exist = True
+        while(exist == True) :
+            d = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(8));
+            exist = False
+            for item in self.tous:
+                if(item.id == d):
+                    exist = True
+        return d
 
     @property
     def prenom(self):
