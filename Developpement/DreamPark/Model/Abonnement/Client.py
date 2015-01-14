@@ -79,8 +79,7 @@ class Client:
         conn = sqlite3.connect("test.db")
         curseur = conn.cursor()
         # reset table Client
-        curseur.execute("DROP TABLE IF EXISTS Client")
-        curseur.execute("""create table Client (numClient varchar(10) PRIMARY KEY, nomClient varchar(30), prenomClient varchar(30), adrClient varchar(50), typeClient int(1))""")
+        curseur.execute("delete from Client")
         # insert clients
         for c in Client.tous:
             curseur.execute("insert into Client values (?, ?, ?, ?, ?)", (c.num, c.nom, c.prenom, c.adr, c.abonnement))
