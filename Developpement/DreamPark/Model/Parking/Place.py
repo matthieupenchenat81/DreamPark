@@ -4,8 +4,8 @@ class Place:
 
     tous = []
 
-    def __init__(self, id, niveau, hauteur, largeur, longueur, voiture=None):
-        self.__id = id
+    def __init__(self, niveau, hauteur, largeur, longueur, voiture=None):
+        self.__id = len(self.tous)
         self.__hauteur = hauteur
         self.__largeur = largeur
         self.__longueur = longueur

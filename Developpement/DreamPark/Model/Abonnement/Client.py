@@ -17,8 +17,13 @@ class Client:
                 return client
         return None
 
+    @staticmethod
     def generateId(self):
-        return ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(8));
+        d = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(8));
+        for item in self.tous:
+            if(item.id == d):
+                True
+
 
     @property
     def prenom(self):
@@ -49,7 +54,7 @@ class Client:
         self.tous.append(self)
 
     def __init__(self, nom = None, prenom = None, adresse = None, typeAbonnement = None):
-        self.__num = self.generateId();
+        self.__num = Client.generateId();
         self.__nom = nom
         self.__prenom = prenom
         self.__typeAbonnement = typeAbonnement
