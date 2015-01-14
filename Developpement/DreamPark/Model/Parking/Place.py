@@ -13,6 +13,15 @@ class Place:
         self.__niveau = niveau
         self.tous.append(self)
 
+    def __init__(self, id, niveau, hauteur, largeur, longueur, voiture=None):
+        self.__id = id
+        self.__hauteur = hauteur
+        self.__largeur = largeur
+        self.__longueur = longueur
+        self.__voiture = voiture
+        self.__niveau = niveau
+        self.tous.append(self)
+
     def __str__(self):
          return "Place[ id : " + str(self.__id) + ", niveau : " + str(self.__niveau) + ", hauteur : "+ str(self.__hauteur) + ", largeur : "+ str(self.__largeur)+ ", longueur : "+ str(self.__longueur)+ ", voiture : "+str(self.__voiture)+"]"
 

@@ -27,8 +27,8 @@ def initTable():
 initTable()
 
 print("Définition des Clients...")
-Client("ABC", "PEREIRA", "Alexandre", "4 Boulevard Koenings 31300 Toulouse", Type.SUPER_ABONNE)
-Client("ABCD", "PENCHENAT", "Mathieu", "2 Impasse Louis Tharaud 31300 Toulouse", Type.ABONNE)
+Client("PEREIRA", "Alexandre", "4 Boulevard Koenings 31300 Toulouse", Type.SUPER_ABONNE)
+Client("PENCHENAT", "Mathieu", "2 Impasse Louis Tharaud 31300 Toulouse", Type.ABONNE)
 Client.saveAll()
 
 for client in Client.tous:

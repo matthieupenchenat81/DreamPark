@@ -1,4 +1,6 @@
+import random
 import sqlite3
+import string
 from Developpement.DreamPark.Model.Parking import Placement
 from Developpement.DreamPark.Model.Parking.Place import Place
 from Developpement.DreamPark.Model.Parking.Voiture import Voiture
@@ -14,6 +16,9 @@ class Client:
             if client.__num == num:
                 return client
         return None
+
+    def generateId(self):
+        return ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(8));
 
     @property
     def prenom(self):
@@ -37,6 +42,14 @@ class Client:
 
     def __init__(self, num, nom = None, prenom = None, adresse = None, typeAbonnement = None):
         self.__num = num
+        self.__nom = nom
+        self.__prenom = prenom
+        self.__typeAbonnement = typeAbonnement
+        self.__adresse = adresse
+        self.tous.append(self)
+
+    def __init__(self, nom = None, prenom = None, adresse = None, typeAbonnement = None):
+        self.__num = self.generateId();
         self.__nom = nom
         self.__prenom = prenom
         self.__typeAbonnement = typeAbonnement
