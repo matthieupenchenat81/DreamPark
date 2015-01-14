@@ -44,7 +44,7 @@ class Client:
     def abonnement(self):
         return self.__typeAbonnement
 
-    def __init__(self, num, nom = None, prenom = None, adresse = None, typeAbonnement = None):
+    def __init__(self, num, nom, prenom, adresse, typeAbonnement):
         self.__num = num
         self.__nom = nom
         self.__prenom = prenom
@@ -52,7 +52,7 @@ class Client:
         self.__adresse = adresse
         self.tous.append(self)
 
-    def __init__(self, nom = None, prenom = None, adresse = None, typeAbonnement = None):
+    def __init__(self, nom, prenom, adresse, typeAbonnement):
         self.__num = Client.generateId();
         self.__nom = nom
         self.__prenom = prenom
