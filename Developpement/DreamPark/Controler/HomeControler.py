@@ -1,5 +1,5 @@
-from Developpement.DreamPark.View.home import *
-from Developpement.DreamPark.View.test import *
+from Developpement.DreamPark.View.UIHome import *
+from Developpement.DreamPark.View.UIClientConnection import *
 from Developpement.DreamPark.Model.Abonnement.Client import *
 from Developpement.DreamPark.Model.Abonnement.Type import *
 from Developpement.DreamPark.Model.Parking.Placement import *
@@ -94,7 +94,14 @@ class HomeControler:
             self.ui.cryptogrammeVisuelLabel.setStyleSheet("QLabel { color : green; }")
 
         if not failed :
-            Client(self.ui.input_lastName, self.ui.input_firstName.text(), adresse = None, Type.ABONNE)
+            self.Dialog = QtGui.QDialog()
+            u = UiClientRegistered()
+            u.setupUi(self.Dialog)
+            self.Dialog.accepted.connect(lambda: self.tryLogin(u.idCard.text()))
+            self.Dialog.exec_()
+
+            "Félicitation Alexandre,\nVous êtes dorénavant membre du DreamPark parking!\n\nVotre numéro d'abonné est le suivant: "
+            Client(self.ui.input_lastName, self.ui.input_firstName.text(), self.ui.input_adresseI.text(), Type.ABONNE)
     def exitProgram(self):
         Client.saveAll()
         Voiture.saveAll()
