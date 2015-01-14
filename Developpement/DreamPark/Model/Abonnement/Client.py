@@ -18,14 +18,10 @@ class Client:
         return None
 
     @staticmethod
-    def generateId(self):
-        exist = True
-        while(exist == True) :
-            d = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(8));
-            exist = False
-            for item in self.tous:
-                if(item.id == d):
-                    exist = True
+    def generateId():
+        d = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(8))
+        while Client.get(d) != None:
+            d = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(8))
         return d
 
     @property
