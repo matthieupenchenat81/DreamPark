@@ -1,7 +1,7 @@
 import random
 import sqlite3
 import string
-from Developpement.DreamPark.Model.Parking import Placement
+from Developpement.DreamPark.Model.Parking.Placement import Placement
 from Developpement.DreamPark.Model.Parking.Place import Place
 from Developpement.DreamPark.Model.Parking.Voiture import Voiture
 
@@ -44,16 +44,8 @@ class Client:
     def abonnement(self):
         return self.__typeAbonnement
 
-    def __init__(self, num, nom, prenom, adresse, typeAbonnement):
-        self.__num = num
-        self.__nom = nom
-        self.__prenom = prenom
-        self.__typeAbonnement = typeAbonnement
-        self.__adresse = adresse
-        self.tous.append(self)
-
-    def __init__(self, nom, prenom, adresse, typeAbonnement):
-        self.__num = Client.generateId();
+    def __init__(self, nom, prenom, adresse, typeAbonnement, num = None):
+        self.__num = Client.generateId() if num == None else num
         self.__nom = nom
         self.__prenom = prenom
         self.__typeAbonnement = typeAbonnement
@@ -66,10 +58,9 @@ class Client:
         with con:
             con.row_factory = sqlite3.Row
             cur = con.cursor()
-            cur.execute("SELECT * FROM Client")
-            rows = cur.fetchall()
-            for row in rows:
-                Client(row["numClient"], row["nomClient"], row["prenomClient"], row["adrClient"], int(row["typeClient"]))
+            for row in cur.execute("""SELECT * FROM Client"""):
+                print(int(row["typeClient"]))
+                Client(row["nomClient"], row["prenomClient"], row["adrClient"], int(row["typeClient"]), row["numClient"])
         con.close()
 
     @staticmethod
