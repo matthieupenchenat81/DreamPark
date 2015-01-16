@@ -56,7 +56,7 @@ class Place:
     @staticmethod
     def hasSpace(self, voiture):
         for i in Place.tous:
-            if(i.hauteur >= voiture.hauteur & i.largeur >= voiture.largeur & i.hauteur == voiture.hauteur & i.estLibre): return i.id
+            if(i.hauteur >= voiture.hauteur and i.largeur >= voiture.largeur and i.hauteur == voiture.hauteur and i.estLibre): return i.id
         return False
 
 

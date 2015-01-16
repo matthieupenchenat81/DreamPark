@@ -102,4 +102,5 @@ class Client:
 
     def canPark(self):
         if(self.hasParkedCar()): return False
-        Place.hasSpace(Voiture("imm", None, None, None))
+        if(not Place.hasSpace(Voiture(None, None, None, None))): return False
+        return True
