@@ -69,6 +69,7 @@ class Client:
         #if(self.__placeReserve != None): self.__placeReserve.toogleAvailable()
         self.__dateExpiration = dateExpiration
         self.__voiture = Voiture.getCar(idVoiture)
+        self.__placeReserve = None
         if(aPlaceReserve):
             self.__placeReserve = Place.getAvailablePlace(self.__voiture)
             self.__placeReserve.toogleAvailable()
