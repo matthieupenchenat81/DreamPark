@@ -53,11 +53,16 @@ class Client:
         return self.__idVoiture
 
     @property
+    def dateExpiration(self):
+        return self.__dateExpiration
+
+    @property
     def abonnement(self):
         return self.__typeAbonnement
 
-    def __init__(self, nom, prenom, adresse, typeAbonnement, idVoiture, numCB, cryptoVisuel, num = None):
+    def __init__(self, nom, prenom, adresse, typeAbonnement, idVoiture, numCB, cryptoVisuel, dateExpiration,num = None):
         self.__num = Client.generateId() if num == None else num
+        self.__dateExpiration = dateExpiration
         self.__idVoiture = idVoiture
         self.__numCB = numCB
         self.__cryptoVisuel = cryptoVisuel
@@ -74,7 +79,7 @@ class Client:
             con.row_factory = sqlite3.Row
             cur = con.cursor()
             for row in cur.execute("""SELECT * FROM Client"""):
-                Client(row["nomClient"], row["prenomClient"], row["adrClient"], int(row["typeClient"]), row["idVoiture"], row["numCB"], row["cryptoVisuel"], row["numClient"])
+                Client(row["nomClient"], row["prenomClient"], row["adrClient"], int(row["typeClient"]), row["idVoiture"], row["numCB"], row["cryptoVisuel"], row["dateExpiration"], row["numClient"])
         con.close()
 
     @staticmethod
@@ -87,7 +92,7 @@ class Client:
         curseur.execute("delete from Client")
         # insert clients
         for c in Client.tous:
-            curseur.execute("insert into Client values (?, ?, ?, ?, ?, ?, ?, ?)", (c.num, c.nom, c.prenom, c.adr, c.abonnement, c.idVoiture, c.numCB, c.cryptoVisuel))
+            curseur.execute("insert into Client values (?, ?, ?, ?, ?, ?, ?, ?)", (c.num, c.nom, c.prenom, c.adr, c.abonnement, c.idVoiture, c.numCB, c.cryptoVisuel, c.dateExpiration))
         conn.commit()
         conn.close()
 
