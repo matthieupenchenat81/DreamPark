@@ -2,7 +2,6 @@ from Developpement.DreamPark.View.UIHome import *
 from Developpement.DreamPark.View.UIClientConnection import *
 from Developpement.DreamPark.View.UIClientRegistered import *
 from Developpement.DreamPark.Model.Abonnement.Client import *
-from Developpement.DreamPark.Model.Abonnement.Type import *
 from Developpement.DreamPark.Model.Parking.Placement import *
 from Developpement.DreamPark.Model.Parking.Voiture import *
 from Developpement.DreamPark.Model.Parking.Place import *

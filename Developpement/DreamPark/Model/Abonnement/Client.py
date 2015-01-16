@@ -83,7 +83,7 @@ class Client:
             con.row_factory = sqlite3.Row
             cur = con.cursor()
             for row in cur.execute("""SELECT * FROM Client"""):
-                Client(row["nomClient"], row["prenomClient"], row["adrClient"], int(row["estAbonne"]), row["idVoiture"], row["numCB"], row["cryptoVisuel"], row["dateExpiration"], row["placeReserve"], row["numClient"])
+                Client(row["nomClient"], row["prenomClient"], row["adrClient"], row["estAbonne"], row["idVoiture"], row["numCB"], row["cryptoVisuel"], row["dateExpiration"], row["placeReserve"], row["numClient"])
         con.close()
 
     @staticmethod
