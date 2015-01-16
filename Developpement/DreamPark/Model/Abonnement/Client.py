@@ -1,9 +1,9 @@
 import random
 import sqlite3
 import string
+from Developpement.DreamPark.Model.Parking.Voiture import Voiture
 from Developpement.DreamPark.Model.Parking.Placement import Placement
 from Developpement.DreamPark.Model.Parking.Place import Place
-from Developpement.DreamPark.Model.Parking.Voiture import Voiture
 
 class Client:
 
@@ -48,8 +48,8 @@ class Client:
         return self.__numCB
 
     @property
-    def idVoiture(self):
-        return self.__idVoiture
+    def voiture(self):
+        return self.__voiture
 
     @property
     def dateExpiration(self):
@@ -67,7 +67,7 @@ class Client:
         self.__num = Client.generateId() if num == None else num
         self.__placeReserve = placeReserve
         self.__dateExpiration = dateExpiration
-        self.__idVoiture = idVoiture
+        self.__voiture = Voiture.getCar(idVoiture)
         self.__numCB = numCB
         self.__cryptoVisuel = cryptoVisuel
         self.__nom = nom
@@ -96,7 +96,7 @@ class Client:
         curseur.execute("delete from Client")
         # insert clients
         for c in Client.tous:
-            curseur.execute("insert into Client values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (c.num, c.nom, c.prenom, c.adr, c.estAbonne, c.idVoiture, c.numCB, c.cryptoVisuel, c.dateExpiration, c.placeReserve))
+            curseur.execute("insert into Client values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (c.num, c.nom, c.prenom, c.adr, c.estAbonne, None if(c.voiture == None) else c.voiture.immatriculation, c.numCB, c.cryptoVisuel, c.dateExpiration, c.placeReserve))
         conn.commit()
         conn.close()
 
@@ -111,5 +111,5 @@ class Client:
 
     def canPark(self):
         if(self.hasParkedCar()): return False
-        if(not Place.hasSpace(Voiture())): return False
+        if(not Place.hasSpace(self.idVoiture)): return False
         return True

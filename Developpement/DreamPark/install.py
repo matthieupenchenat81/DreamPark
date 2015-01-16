@@ -1,6 +1,5 @@
 from random import *
 from Developpement.DreamPark.Model.Abonnement.Client import *
-from Developpement.DreamPark.Model.Abonnement.Type import *
 import sqlite3
 
 def initTable():
@@ -26,8 +25,8 @@ def initTable():
 initTable()
 
 print("Définition des Clients...")
-Client("PEREIRA", "Alexandre", "4 Boulevard Koenings 31300 Toulouse", Type.SUPER_ABONNE, "JJSJJ", 12363663, 144, "12/12/1212", None)
-Client("PENCHENAT", "Matthieu", "2 Impasse Louis Tharaud 31300 Toulouse", Type.ABONNE, "KKJJSJJ", 12363669, 147, "12/12/1212", None)
+Client("PEREIRA", "Alexandre", "4 Boulevard Koenings 31300 Toulouse", True, "JJSJJ", 12363663, 144, "12/12/1212", None)
+Client("PENCHENAT", "Matthieu", "2 Impasse Louis Tharaud 31300 Toulouse", False, "KKJJSJJ", 12363669, 147, "12/12/1212", None)
 Client.saveAll()
 
 for client in Client.tous:
