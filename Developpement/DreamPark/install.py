@@ -1,5 +1,4 @@
 from random import *
-from Developpement.DreamPark.Model.Parking.Place import *
 from Developpement.DreamPark.Model.Abonnement.Client import *
 from Developpement.DreamPark.Model.Abonnement.Type import *
 import sqlite3
@@ -8,15 +7,15 @@ def initTable():
     # connect table
     conn = sqlite3.connect("test.db")
     curseur = conn.cursor()
+    #voiture
+    curseur.execute("DROP TABLE IF EXISTS Voiture")
+    curseur.execute("""create table Voiture(immatriculation varchar(20) PRIMARY KEY, longueur decimal(4,2), largeur decimal(4,2), hauteur decimal(4,2))""")
     #client
     curseur.execute("DROP TABLE IF EXISTS Client")
     curseur.execute("""create table Client (numClient varchar(15) PRIMARY KEY, nomClient varchar(30), prenomClient varchar(30), adrClient varchar(50), typeClient int(1), idVoiture varchar(20), numCB int(20), cryptoVisuel int(3), FOREIGN KEY(idVoiture) REFERENCES Voiture(immatriculation))""")
     #place
     curseur.execute("DROP TABLE IF EXISTS Place")
     curseur.execute("""create table Place (id int PRIMARY KEY, hauteur decimal(4,2), longueur decimal(4,2), largeur decimal(4,2), idVoiture int, niveau int)""")
-    #voiture
-    curseur.execute("DROP TABLE IF EXISTS Voiture")
-    curseur.execute("""create table Voiture(immatriculation varchar(20) PRIMARY KEY, longueur decimal(4,2), largeur decimal(4,2), hauteur decimal(4,2))""")
     #placement
     curseur.execute("DROP TABLE IF EXISTS Placement")
     curseur.execute("""create table Placement (place int, client int, dateD date, dateF date)""")
