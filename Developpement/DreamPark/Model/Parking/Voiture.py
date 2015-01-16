@@ -1,12 +1,12 @@
 import sqlite3
-from Developpement.DreamPark.Model.Parking import Camera
+from Developpement.DreamPark.Model.Parking.Camera import Camera
 
 class Voiture:
 
     tous = []
 
     def __init__(self, immatriculation= None, longueur = None, largeur = None, hauteur = None):
-        if (longueur == None & largeur == None & hauteur == None):
+        if (longueur == None and largeur == None and hauteur == None):
             self.setDim()
         else:
             self.__longueur = longueur

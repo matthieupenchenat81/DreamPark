@@ -5,17 +5,17 @@ import uuid
 class Camera:
 
     @staticmethod
-    def capturerHauteur(self):
+    def capturerHauteur():
         return uniform(100, 300)
 
     @staticmethod
-    def capturerLongueur(self):
+    def capturerLongueur():
         return uniform(200, 600)
 
     @staticmethod
-    def capturerLargeur(self):
+    def capturerLargeur():
         return uniform(100, 250)
 
     @staticmethod
-    def capturerImmat(self):
+    def capturerImmat():
         return uuid.uuid4();
