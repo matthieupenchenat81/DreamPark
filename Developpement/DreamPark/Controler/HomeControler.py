@@ -110,7 +110,7 @@ class HomeControler:
             u.label_2.setText(c.num)
             self.Dialog.accepted.connect(lambda: self.tryLogin(c.num))
             self.Dialog.exec_()
-
+rez
 
     def exitProgram(self):
         Client.saveAll()
