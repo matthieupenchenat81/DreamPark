@@ -101,7 +101,7 @@ class Client:
         conn.close()
 
     def __str__( self ):
-        return "( " + str(self.__num) +", " + self.__nom+", " + self.__prenom+", " + self.__adresse +", " + str(self.__estAbonne)+", " + str(self.__idVoiture) +", " + str(self.__numCB) +", " + str(self.__cryptoVisuel) +" )"
+        return "( " + str(self.__num) +", " + self.__nom+", " + self.__prenom+", " + self.__adresse +", " + str(self.__estAbonne)+", " + str(self.__voiture) +", " + str(self.__numCB) +", " + str(self.__cryptoVisuel) +" )"
 
     def hasParkedCar(self):
         for item in Placement.tous:
