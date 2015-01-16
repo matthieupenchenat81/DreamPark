@@ -99,11 +99,14 @@ class HomeControler:
             u = Ui_ClientRegistered()
             u.setupUi(self.Dialog)
             if self.ui.check_packGaranti.isChecked():
+                # TODO : Si il y a pas de place pour prendre un pack garenti...
                 c = Client(self.ui.input_lastName.text(), self.ui.input_firstName.text(), self.ui.input_adresseI.text(),
-                           Type.SUPER_ABONNE, self.guestVoiture, self.ui.numeroDeCarteLineEdit.text(), self.ui.input_crypto.text())
+                           True, self.guestVoiture, self.ui.numeroDeCarteLineEdit.text(), self.ui.input_crypto.text(),
+                           '12/01/2016', Place.getAvailablePlace(self.guestVoiture))
             else:
-                c = Client(self.ui.input_lastName.text(), self.ui.input_firstName.text(), self.ui.input_adresseI.text(), Type.ABONNE
-                           , self.guestVoiture, self.ui.numeroDeCarteLineEdit.text(), self.ui.input_crypto.text(), '12/01/2016')
+                c = Client(self.ui.input_lastName.text(), self.ui.input_firstName.text(), self.ui.input_adresseI.text(),
+                           True, self.guestVoiture, self.ui.numeroDeCarteLineEdit.text(), self.ui.input_crypto.text(),
+                           '12/01/2016', None)
 
             u.label.setText("Félicitation " + c.prenom +",\nVous êtes dorénavant membre du DreamPark parking!\n\nVotre numéro d'abonné est le suivant: ")
             u.label_2.setText(c.num)
@@ -120,4 +123,12 @@ class HomeControler:
         if not Place.hasSpace(self.guestVoiture):
             self.ui.label_name_2.setText("Bonjour,\nNous sommes désolé mais le parking est actuellement plein.")
         else:
-            Client(None, None, None, None, self.guestVoiture, numCB, cryptoVisuel, dateExpiration)
+            Client(None, None, None, False, self.guestVoiture, numCB, cryptoVisuel, dateExpiration, Place.getAvailablePlace(self.guestVoiture))
+
+    def seGarerClient(self):
+        if self.currentUser.placeReserve != None:
+            Placement(self.currentUser.placeReserve, self.currentUser, "dated", "datef")
+        elif Place.hasSpace(self.guestVoiture):
+            Placement(Place.getAvailablePlace(self.currentUser.voiture), self.currentUser, "dated", "datef")
+        else:
+            self.ui.????.setText("Bonjour,\nNous sommes désolé mais le parking est actuellement plein.")
