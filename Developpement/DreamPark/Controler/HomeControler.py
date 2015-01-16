@@ -108,7 +108,7 @@ class HomeControler:
 
             u.label.setText("Félicitation " + c.prenom +",\nVous êtes dorénavant membre du DreamPark parking!\n\nVotre numéro d'abonné est le suivant: ")
             u.label_2.setText(c.num)
-            self.Dialog.pushButton.clicked(lambda: self.tryLogin(c.num.text()))
+            self.Dialog.accepted.connect(lambda: print("test"))
             self.Dialog.exec_()
 
 
