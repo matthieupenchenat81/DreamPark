@@ -104,11 +104,11 @@ class HomeControler:
                            Type.SUPER_ABONNE, self.guestVoiture, self.ui.numeroDeCarteLineEdit.text(), self.ui.input_crypto.text())
             else:
                 c = Client(self.ui.input_lastName.text(), self.ui.input_firstName.text(), self.ui.input_adresseI.text(), Type.ABONNE
-                           , self.guestVoiture, self.ui.numeroDeCarteLineEdit.text(), self.ui.input_crypto.text())
+                           , self.guestVoiture, self.ui.numeroDeCarteLineEdit.text(), self.ui.input_crypto.text(), '12/01/2016')
 
             u.label.setText("Félicitation " + c.prenom +",\nVous êtes dorénavant membre du DreamPark parking!\n\nVotre numéro d'abonné est le suivant: ")
             u.label_2.setText(c.num)
-            self.Dialog.pushButton.clicked(lambda: self.tryLogin(c.num.text()))
+            self.Dialog.accepted.connect(lambda: self.tryLogin(c.num))
             self.Dialog.exec_()
 
 
@@ -119,4 +119,5 @@ class HomeControler:
         Placement.saveAll()
 
     def seGarerEnAnonyme(self):
-        ...
+        if not Place.hasSpace(self.guestVoiture):
+            self.ui.label_name_2.setText("Bonjour,\nNous sommes désolé mais le parking est actuellement plein.")

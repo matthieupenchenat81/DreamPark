@@ -40,7 +40,6 @@ class Ui_ClientRegistered(object):
         font.setPointSize(19)
         self.label_2.setFont(font)
         self.label_2.setObjectName(_fromUtf8("label_2"))
-
         self.retranslateUi(ClientRegistered)
         QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL(_fromUtf8("accepted()")), ClientRegistered.accept)
         QtCore.QMetaObject.connectSlotsByName(ClientRegistered)
