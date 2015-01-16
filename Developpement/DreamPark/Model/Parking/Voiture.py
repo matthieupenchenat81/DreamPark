@@ -63,3 +63,4 @@ class Voiture:
             curseur.execute("insert into Voiture values (?, ?, ?, ?)", (str(c.immatriculation), int(c.longueur), int(c.largeur), int(c.hauteur)))
         conn.commit()
         conn.close()
+        print("erre")
