@@ -65,6 +65,8 @@ class Place:
             if(i.hauteur >= voiture.hauteur and i.largeur >= voiture.largeur and i.hauteur == voiture.hauteur and i.estLibre): return i
         return None
 
+    def toogleAvailable(self):
+        self.__estLibre = not self.__estLibre
 
     def utiliserPlace(self):
         if self.estLibre():

@@ -66,6 +66,7 @@ class Client:
     def __init__(self, nom, prenom, adresse, estAbonne, idVoiture, numCB, cryptoVisuel, dateExpiration, idPlaceReserve = None, num = None):
         self.__num = Client.generateId() if num == None else num
         self.__placeReserve = Place.getPlace(idPlaceReserve)
+        if(self.__placeReserve != None): self.__placeReserve.toogleAvailable()
         self.__dateExpiration = dateExpiration
         self.__voiture = Voiture.getCar(idVoiture)
         self.__numCB = numCB
