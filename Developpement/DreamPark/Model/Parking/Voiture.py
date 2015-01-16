@@ -57,8 +57,7 @@ class Voiture:
         # connect table
         conn = sqlite3.connect("test.db")
         curseur = conn.cursor()
-        curseur.execute("DROP TABLE IF EXISTS Voiture")
-        curseur.execute("""create table Voiture (immatriculation varchar(20) PRIMARY KEY, longueur decimal(4,2), largeur decimal(4,2), hauteur decimal(4,2))""")
+        curseur.execute("delete from Voiture")
         for c in Voiture.tous:
             curseur.execute("insert into Voiture values (?, ?, ?, ?, ?, ?)", (c.immatriculation, c.longueur, c.largeur, c.hauteur))
         conn.commit()
