@@ -63,9 +63,9 @@ class Client:
     def estAbonne(self):
         return self.__estAbonne
 
-    def __init__(self, nom, prenom, adresse, estAbonne, idVoiture, numCB, cryptoVisuel, dateExpiration, placeReserve = None, num = None):
+    def __init__(self, nom, prenom, adresse, estAbonne, idVoiture, numCB, cryptoVisuel, dateExpiration, idPlaceReserve = None, num = None):
         self.__num = Client.generateId() if num == None else num
-        self.__placeReserve = placeReserve
+        self.__placeReserve = Place.getPlace(idPlaceReserve)
         self.__dateExpiration = dateExpiration
         self.__voiture = Voiture.getCar(idVoiture)
         self.__numCB = numCB
@@ -96,7 +96,7 @@ class Client:
         curseur.execute("delete from Client")
         # insert clients
         for c in Client.tous:
-            curseur.execute("insert into Client values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (c.num, c.nom, c.prenom, c.adr, c.estAbonne, None if(c.voiture == None) else c.voiture.immatriculation, c.numCB, c.cryptoVisuel, c.dateExpiration, c.placeReserve))
+            curseur.execute("insert into Client values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (c.num, c.nom, c.prenom, c.adr, c.estAbonne, None if(c.voiture == None) else c.voiture.immatriculation, c.numCB, c.cryptoVisuel, c.dateExpiration, None if(c.placeReserve == None) else c.placeReserve.id))
         conn.commit()
         conn.close()
 
