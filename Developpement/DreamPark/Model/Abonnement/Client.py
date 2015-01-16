@@ -41,11 +41,26 @@ class Client:
         return self.__adresse
 
     @property
+    def cryptoVisuel(self):
+        return self.__cryptoVisuel
+
+    @property
+    def numCB(self):
+        return self.__numCB
+
+    @property
+    def idVoiture(self):
+        return self.__idVoiture
+
+    @property
     def abonnement(self):
         return self.__typeAbonnement
 
-    def __init__(self, nom, prenom, adresse, typeAbonnement, num = None):
+    def __init__(self, nom, prenom, adresse, typeAbonnement, idVoiture, numCB, cryptoVisuel, num = None):
         self.__num = Client.generateId() if num == None else num
+        self.__idVoiture = idVoiture
+        self.__numCB = numCB
+        self.__cryptoVisuel = cryptoVisuel
         self.__nom = nom
         self.__prenom = prenom
         self.__typeAbonnement = typeAbonnement
@@ -59,8 +74,7 @@ class Client:
             con.row_factory = sqlite3.Row
             cur = con.cursor()
             for row in cur.execute("""SELECT * FROM Client"""):
-                print(int(row["typeClient"]))
-                Client(row["nomClient"], row["prenomClient"], row["adrClient"], int(row["typeClient"]), row["numClient"])
+                Client(row["nomClient"], row["prenomClient"], row["adrClient"], int(row["typeClient"]), row["idVoiture"], row["numCB"], row["cryptoVisuel"], row["numClient"])
         con.close()
 
     @staticmethod
@@ -73,12 +87,12 @@ class Client:
         curseur.execute("delete from Client")
         # insert clients
         for c in Client.tous:
-            curseur.execute("insert into Client values (?, ?, ?, ?, ?)", (c.num, c.nom, c.prenom, c.adr, c.abonnement))
+            curseur.execute("insert into Client values (?, ?, ?, ?, ?)", (c.num, c.nom, c.prenom, c.adr, c.abonnement, c.idVoiture, c.numCB, c.cryptoVisuel))
         conn.commit()
         conn.close()
 
     def __str__( self ):
-        return "( " + self.__num +", " + self.__nom+", " + self.__prenom+", " + self.__adresse +", " + str(self.__typeAbonnement) +" )"
+        return "( " + self.__num +", " + self.__nom+", " + self.__prenom+", " + self.__adresse +", " + str(self.__typeAbonnement) + self.__idVoiture + self.__numCB + self.__cryptoVisuel +" )"
 
     def hasParkedCar(self):
         for item in Placement.tous:

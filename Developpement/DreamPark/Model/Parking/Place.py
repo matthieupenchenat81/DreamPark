@@ -84,10 +84,9 @@ class Place:
         # connect table
         conn = sqlite3.connect("test.db")
         curseur = conn.cursor()
-        #reset table Client
-        curseur.execute("DROP TABLE IF EXISTS Place")
-        curseur.execute("""create table Place (id int PRIMARY KEY, hauteur decimal(4,2), longueur decimal(4,2), largeur decimal(4,2), idVoiture int, niveau int)""")
-        # insert clients
+        #reset table Place
+        curseur.execute("delete from Place")
+        # insert places
         for c in Place.tous:
             curseur.execute("insert into Place values (?, ?, ?, ?, ?, ?)", (c.id, c.hauteur, c.largeur, c.longueur, c.voiture, c.niveau))
         conn.commit()

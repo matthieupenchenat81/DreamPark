@@ -10,7 +10,7 @@ def initTable():
     curseur = conn.cursor()
     #client
     curseur.execute("DROP TABLE IF EXISTS Client")
-    curseur.execute("""create table Client (numClient varchar(15) PRIMARY KEY, nomClient varchar(30), prenomClient varchar(30), adrClient varchar(50), typeClient int(1))""")
+    curseur.execute("""create table Client (numClient varchar(15) PRIMARY KEY, nomClient varchar(30), prenomClient varchar(30), adrClient varchar(50), typeClient int(1),idVoiture varchar(20) FOREIGN KEY REFERENCES Voiture(immatriculation), numCB int, cryptoVisuel int(3))""")
     #place
     curseur.execute("DROP TABLE IF EXISTS Place")
     curseur.execute("""create table Place (id int PRIMARY KEY, hauteur decimal(4,2), longueur decimal(4,2), largeur decimal(4,2), idVoiture int, niveau int)""")
@@ -19,7 +19,7 @@ def initTable():
     curseur.execute("""create table Voiture(immatriculation varchar(20) PRIMARY KEY, longueur decimal(4,2), largeur decimal(4,2), hauteur decimal(4,2))""")
     #placement
     curseur.execute("DROP TABLE IF EXISTS Placement")
-    curseur.execute("""create table Placement (place int, voiture int, client int, dateD date, dateF date)""")
+    curseur.execute("""create table Placement (place int, client int, dateD date, dateF date)""")
 
     conn.commit()
     conn.close()

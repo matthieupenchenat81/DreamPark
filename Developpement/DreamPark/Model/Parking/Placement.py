@@ -5,8 +5,7 @@ class Placement:
 
     tous = []
 
-    def __init__(self, place, voiture, client, dateD, dateF=None):
-        self.__voiture = voiture
+    def __init__(self, place, client, dateD, dateF=None):
         self.__place = place
         self.__client = client
         self.__dateD = dateD
@@ -22,10 +21,6 @@ class Placement:
     @property
     def estEnCours(self):
         return (self.__dateF == None)
-
-    @property
-    def voiture(self):
-        return self.__voiture
 
     @property
     def id(self):
@@ -56,7 +51,7 @@ class Placement:
             cur.execute("SELECT * FROM Placement")
             rows = cur.fetchall()
             for row in rows:
-                Placement(row["id"], row["place"], row["voiture"], row["client"], row["dateD"], row["dateF"])
+                Placement(row["id"], row["place"], row["client"], row["dateD"], row["dateF"])
         con.close()
 
     @staticmethod
@@ -65,11 +60,10 @@ class Placement:
         conn = sqlite3.connect("test.db")
         curseur = conn.cursor()
         #reset table Placement
-        curseur.execute("DROP TABLE IF EXISTS Placement")
-        curseur.execute("""create table Placement (place int, voiture int, client int, dateD date, dateF date)""")
+        curseur.execute("delete from Placement")
         # insert Placement
         for c in Placement.tous:
-            curseur.execute("insert into Placement values (?, ?, ?, ?, ?, ?)", (c.place, c.voiture, c.client, c.dateD, c.dateF))
+            curseur.execute("insert into Placement values (?, ?, ?, ?, ?, ?)", (c.place, c.client, c.dateD, c.dateF))
         conn.commit()
         conn.close()
 
