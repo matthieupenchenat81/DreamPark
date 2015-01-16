@@ -60,10 +60,10 @@ class Place:
         return None
 
     @staticmethod
-    def hasSpace(voiture):
+    def getAvailablePlace(voiture):
         for i in Place.tous:
             if(i.hauteur >= voiture.hauteur and i.largeur >= voiture.largeur and i.hauteur == voiture.hauteur and i.estLibre): return i
-        return False
+        return None
 
 
     def utiliserPlace(self):
