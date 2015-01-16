@@ -5,20 +5,21 @@ class Voiture:
 
     tous = []
 
-    def __init__(self, immatriculation, longueur = None, largeur = None, hauteur = None):
+    def __init__(self, immatriculation= None, longueur = None, largeur = None, hauteur = None):
         if (longueur == None & largeur == None & hauteur == None):
             self.setDim()
         else:
             self.__longueur = longueur
             self.__largeur = largeur
             self.__hauteur = hauteur
-        self.__immatriculation = immatriculation
+            self.__immatriculation = immatriculation
         self.tous.append(self)
 
     def setDim(self):
         self.__longueur = Camera.capturerLongueur()
         self.__hauteur = Camera.capturerHauteur()
         self.__largeur = Camera.capturerLargeur()
+        self.__immatriculation = Camera.capturerImmat()
 
     @property
     def hauteur(self):

@@ -87,8 +87,7 @@ class Client:
         curseur.execute("delete from Client")
         # insert clients
         for c in Client.tous:
-            print(c)
-            curseur.execute("insert into Client values (?, ?, ?, ?, ?)", (c.num, c.nom, c.prenom, c.adr, c.abonnement, c.idVoiture, c.numCB, c.cryptoVisuel))
+            curseur.execute("insert into Client values (?, ?, ?, ?, ?, ?, ?, ?)", (c.num, c.nom, c.prenom, c.adr, c.abonnement, c.idVoiture, c.numCB, c.cryptoVisuel))
         conn.commit()
         conn.close()
 
