@@ -14,7 +14,7 @@ def initTable():
     curseur.execute("""create table Client (numClient varchar(15) PRIMARY KEY, nomClient varchar(30), prenomClient varchar(30), adrClient varchar(50), estAbonne boolean, idVoiture varchar(20), numCB int(20), cryptoVisuel int(3), dateExpiration varchar(10), placeReserve int, FOREIGN KEY(idVoiture) REFERENCES Voiture(immatriculation))""")
     #place
     curseur.execute("DROP TABLE IF EXISTS Place")
-    curseur.execute("""create table Place (id int PRIMARY KEY, hauteur decimal(4,2), longueur decimal(4,2), largeur decimal(4,2), idVoiture int, niveau int)""")
+    curseur.execute("""create table Place (id int PRIMARY KEY, hauteur decimal(4,2), longueur decimal(4,2), largeur decimal(4,2), niveau int)""")
     #placement
     curseur.execute("DROP TABLE IF EXISTS Placement")
     curseur.execute("""create table Placement (place int, client int, dateD date, dateF date)""")
@@ -35,8 +35,8 @@ for client in Client.tous:
 print("Définition des places de bases...", end="")
 placeType = [[300,150,200],[150,200,300],[500,400,300]] # hauteur, largeur, longueur de 3 types de places
 for i in range(0,20) :
-    choosenPlaceType = placeType[randint(0,2)];
-    Place(i, randint(1,2), choosenPlaceType[0], choosenPlaceType[1], choosenPlaceType[2])
+    choosenPlaceType = placeType[randint(0,2)]
+    Place(randint(1,2), choosenPlaceType[0], choosenPlaceType[1], choosenPlaceType[2], i)
 Place.saveAll()
 
 for place in Place.tous:

@@ -4,30 +4,16 @@ class Place:
 
     tous = []
 
-    def __init__(self, niveau, hauteur, largeur, longueur, voiture=None):
-        self.__id = len(self.tous)
+    def __init__(self, niveau, hauteur, largeur, longueur, id = None):
+        self.__id = id if (id != None) else len(Place.tous)
         self.__hauteur = hauteur
         self.__largeur = largeur
         self.__longueur = longueur
-        self.__voiture = voiture
-        self.__niveau = niveau
-        self.tous.append(self)
-
-    def __init__(self, id, niveau, hauteur, largeur, longueur, voiture=None):
-        self.__id = id
-        self.__hauteur = hauteur
-        self.__largeur = largeur
-        self.__longueur = longueur
-        self.__voiture = voiture
         self.__niveau = niveau
         self.tous.append(self)
 
     def __str__(self):
-         return "Place[ id : " + str(self.__id) + ", niveau : " + str(self.__niveau) + ", hauteur : "+ str(self.__hauteur) + ", largeur : "+ str(self.__largeur)+ ", longueur : "+ str(self.__longueur)+ ", voiture : "+str(self.__voiture)+"]"
-
-    @property
-    def estLibre(self):
-        return (self.__voiture == None)
+         return "Place[ id : " + str(self.__id) + ", niveau : " + str(self.__niveau) + ", hauteur : "+ str(self.__hauteur) + ", largeur : "+ str(self.__largeur)+ ", longueur : "+ str(self.__longueur)+ "]"
 
     @property
     def id(self):
@@ -46,10 +32,6 @@ class Place:
         return self.__longueur
 
     @property
-    def voiture(self):
-        return self.__voiture
-
-    @property
     def niveau(self):
         return self.__niveau
 
@@ -65,15 +47,6 @@ class Place:
             if(i.hauteur >= voiture.hauteur and i.largeur >= voiture.largeur and i.hauteur == voiture.hauteur and i.estLibre): return i
         return None
 
-    def toogleAvailable(self):
-        self.__estLibre = not self.__estLibre
-
-    def utiliserPlace(self):
-        if self.estLibre():
-            self.__estLibre = False
-        else:
-            print("Erreur, place non libre")
-
     @staticmethod
     def loadAll():
         con = sqlite3.connect("test.db")
@@ -83,7 +56,7 @@ class Place:
             cur.execute("SELECT * FROM Place")
             rows = cur.fetchall()
             for row in rows:
-                Place(row["id"], row["hauteur"], row["longueur"], row["largeur"], int(row["niveau"]))
+                Place(row["hauteur"], row["longueur"], row["largeur"], int(row["niveau"]), row["id"])
         con.close()
 
     @staticmethod
@@ -96,6 +69,6 @@ class Place:
         curseur.execute("delete from Place")
         # insert places
         for c in Place.tous:
-            curseur.execute("insert into Place values (?, ?, ?, ?, ?, ?)", (c.id, c.hauteur, c.largeur, c.longueur, c.voiture, c.niveau))
+            curseur.execute("insert into Place values (?, ?, ?, ?, ?)", (c.id, c.hauteur, c.largeur, c.longueur, c.niveau))
         conn.commit()
         conn.close()
