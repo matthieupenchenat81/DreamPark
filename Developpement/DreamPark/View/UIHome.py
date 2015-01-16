@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/malibu/Git/DreamPark/UI/consumer.ui'
+# Form implementation generated from reading ui file '/home/malibu/Git/DreamPark/UI/UIHome.ui'
 #
-# Created: Wed Jan 14 11:35:51 2015
+# Created: Fri Jan 16 15:57:23 2015
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,7 +26,7 @@ except AttributeError:
 class Ui_consumer_home(object):
     def setupUi(self, consumer_home):
         consumer_home.setObjectName(_fromUtf8("consumer_home"))
-        consumer_home.resize(549, 336)
+        consumer_home.resize(549, 334)
         self.centralwidget = QtGui.QWidget(consumer_home)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.subscribed = QtGui.QFrame(self.centralwidget)
@@ -195,7 +195,7 @@ class Ui_consumer_home(object):
         self.label_6.setGeometry(QtCore.QRect(30, 130, 151, 21))
         self.label_6.setObjectName(_fromUtf8("label_6"))
         self.formLayoutWidget_2 = QtGui.QWidget(self.tab_5)
-        self.formLayoutWidget_2.setGeometry(QtCore.QRect(180, 130, 341, 71))
+        self.formLayoutWidget_2.setGeometry(QtCore.QRect(180, 130, 341, 74))
         self.formLayoutWidget_2.setObjectName(_fromUtf8("formLayoutWidget_2"))
         self.formLayout_2 = QtGui.QFormLayout(self.formLayoutWidget_2)
         self.formLayout_2.setMargin(0)

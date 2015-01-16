@@ -87,12 +87,13 @@ class Client:
         curseur.execute("delete from Client")
         # insert clients
         for c in Client.tous:
+            print(c)
             curseur.execute("insert into Client values (?, ?, ?, ?, ?)", (c.num, c.nom, c.prenom, c.adr, c.abonnement, c.idVoiture, c.numCB, c.cryptoVisuel))
         conn.commit()
         conn.close()
 
     def __str__( self ):
-        return "( " + self.__num +", " + self.__nom+", " + self.__prenom+", " + self.__adresse +", " + str(self.__typeAbonnement) + self.__idVoiture + self.__numCB + self.__cryptoVisuel +" )"
+        return "( " + str(self.__num) +", " + self.__nom+", " + self.__prenom+", " + self.__adresse +", " + str(self.__typeAbonnement)+", " + str(self.__idVoiture) +", " + str(self.__numCB) +", " + str(self.__cryptoVisuel) +" )"
 
     def hasParkedCar(self):
         for item in Placement.tous:
