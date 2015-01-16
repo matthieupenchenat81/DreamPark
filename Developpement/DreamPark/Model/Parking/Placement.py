@@ -16,7 +16,7 @@ class Placement:
         self.__dateF = dateF
 
         # on libere la place
-        self.__place
+        self.__place.toogleAvailable()
 
     @property
     def estEnCours(self):
