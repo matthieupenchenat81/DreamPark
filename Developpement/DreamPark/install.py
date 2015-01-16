@@ -12,7 +12,7 @@ def initTable():
     curseur.execute("""create table Voiture(immatriculation varchar(20) PRIMARY KEY, longueur int, largeur int, hauteur int)""")
     #client
     curseur.execute("DROP TABLE IF EXISTS Client")
-    curseur.execute("""create table Client (numClient varchar(15) PRIMARY KEY, nomClient varchar(30), prenomClient varchar(30), adrClient varchar(50), typeClient int(1), idVoiture varchar(20), numCB int(20), cryptoVisuel int(3), dateExpiration varchar(10), FOREIGN KEY(idVoiture) REFERENCES Voiture(immatriculation))""")
+    curseur.execute("""create table Client (numClient varchar(15) PRIMARY KEY, nomClient varchar(30), prenomClient varchar(30), adrClient varchar(50), typeClient int(1), idVoiture varchar(20), numCB int(20), cryptoVisuel int(3), dateExpiration varchar(10), placeReserve int, FOREIGN KEY(idVoiture) REFERENCES Voiture(immatriculation))""")
     #place
     curseur.execute("DROP TABLE IF EXISTS Place")
     curseur.execute("""create table Place (id int PRIMARY KEY, hauteur decimal(4,2), longueur decimal(4,2), largeur decimal(4,2), idVoiture int, niveau int)""")
@@ -26,8 +26,8 @@ def initTable():
 initTable()
 
 print("Définition des Clients...")
-Client("PEREIRA", "Alexandre", "4 Boulevard Koenings 31300 Toulouse", Type.SUPER_ABONNE, "JJSJJ", 12363663, 144, "12/12/1212")
-Client("PENCHENAT", "Matthieu", "2 Impasse Louis Tharaud 31300 Toulouse", Type.ABONNE, "KKJJSJJ", 12363669, 147, "12/12/1212")
+Client("PEREIRA", "Alexandre", "4 Boulevard Koenings 31300 Toulouse", Type.SUPER_ABONNE, "JJSJJ", 12363663, 144, "12/12/1212", None)
+Client("PENCHENAT", "Matthieu", "2 Impasse Louis Tharaud 31300 Toulouse", Type.ABONNE, "KKJJSJJ", 12363669, 147, "12/12/1212", None)
 Client.saveAll()
 
 for client in Client.tous:

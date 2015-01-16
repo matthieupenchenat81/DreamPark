@@ -57,18 +57,23 @@ class Client:
         return self.__dateExpiration
 
     @property
-    def abonnement(self):
-        return self.__typeAbonnement
+    def placeReserve(self):
+        return self.__placeReserve
 
-    def __init__(self, nom, prenom, adresse, typeAbonnement, idVoiture, numCB, cryptoVisuel, dateExpiration,num = None):
+    @property
+    def estAbonne(self):
+        return self.__estAbonne
+
+    def __init__(self, nom, prenom, adresse, estAbonne, idVoiture, numCB, cryptoVisuel, dateExpiration, placeReserve = None, num = None):
         self.__num = Client.generateId() if num == None else num
+        self.__placeReserve = placeReserve
         self.__dateExpiration = dateExpiration
         self.__idVoiture = idVoiture
         self.__numCB = numCB
         self.__cryptoVisuel = cryptoVisuel
         self.__nom = nom
         self.__prenom = prenom
-        self.__typeAbonnement = typeAbonnement
+        self.__estAbonne= estAbonne
         self.__adresse = adresse
         self.tous.append(self)
 
@@ -79,7 +84,7 @@ class Client:
             con.row_factory = sqlite3.Row
             cur = con.cursor()
             for row in cur.execute("""SELECT * FROM Client"""):
-                Client(row["nomClient"], row["prenomClient"], row["adrClient"], int(row["typeClient"]), row["idVoiture"], row["numCB"], row["cryptoVisuel"], row["dateExpiration"], row["numClient"])
+                Client(row["nomClient"], row["prenomClient"], row["adrClient"], int(row["estAbonne"]), row["idVoiture"], row["numCB"], row["cryptoVisuel"], row["dateExpiration"], row["placeReserve"], row["numClient"])
         con.close()
 
     @staticmethod
@@ -92,12 +97,12 @@ class Client:
         curseur.execute("delete from Client")
         # insert clients
         for c in Client.tous:
-            curseur.execute("insert into Client values (?, ?, ?, ?, ?, ?, ?, ?, ?)", (c.num, c.nom, c.prenom, c.adr, c.abonnement, c.idVoiture, c.numCB, c.cryptoVisuel, c.dateExpiration))
+            curseur.execute("insert into Client values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (c.num, c.nom, c.prenom, c.adr, c.estAbonne, c.idVoiture, c.numCB, c.cryptoVisuel, c.dateExpiration, c.placeReserve))
         conn.commit()
         conn.close()
 
     def __str__( self ):
-        return "( " + str(self.__num) +", " + self.__nom+", " + self.__prenom+", " + self.__adresse +", " + str(self.__typeAbonnement)+", " + str(self.__idVoiture) +", " + str(self.__numCB) +", " + str(self.__cryptoVisuel) +" )"
+        return "( " + str(self.__num) +", " + self.__nom+", " + self.__prenom+", " + self.__adresse +", " + str(self.__estAbonne)+", " + str(self.__idVoiture) +", " + str(self.__numCB) +", " + str(self.__cryptoVisuel) +" )"
 
     def hasParkedCar(self):
         for item in Placement.tous:
