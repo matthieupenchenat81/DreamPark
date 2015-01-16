@@ -111,3 +111,6 @@ class HomeControler:
         Voiture.saveAll()
         Place.saveAll()
         Placement.saveAll()
+
+    def seGarerEnAnonyme(self):
+        ...
