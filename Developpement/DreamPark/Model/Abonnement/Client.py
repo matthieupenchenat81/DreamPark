@@ -5,7 +5,6 @@ from Developpement.DreamPark.Model.Parking.Placement import Placement
 from Developpement.DreamPark.Model.Parking.Place import Place
 from Developpement.DreamPark.Model.Parking.Voiture import Voiture
 
-
 class Client:
 
     tous = []
