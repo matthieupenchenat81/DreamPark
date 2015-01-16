@@ -63,12 +63,15 @@ class Client:
     def estAbonne(self):
         return self.__estAbonne
 
-    def __init__(self, nom, prenom, adresse, estAbonne, idVoiture, numCB, cryptoVisuel, dateExpiration, idPlaceReserve = None, num = None):
+    def __init__(self, nom, prenom, adresse, estAbonne, idVoiture, numCB, cryptoVisuel, dateExpiration, aPlaceReserve, num = None):
         self.__num = Client.generateId() if num == None else num
-        self.__placeReserve = Place.getPlace(idPlaceReserve)
-        if(self.__placeReserve != None): self.__placeReserve.toogleAvailable()
+        #self.__placeReserve = Place.getPlace(idPlaceReserve)
+        #if(self.__placeReserve != None): self.__placeReserve.toogleAvailable()
         self.__dateExpiration = dateExpiration
         self.__voiture = Voiture.getCar(idVoiture)
+        if(aPlaceReserve):
+            self.__placeReserve = Place.getAvailablePlace(self.__voiture)
+            self.__placeReserve.toogleAvailable()
         self.__numCB = numCB
         self.__cryptoVisuel = cryptoVisuel
         self.__nom = nom
