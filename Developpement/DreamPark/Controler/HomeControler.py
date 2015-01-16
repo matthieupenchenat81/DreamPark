@@ -111,7 +111,6 @@ class HomeControler:
             self.Dialog.accepted.connect(lambda: self.tryLogin(c.num))
             self.Dialog.exec_()
 
-
     def exitProgram(self):
         Client.saveAll()
         Voiture.saveAll()
@@ -121,3 +120,5 @@ class HomeControler:
     def seGarerEnAnonyme(self):
         if not Place.hasSpace(self.guestVoiture):
             self.ui.label_name_2.setText("Bonjour,\nNous sommes désolé mais le parking est actuellement plein.")
+        else:
+            Client(None, None, None, None, self.guestVoiture, numCB, cryptoVisuel, dateExpiration)
