@@ -59,7 +59,6 @@ class Client:
             con.row_factory = sqlite3.Row
             cur = con.cursor()
             for row in cur.execute("""SELECT * FROM Client"""):
-                print(int(row["typeClient"]))
                 Client(row["nomClient"], row["prenomClient"], row["adrClient"], int(row["typeClient"]), row["numClient"])
         con.close()
 

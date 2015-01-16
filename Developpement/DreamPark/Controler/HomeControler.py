@@ -98,16 +98,19 @@ class HomeControler:
             self.Dialog = QtGui.QDialog()
             u = Ui_ClientRegistered()
             u.setupUi(self.Dialog)
-            self.Dialog.accepted.connect(lambda: self.tryLogin(u.idCard.text()))
-            c = Client(self.ui.input_lastName.text(), self.ui.input_firstName.text(), self.ui.input_adresseI.text(), Type.ABONNE)
+            if self.ui.check_packGaranti.isChecked():
+                c = Client(self.ui.input_lastName.text(), self.ui.input_firstName.text(), self.ui.input_adresseI.text(), Type.SUPER_ABONNE)
+            else:
+                c = Client(self.ui.input_lastName.text(), self.ui.input_firstName.text(), self.ui.input_adresseI.text(), Type.ABONNE)
+
             u.label.setText("Félicitation " + c.prenom +",\nVous êtes dorénavant membre du DreamPark parking!\n\nVotre numéro d'abonné est le suivant: ")
             u.label_2.setText(c.num)
+            self.Dialog.pushButton.clicked(lambda: self.tryLogin(c.num.text()))
             self.Dialog.exec_()
 
 
     def exitProgram(self):
         Client.saveAll()
-        print(Client.tous)
         Voiture.saveAll()
         Place.saveAll()
         Placement.saveAll()
