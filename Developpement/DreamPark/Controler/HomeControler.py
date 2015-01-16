@@ -1,3 +1,5 @@
+import sys
+
 from Developpement.DreamPark.View.UIHome import *
 from Developpement.DreamPark.View.UIClientConnection import *
 from Developpement.DreamPark.View.UIClientRegistered import *
@@ -5,18 +7,18 @@ from Developpement.DreamPark.Model.Abonnement.Client import *
 from Developpement.DreamPark.Model.Parking.Placement import *
 from Developpement.DreamPark.Model.Parking.Voiture import *
 from Developpement.DreamPark.Model.Parking.Place import *
-import sys
+
 
 class HomeControler:
 
     def __init__(self):
-        QtGui.QApplication.setStyle(QtGui.QStyleFactory.create('Cleanlooks'))
+        QtGui.QApplication.setStyle(QtGui.QStyleFactory.create("Cleanlooks"))
         app = QtGui.QApplication(sys.argv)
         app.aboutToQuit.connect(self.exitProgram)
         self.view = QtGui.QMainWindow()
         self.ui = Ui_consumer_home()
         self.ui.setupUi(self.view)
-        self.view.setWindowIcon(QtGui.QIcon("icon.png"));
+        self.view.setWindowIcon(QtGui.QIcon("icon.png"))
         #signaux
         #
         self.ui.btn_subscriber.clicked.connect(lambda : self.chooseInterface(0))
@@ -132,3 +134,4 @@ class HomeControler:
             Placement(Place.getAvailablePlace(self.currentUser.voiture), self.currentUser, "dated", "datef")
         else:
             self.ui.????.setText("Bonjour,\nNous sommes désolé mais le parking est actuellement plein.")
+            h
