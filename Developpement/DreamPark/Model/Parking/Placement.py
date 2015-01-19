@@ -1,6 +1,7 @@
 import sqlite3
-from Developpement.DreamPark.Model.Abonnement import Client
-from Developpement.DreamPark.Model.Parking import Place
+
+from Developpement.DreamPark.Model.Abonnement.Client import Client
+from Developpement.DreamPark.Model.Parking.Place import Place
 
 
 class Placement:
