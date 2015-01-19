@@ -140,3 +140,8 @@ class HomeControler:
             Placement(self.currentUser.placeReserve, self.currentUser, "dated", "datef")
         else:
             Placement(Place.getAvailablePlace(self.currentUser.voiture), self.currentUser, "dated", "datef")
+
+    def recupererEnAnonyme(self):
+        c = Client[self.ui.input_numTicket.text()]
+        if c != None:
+            c.recupererVehicule()  # TODO
