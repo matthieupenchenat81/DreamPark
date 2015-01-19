@@ -54,7 +54,6 @@ class Placement:
             rows = cur.fetchall()
             for row in rows:
                 Placement(row["id"], Place[row["place"]], Client[row["client"]], row["dateD"], row["dateF"])
-                print('')
         con.close()
 
     @staticmethod
