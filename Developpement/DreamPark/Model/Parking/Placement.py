@@ -1,4 +1,6 @@
 import sqlite3
+from Developpement.DreamPark.Model.Abonnement import Client
+from Developpement.DreamPark.Model.Parking import Place
 
 
 class Placement:
@@ -51,7 +53,7 @@ class Placement:
             cur.execute("SELECT * FROM Placement")
             rows = cur.fetchall()
             for row in rows:
-                Placement(row["id"], row["place"], row["client"], row["dateD"], row["dateF"])
+                Placement(row["id"], Place[row["place"]], Client[row["client"]], row["dateD"], row["dateF"])
         con.close()
 
     @staticmethod
@@ -63,7 +65,7 @@ class Placement:
         curseur.execute("delete from Placement")
         # insert Placement
         for c in Placement.tous:
-            curseur.execute("insert into Placement values (?, ?, ?, ?, ?, ?)", (c.place, c.client, c.dateD, c.dateF))
+            curseur.execute("insert into Placement values (?, ?, ?, ?, ?, ?)", (c.place.id, c.client.num, c.dateD, c.dateF))
         conn.commit()
         conn.close()
 

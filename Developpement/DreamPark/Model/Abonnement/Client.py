@@ -11,11 +11,9 @@ class Client:
 
     tous = []
 
-    @staticmethod
-    def get(num):
-        for client in Client.tous:
-            if client.__num == num:
-                return client
+    def __getitem__(cls,val):
+        for item in cls.tous:
+            if(item.num == val): return item
         return None
 
     @staticmethod
@@ -65,12 +63,11 @@ class Client:
     def estAbonne(self):
         return self.__estAbonne
 
-    def __init__(self, nom, prenom, adresse, estAbonne, idVoiture, numCB, cryptoVisuel, dateExpiration, placeReserve,
+    def __init__(self, nom, prenom, adresse, estAbonne, voiture, numCB, cryptoVisuel, dateExpiration, placeReserve,
                  num=None):
-
         self.__num = Client.generateId() if num == None else num
         self.__dateExpiration = dateExpiration
-        self.__voiture = Voiture.getCar(idVoiture)
+        self.__voiture = voiture
         self.__placeReserve = placeReserve
         self.__numCB = numCB
         self.__cryptoVisuel = cryptoVisuel
@@ -87,7 +84,7 @@ class Client:
             con.row_factory = sqlite3.Row
             cur = con.cursor()
             for row in cur.execute("""SELECT * FROM Client"""):
-                Client(row["nomClient"], row["prenomClient"], row["adrClient"], row["estAbonne"], row["idVoiture"], row["numCB"], row["cryptoVisuel"], row["dateExpiration"], row["placeReserve"], row["numClient"])
+                Client(row["nomClient"], row["prenomClient"], row["adrClient"], row["estAbonne"], Voiture[row["idVoiture"]], row["numCB"], row["cryptoVisuel"], row["dateExpiration"], row["placeReserve"], row["numClient"])
         con.close()
 
     @staticmethod

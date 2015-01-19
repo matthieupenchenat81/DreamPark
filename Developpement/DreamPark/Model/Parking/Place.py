@@ -39,10 +39,9 @@ class Place:
     def niveau(self):
         return self.__niveau
 
-    @staticmethod
-    def getPlace(idPlace):
-        for item in Place.tous:
-            if(item.id == idPlace): return item
+    def __getitem__(cls,val):
+        for item in cls.tous:
+            if(item.id == val): return item
         return None
 
     def toogleAvailable(self):

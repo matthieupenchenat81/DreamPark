@@ -55,10 +55,9 @@ class Voiture:
                 Voiture(row["immatriculation"], row["longueur"], row["largeur"], row["hauteur"])
         con.close()
 
-    @staticmethod
-    def getCar(idCar):
-        for item in Voiture.tous:
-            if(item.immatriculation == idCar): return item
+    def __getitem__(cls,val):
+        for item in cls.tous:
+            if(item.immatriculation == val): return item
         return None
 
     @staticmethod
