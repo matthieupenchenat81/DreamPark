@@ -24,6 +24,11 @@ def initTable():
 
 initTable()
 
+print("Création des Voitures...")
+Voiture( "JJSJJ", 300, 150, 150)
+Voiture( "KKJJSJJ", 300, 150, 150)
+Voiture.saveAll()
+
 print("Définition des Clients...")
 Client("PEREIRA", "Alexandre", "4 Boulevard Koenings 31300 Toulouse", True, "JJSJJ", 12363663, 144, "12/12/1212", None)
 Client("PENCHENAT", "Matthieu", "2 Impasse Louis Tharaud 31300 Toulouse", False, "KKJJSJJ", 12363669, 147, "12/12/1212", None)
