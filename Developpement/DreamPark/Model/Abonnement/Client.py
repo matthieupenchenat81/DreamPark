@@ -3,8 +3,7 @@ import sqlite3
 import string
 
 from Developpement.DreamPark.Model.Parking.Voiture import Voiture
-from Developpement.DreamPark.Model.Parking.Placement import Placement
-from Developpement.DreamPark.Model.Parking.Place import Place
+
 
 
 class Client:
@@ -17,9 +16,15 @@ class Client:
         return None
 
     @staticmethod
+    def exist(num):
+        for item in Client.tous:
+            if(item.num == num): return True
+        return False
+
+    @staticmethod
     def generateId():
         d = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(8))
-        while Client.get(d) != None:
+        while Client.exist(d):
             d = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(8))
         return d
 
@@ -105,14 +110,3 @@ class Client:
 
     def __str__( self ):
         return "( " + str(self.__num) +", " + self.__nom+", " + self.__prenom+", " + self.__adresse +", " + str(self.__estAbonne)+", " + str(self.__voiture) +", " + str(self.__numCB) +", " + str(self.__cryptoVisuel) +" )"
-
-    def hasParkedCar(self):
-        for item in Placement.tous:
-           if(item.client ==  self and item.dateF == None):
-               return True
-        return False
-
-    def canPark(self):
-        if(self.hasParkedCar()): return False
-        if(Place.getAvailablePlace(self.idVoiture) == None): return False
-        return True

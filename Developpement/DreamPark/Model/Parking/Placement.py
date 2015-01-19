@@ -69,3 +69,16 @@ class Placement:
         conn.commit()
         conn.close()
 
+    @staticmethod
+    def hasParkedCar(client):
+        for item in Placement.tous:
+           if(item.client == client and item.dateF == None):
+               return True
+        return False
+
+    @staticmethod
+    def canPark(client):
+        if(Placement.hasParkedCar(client)): return False
+        if(Place.getAvailablePlace(client.idVoiture) == None): return False
+        return True
+

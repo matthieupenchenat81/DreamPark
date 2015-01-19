@@ -1,6 +1,8 @@
 from random import *
 from Developpement.DreamPark.Model.Abonnement.Client import *
 import sqlite3
+from Developpement.DreamPark.Model.Parking.Place import Place
+
 
 def initTable():
     # connect table
