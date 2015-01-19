@@ -1,5 +1,8 @@
 import sqlite3
+
 from Developpement.DreamPark.Model.Parking.Camera import Camera
+from Developpement.DreamPark.Model.Parking.Place import Place
+
 
 class Voiture:
 
@@ -68,3 +71,9 @@ class Voiture:
             curseur.execute("insert into Voiture values (?, ?, ?, ?)", (str(c.immatriculation), int(c.longueur), int(c.largeur), int(c.hauteur)))
         conn.commit()
         conn.close()
+
+    def getAvailablePlace(self):
+        # TODO : Soustraire les places réservées
+        for i in Place.tous:
+            if (i.hauteur >= self.hauteur and i.largeur >= self.largeur and i.hauteur >= self.hauteur): return i
+        return None

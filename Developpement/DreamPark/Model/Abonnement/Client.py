@@ -1,9 +1,11 @@
 import random
 import sqlite3
 import string
+
 from Developpement.DreamPark.Model.Parking.Voiture import Voiture
 from Developpement.DreamPark.Model.Parking.Placement import Placement
 from Developpement.DreamPark.Model.Parking.Place import Place
+
 
 class Client:
 
@@ -63,16 +65,13 @@ class Client:
     def estAbonne(self):
         return self.__estAbonne
 
-    def __init__(self, nom, prenom, adresse, estAbonne, idVoiture, numCB, cryptoVisuel, dateExpiration, aPlaceReserve, num = None):
+    def __init__(self, nom, prenom, adresse, estAbonne, idVoiture, numCB, cryptoVisuel, dateExpiration, placeReserve,
+                 num=None):
+
         self.__num = Client.generateId() if num == None else num
-        #self.__placeReserve = Place.getPlace(idPlaceReserve)
-        #if(self.__placeReserve != None): self.__placeReserve.toogleAvailable()
         self.__dateExpiration = dateExpiration
         self.__voiture = Voiture.getCar(idVoiture)
-        self.__placeReserve = None
-        if(aPlaceReserve):
-            self.__placeReserve = Place.getAvailablePlace(self.__voiture)
-            self.__placeReserve.toogleAvailable()
+        self.__placeReserve = placeReserve
         self.__numCB = numCB
         self.__cryptoVisuel = cryptoVisuel
         self.__nom = nom
@@ -101,7 +100,9 @@ class Client:
         curseur.execute("delete from Client")
         # insert clients
         for c in Client.tous:
-            curseur.execute("insert into Client values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (c.num, c.nom, c.prenom, c.adr, c.estAbonne, None if(c.voiture == None) else c.voiture.immatriculation, c.numCB, c.cryptoVisuel, c.dateExpiration, None if(c.placeReserve == None) else c.placeReserve.id))
+            curseur.execute("insert into Client values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (
+                c.num, c.nom, c.prenom, c.adr, c.estAbonne, c.voiture.immatriculation, c.numCB, c.cryptoVisuel,
+                c.dateExpiration, None if (c.placeReserve == None) else c.placeReserve.id))
         conn.commit()
         conn.close()
 

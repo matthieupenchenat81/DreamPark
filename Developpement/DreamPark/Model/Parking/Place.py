@@ -10,7 +10,6 @@ class Place:
         self.__largeur = largeur
         self.__longueur = longueur
         self.__niveau = niveau
-        self.__estLibre = True
         self.tous.append(self)
 
     def __str__(self):
@@ -48,12 +47,6 @@ class Place:
 
     def toogleAvailable(self):
         self.__estLibre = not self.__estLibre
-
-    @staticmethod
-    def getAvailablePlace(voiture):
-        for i in Place.tous:
-            if(i.hauteur >= voiture.hauteur and i.largeur >= voiture.largeur and i.hauteur == voiture.hauteur and i.estLibre): return i
-        return None
 
     @staticmethod
     def loadAll():

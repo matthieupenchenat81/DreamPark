@@ -3,6 +3,7 @@ import sys
 from Developpement.DreamPark.View.UIHome import *
 from Developpement.DreamPark.View.UIClientConnection import *
 from Developpement.DreamPark.View.UIClientRegistered import *
+from Developpement.DreamPark.View.UIGuestTicket import *
 from Developpement.DreamPark.Model.Abonnement.Client import *
 from Developpement.DreamPark.Model.Parking.Placement import *
 from Developpement.DreamPark.Model.Parking.Voiture import *
@@ -19,11 +20,15 @@ class HomeControler:
         self.ui = Ui_consumer_home()
         self.ui.setupUi(self.view)
         self.view.setWindowIcon(QtGui.QIcon("icon.png"))
+
+        # Variables
+
         #signaux
         #
         self.ui.btn_subscriber.clicked.connect(lambda : self.chooseInterface(0))
         self.ui.btn_guest.clicked.connect(lambda : self.chooseInterface(1))
         self.ui.pushButton.clicked.connect(self.trySubscribe)
+
         #regex
         #firstname
 
@@ -48,6 +53,7 @@ class HomeControler:
             self.Dialog.exec_()
         if type==1:
             self.guestVoiture = Voiture()
+            self.ui.btn_teleport_2.clicked.connect(self.seGarerEnAnonyme)
             self.ui.guest.raise_()
 
     def tryLogin(self, val):
@@ -116,22 +122,22 @@ class HomeControler:
             self.Dialog.exec_()
 
     def exitProgram(self):
-        Client.saveAll()
         Voiture.saveAll()
+        Client.saveAll()
         Place.saveAll()
         Placement.saveAll()
 
     def seGarerEnAnonyme(self):
-        if not Place.hasSpace(self.guestVoiture):
-            self.ui.label_name_2.setText("Bonjour,\nNous sommes désolé mais le parking est actuellement plein.")
-        else:
-            Client(None, None, None, False, self.guestVoiture, numCB, cryptoVisuel, dateExpiration, Place.getAvailablePlace(self.guestVoiture))
+        c = Client(None, None, None, False, self.guestVoiture.immatriculation, "", "", "", None)
+        Placement(self.guestVoiture.getAvailablePlace(), c, "dateDébut", None)
+        self.Dialog = QtGui.QDialog()
+        u = Ui_GuestTicket()
+        u.setupUi(self.Dialog)
+        u.label_numTicket.setText("Votre numéro de ticket est le :\n" + c.num)
+        self.Dialog.exec_()
 
     def seGarerClient(self):
         if self.currentUser.placeReserve != None:
             Placement(self.currentUser.placeReserve, self.currentUser, "dated", "datef")
-        elif Place.hasSpace(self.guestVoiture):
-            Placement(Place.getAvailablePlace(self.currentUser.voiture), self.currentUser, "dated", "datef")
         else:
-            self.ui.????.setText("Bonjour,\nNous sommes désolé mais le parking est actuellement plein.")
-            h
+            Placement(Place.getAvailablePlace(self.currentUser.voiture), self.currentUser, "dated", "datef")
