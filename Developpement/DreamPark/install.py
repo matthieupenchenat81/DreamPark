@@ -1,6 +1,8 @@
 from random import *
 from Developpement.DreamPark.Model.Abonnement.Client import *
 import sqlite3
+from Developpement.DreamPark.Model.Parking.Place import Place
+
 
 def initTable():
     # connect table
@@ -25,13 +27,13 @@ def initTable():
 initTable()
 
 print("Création des Voitures...")
-Voiture( "JJSJJ", 300, 150, 150)
-Voiture( "KKJJSJJ", 300, 150, 150)
+v1 = Voiture( "JJSJJ", 300, 150, 150)
+v2 = Voiture( "KKJJSJJ", 300, 150, 150)
 Voiture.saveAll()
 
 print("Définition des Clients...")
-Client("PEREIRA", "Alexandre", "4 Boulevard Koenings 31300 Toulouse", True, "JJSJJ", 12363663, 144, "12/12/1212", None)
-Client("PENCHENAT", "Matthieu", "2 Impasse Louis Tharaud 31300 Toulouse", False, "KKJJSJJ", 12363669, 147, "12/12/1212", None)
+Client("PEREIRA", "Alexandre", "4 Boulevard Koenings 31300 Toulouse", True, v1, 12363663, 144, "12/12/1212", None)
+Client("PENCHENAT", "Matthieu", "2 Impasse Louis Tharaud 31300 Toulouse", False, v2, 12363669, 147, "12/12/1212", None)
 Client.saveAll()
 
 for client in Client.tous:

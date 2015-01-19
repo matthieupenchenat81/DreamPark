@@ -55,10 +55,9 @@ class Voiture:
                 Voiture(row["immatriculation"], row["longueur"], row["largeur"], row["hauteur"])
         con.close()
 
-    @staticmethod
-    def get(idCar):
-        for item in Voiture.tous:
-            if(item.immatriculation == idCar): return item
+    def __getitem__(cls,val):
+        for item in cls.tous:
+            if(item.immatriculation == val): return item
         return None
 
     @staticmethod
@@ -75,11 +74,5 @@ class Voiture:
     def getAvailablePlace(self):
         # TODO : Soustraire les places réservées
         for i in Place.tous:
-            if (i.hauteur >= self.hauteur and i.largeur >= self.largeur and i.hauteur >= self.hauteur):
-                for pc in Placement.tous:
-                    if not (pc.place == i and pc.dateF != None and pc.client.placeReserve != pc.place):
-                        tmp = i
-                    else:
-                        tmp = None
-
-        return tmp
+            if (i.hauteur >= self.hauteur and i.largeur >= self.largeur and i.hauteur >= self.hauteur): return i
+        return None
