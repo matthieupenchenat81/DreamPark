@@ -27,7 +27,6 @@ class HomeControler:
         #
         self.ui.btn_subscriber.clicked.connect(lambda : self.chooseInterface(0))
         self.ui.btn_guest.clicked.connect(lambda : self.chooseInterface(1))
-        self.ui.pushButton.clicked.connect(self.trySubscribe)
 
         #regex
         #firstname
@@ -53,19 +52,19 @@ class HomeControler:
             self.Dialog.exec_()
         if type==1:
             self.guestVoiture = Voiture()
+            self.ui.pushButton.clicked.connect(self.trySubscribe)
             self.ui.btn_teleport_2.clicked.connect(self.seGarerEnAnonyme)
+            self.ui.btn_getCar_2.clicked.connect(self.recupererEnAnonyme)
             self.ui.guest.raise_()
 
     def tryLogin(self, val):
-        self.currentUser = Client.get(val)
+        self.currentUser = Client[val]  # TODO
         if self.currentUser != None:
-            if self.currentUser.hasParkedCar() :
+            if self.currentUser.hasParkedCar():
                 self.ui.tabWidget.removeTab(0)
             else:
                 self.ui.tabWidget.removeTab(1)
-
             self.ui.label_name.setText("Bonjour " + self.currentUser.prenom + ",")
-
             self.ui.subscribed.raise_()
 
     def trySubscribe(self):
@@ -128,7 +127,7 @@ class HomeControler:
         Placement.saveAll()
 
     def seGarerEnAnonyme(self):
-        c = Client(None, None, None, False, self.guestVoiture.immatriculation, "", "", "", None)
+        c = Client(None, None, None, False, self.guestVoiture, "", "", "", None)
         Placement(self.guestVoiture.getAvailablePlace(), c, "dateDébut", None)
         self.Dialog = QtGui.QDialog()
         u = Ui_GuestTicket()
