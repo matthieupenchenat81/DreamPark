@@ -39,9 +39,10 @@ class Place:
     def niveau(self):
         return self.__niveau
 
-    def __getitem__(cls,val):
-        for item in cls.tous:
-            if(item.id == val): return item
+    @staticmethod
+    def get(key):
+        for item in Place.tous:
+            if (item.id == key): return item
         return None
 
     def toogleAvailable(self):
@@ -77,6 +78,7 @@ class Place:
     def getAvailablePlace(voiture):
         # TODO : Soustraire les places réservées
         for i in Place.tous:
+            print(i)
             if (
                         i.hauteur >= voiture.hauteur and i.largeur >= voiture.largeur and i.hauteur >= voiture.hauteur): return i
         return None

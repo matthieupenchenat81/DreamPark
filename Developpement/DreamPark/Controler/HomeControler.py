@@ -58,7 +58,7 @@ class HomeControler:
 
     def tryLogin(self, val):
         self.currentUser = Client.get(val)
-        if self.currentUser != None:
+        if self.currentUser != None and self.currentUser.estAbonne:
             if self.currentUser.hasParkedCar():
                 self.ui.tabWidget.removeTab(0)
             else:
@@ -143,4 +143,4 @@ class HomeControler:
     def recupererEnAnonyme(self):
         c = Client.get(self.ui.input_numTicket.text())
         if c != None:
-            ...  # c.recupererVehicule()   TODO
+            c.recupererVehicule()

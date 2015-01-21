@@ -98,8 +98,6 @@ class Client:
         curseur.execute("delete from Client")
         # insert clients
         for c in Client.tous:
-            print([c.num, c.nom, c.prenom, c.adr, c.estAbonne, c.voiture.immatriculation, c.numCB, c.cryptoVisuel,
-                   c.dateExpiration])
             curseur.execute("insert into Client values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (
                 c.num, c.nom, c.prenom, c.adr, c.estAbonne, c.voiture.immatriculation, c.numCB, c.cryptoVisuel,
                 c.dateExpiration, None if (c.placeReserve == None) else c.placeReserve.id))
@@ -107,4 +105,7 @@ class Client:
         conn.close()
 
     def __str__( self ):
-        return "( " + str(self.__num) +", " + self.__nom+", " + self.__prenom+", " + self.__adresse +", " + str(self.__estAbonne)+", " + str(self.__voiture) +", " + str(self.__numCB) +", " + str(self.__cryptoVisuel) +" )"
+        tmpP = "-" if self.__prenom == None else self.__prenom
+        tmpN = "-" if self.__nom == None else self.__nom
+        return "( " + self.__num + ", " + tmpN + " " + tmpP + " )"
+

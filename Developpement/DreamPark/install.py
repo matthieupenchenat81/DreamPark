@@ -1,5 +1,4 @@
 from random import *
-import sqlite3
 
 from Developpement.DreamPark.Model.Abonnement.Client import *
 from Developpement.DreamPark.Model.Parking.Place import Place
@@ -29,8 +28,8 @@ def initTable():
 initTable()
 
 print("Création des Voitures...")
-v1 = Voiture( "JJSJJ", 300, 150, 150)
-v2 = Voiture( "KKJJSJJ", 300, 150, 150)
+v1 = Voiture()
+v2 = Voiture()
 Voiture.saveAll()
 
 print("Définition des Clients...")

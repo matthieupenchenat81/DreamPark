@@ -54,7 +54,7 @@ class Placement:
             cur.execute("SELECT * FROM Placement")
             rows = cur.fetchall()
             for row in rows:
-                Placement(row["id"], Place[row["place"]], Client[row["client"]], row["dateD"], row["dateF"])
+                Placement(Place.get(row["place"]), Client.get(row["client"]), row["dateD"], row["dateF"])
         con.close()
 
     @staticmethod
@@ -66,7 +66,8 @@ class Placement:
         curseur.execute("delete from Placement")
         # insert Placement
         for c in Placement.tous:
-            curseur.execute("insert into Placement values (?, ?, ?, ?, ?, ?)", (c.place.id, c.client.num, c.dateD, c.dateF))
+            curseur.execute("insert into Placement values (?, ?, ?, ?)", (c.place.id, c.client.num, c.dateD,
+                                                                          "" if c.dateF == None else c.dateF))
         conn.commit()
         conn.close()
 
@@ -83,3 +84,7 @@ class Placement:
         if(Place.getAvailablePlace(client.idVoiture) == None): return False
         return True
 
+    @staticmethod
+    def recupererVehicule(client):
+        client.voiture.immatriculation
+        # TODO

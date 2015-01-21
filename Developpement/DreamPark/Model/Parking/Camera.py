@@ -13,11 +13,11 @@ class Camera:
 
     @staticmethod
     def capturerLongueur():
-        return uniform(200, 600)
+        return uniform(100, 150)
 
     @staticmethod
     def capturerLargeur():
-        return uniform(100, 250)
+        return uniform(100, 220)
 
     @staticmethod
     def capturerImmat():
