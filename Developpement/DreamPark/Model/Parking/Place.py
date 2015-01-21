@@ -72,3 +72,11 @@ class Place:
             curseur.execute("insert into Place values (?, ?, ?, ?, ?)", (c.id, c.hauteur, c.largeur, c.longueur, c.niveau))
         conn.commit()
         conn.close()
+
+
+    def getAvailablePlace(voiture):
+        # TODO : Soustraire les places réservées
+        for i in Place.tous:
+            if (
+                        i.hauteur >= voiture.hauteur and i.largeur >= voiture.largeur and i.hauteur >= voiture.hauteur): return i
+        return None

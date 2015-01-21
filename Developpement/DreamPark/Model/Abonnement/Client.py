@@ -5,26 +5,20 @@ import string
 from Developpement.DreamPark.Model.Parking.Voiture import Voiture
 
 
-
 class Client:
 
     tous = []
 
-    def __getitem__(cls,val):
-        for item in cls.tous:
-            if(item.num == val): return item
-        return None
-
     @staticmethod
-    def exist(num):
+    def get(key):
         for item in Client.tous:
-            if(item.num == num): return True
-        return False
+            if (item.num == key): return item
+        return None
 
     @staticmethod
     def generateId():
         d = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(8))
-        while Client.exist(d):
+        while Client.get(d) != None:
             d = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(8))
         return d
 
@@ -89,7 +83,9 @@ class Client:
             con.row_factory = sqlite3.Row
             cur = con.cursor()
             for row in cur.execute("""SELECT * FROM Client"""):
-                Client(row["nomClient"], row["prenomClient"], row["adrClient"], row["estAbonne"], Voiture[row["idVoiture"]], row["numCB"], row["cryptoVisuel"], row["dateExpiration"], row["placeReserve"], row["numClient"])
+                Client(row["nomClient"], row["prenomClient"], row["adrClient"], row["estAbonne"],
+                       Voiture.get(row["idVoiture"]), row["numCB"], row["cryptoVisuel"], row["dateExpiration"],
+                       row["placeReserve"], row["numClient"])
         con.close()
 
     @staticmethod
@@ -102,6 +98,8 @@ class Client:
         curseur.execute("delete from Client")
         # insert clients
         for c in Client.tous:
+            print([c.num, c.nom, c.prenom, c.adr, c.estAbonne, c.voiture.immatriculation, c.numCB, c.cryptoVisuel,
+                   c.dateExpiration])
             curseur.execute("insert into Client values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (
                 c.num, c.nom, c.prenom, c.adr, c.estAbonne, c.voiture.immatriculation, c.numCB, c.cryptoVisuel,
                 c.dateExpiration, None if (c.placeReserve == None) else c.placeReserve.id))

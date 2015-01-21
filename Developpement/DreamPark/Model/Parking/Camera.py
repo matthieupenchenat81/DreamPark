@@ -1,5 +1,8 @@
+import string
+import random
 from random import uniform
-import uuid
+
+from Developpement.DreamPark.Model.Parking.Voiture import Voiture
 
 
 class Camera:
@@ -18,4 +21,16 @@ class Camera:
 
     @staticmethod
     def capturerImmat():
-        return uuid.uuid4();
+        chars1 = "".join([random.choice(string.ascii_uppercase) for _ in range(2)])
+        digits = "".join([random.choice(string.digits) for _ in range(3)])
+        chars2 = "".join([random.choice(string.ascii_uppercase) for _ in range(2)])
+        digits2 = "".join([random.choice(string.digits) for _ in range(2)])
+        d = chars1 + "-" + digits + "-" + chars2 + "(" + digits2 + ")"
+
+        while Voiture.get(d) != None:
+            chars1 = "".join([random.choice(string.ascii_uppercase) for _ in range(2)])
+            digits = "".join([random.choice(string.digits) for _ in range(3)])
+            chars2 = "".join([random.choice(string.ascii_uppercase) for _ in range(2)])
+            digits2 = "".join([random.choice(string.digits) for _ in range(2)])
+            d = chars1 + "-" + digits + "-" + chars2 + "(" + digits2 + ")"
+        return d

@@ -4,7 +4,6 @@ from Developpement.DreamPark.View.UIHome import *
 from Developpement.DreamPark.View.UIClientConnection import *
 from Developpement.DreamPark.View.UIClientRegistered import *
 from Developpement.DreamPark.View.UIGuestTicket import *
-from Developpement.DreamPark.Model.Abonnement.Client import *
 from Developpement.DreamPark.Model.Parking.Placement import *
 from Developpement.DreamPark.Model.Parking.Voiture import *
 from Developpement.DreamPark.Model.Parking.Place import *
@@ -58,7 +57,7 @@ class HomeControler:
             self.ui.guest.raise_()
 
     def tryLogin(self, val):
-        self.currentUser = Client[val]  # TODO
+        self.currentUser = Client.get(val)
         if self.currentUser != None:
             if self.currentUser.hasParkedCar():
                 self.ui.tabWidget.removeTab(0)
@@ -128,7 +127,7 @@ class HomeControler:
 
     def seGarerEnAnonyme(self):
         c = Client(None, None, None, False, self.guestVoiture, "", "", "", None)
-        Placement(self.guestVoiture.getAvailablePlace(), c, "dateDébut", None)
+        Placement(Place.getAvailablePlace(self.guestVoiture), c, "dateDébut", None)
         self.Dialog = QtGui.QDialog()
         u = Ui_GuestTicket()
         u.setupUi(self.Dialog)
@@ -142,6 +141,6 @@ class HomeControler:
             Placement(Place.getAvailablePlace(self.currentUser.voiture), self.currentUser, "dated", "datef")
 
     def recupererEnAnonyme(self):
-        c = Client[self.ui.input_numTicket.text()]
+        c = Client.get(self.ui.input_numTicket.text())
         if c != None:
-            c.recupererVehicule()  # TODO
+            ...  # c.recupererVehicule()   TODO

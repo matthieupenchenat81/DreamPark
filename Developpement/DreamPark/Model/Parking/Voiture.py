@@ -1,9 +1,4 @@
 import sqlite3
-
-from Developpement.DreamPark.Model.Parking.Camera import Camera
-from Developpement.DreamPark.Model.Parking.Place import Place
-
-
 class Voiture:
 
     tous = []
@@ -19,10 +14,12 @@ class Voiture:
         self.tous.append(self)
 
     def setDim(self):
+        from Developpement.DreamPark.Model.Parking.Camera import Camera
         self.__longueur = Camera.capturerLongueur()
         self.__hauteur = Camera.capturerHauteur()
         self.__largeur = Camera.capturerLargeur()
         self.__immatriculation = Camera.capturerImmat()
+        print(Camera.capturerImmat())
 
     @property
     def hauteur(self):
@@ -40,8 +37,12 @@ class Voiture:
     def immatriculation(self):
         return self.__immatriculation
 
-    def __str__(self):
-         return "Voiture, " + str(self.__longueur) + "x" + str(self.__largeur) + "x" + str(self.hauteur) + ", Immatr : " + self.__immatriculation
+    @staticmethod
+    def get(key):
+        for item in Voiture.tous:
+            if (item.immatriculation == key): return item
+        return None
+
 
     @staticmethod
     def loadAll():
@@ -55,11 +56,6 @@ class Voiture:
                 Voiture(row["immatriculation"], row["longueur"], row["largeur"], row["hauteur"])
         con.close()
 
-    def __getitem__(cls, val):
-        for item in cls.tous:
-            if(item.immatriculation == val): return item
-        return None
-
     @staticmethod
     def saveAll():
         # connect table
@@ -70,9 +66,3 @@ class Voiture:
             curseur.execute("insert into Voiture values (?, ?, ?, ?)", (str(c.immatriculation), int(c.longueur), int(c.largeur), int(c.hauteur)))
         conn.commit()
         conn.close()
-
-    def getAvailablePlace(self):
-        # TODO : Soustraire les places réservées
-        for i in Place.tous:
-            if (i.hauteur >= self.hauteur and i.largeur >= self.largeur and i.hauteur >= self.hauteur): return i
-        return None
