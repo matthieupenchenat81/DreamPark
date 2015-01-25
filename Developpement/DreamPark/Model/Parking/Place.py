@@ -4,8 +4,9 @@ class Place:
 
     tous = []
 
-    def __init__(self, niveau, hauteur, largeur, longueur, id = None):
+    def __init__(self, niveau, hauteur, longueur, largeur, id=None):
         self.__id = id if (id != None) else len(Place.tous)
+        print("Créé avec id : " + str(self.__id))
         self.__hauteur = hauteur
         self.__largeur = largeur
         self.__longueur = longueur
@@ -57,7 +58,7 @@ class Place:
             cur.execute("SELECT * FROM Place")
             rows = cur.fetchall()
             for row in rows:
-                Place(row["hauteur"], row["longueur"], row["largeur"], int(row["niveau"]), row["id"])
+                Place(row["niveau"], row["hauteur"], row["longueur"], row["largeur"], row["id"])
         con.close()
 
     @staticmethod
@@ -70,15 +71,27 @@ class Place:
         curseur.execute("delete from Place")
         # insert places
         for c in Place.tous:
-            curseur.execute("insert into Place values (?, ?, ?, ?, ?)", (c.id, c.hauteur, c.largeur, c.longueur, c.niveau))
+            print(c.id)
+            curseur.execute("insert into Place values (?, ?, ?, ?, ?)",
+                            (c.niveau, c.hauteur, c.longueur, c.largeur, c.id))
         conn.commit()
         conn.close()
 
 
+    def isAvailable(self):
+        from Developpement.DreamPark.Model.Abonnement.Client import Client
+        from Developpement.DreamPark.Model.Parking.Placement import Placement
+
+        for c in Client.tous:
+            if c.placeReserve == self: return False
+        for pc in Placement.tous:
+            if pc.place == self and pc.dateF == None: return False
+        return True
+
+    @staticmethod
     def getAvailablePlace(voiture):
         # TODO : Soustraire les places réservées
         for i in Place.tous:
-            print(i)
-            if (
-                        i.hauteur >= voiture.hauteur and i.largeur >= voiture.largeur and i.hauteur >= voiture.hauteur): return i
+            if (i.hauteur >= voiture.hauteur and i.largeur >= voiture.largeur and i.hauteur >= voiture.hauteur):
+                if i.isAvailable(): return i
         return None

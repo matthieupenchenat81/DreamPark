@@ -127,10 +127,12 @@ class HomeControler:
 
     def seGarerEnAnonyme(self):
         c = Client(None, None, None, False, self.guestVoiture, "", "", "", None)
+        print(Place.getAvailablePlace(self.guestVoiture))
         Placement(Place.getAvailablePlace(self.guestVoiture), c, "dateDébut", None)
         self.Dialog = QtGui.QDialog()
         u = Ui_GuestTicket()
         u.setupUi(self.Dialog)
+        self.Dialog.finished.connect(self.goBackHome)
         u.label_numTicket.setText("Votre numéro de ticket est le :\n" + c.num)
         self.Dialog.exec_()
 
@@ -144,3 +146,8 @@ class HomeControler:
         c = Client.get(self.ui.input_numTicket.text())
         if c != None:
             c.recupererVehicule()
+            self.goBackHome()
+
+
+    def goBackHome(self):
+        self.ui.home.raise_()

@@ -109,3 +109,18 @@ class Client:
         tmpN = "-" if self.__nom == None else self.__nom
         return "( " + self.__num + ", " + tmpN + " " + tmpP + " )"
 
+
+    def hasParkedCar(self):
+        from Developpement.DreamPark.Model.Parking.Placement import Placement
+
+        for item in Placement.tous:
+            if (item.client == self and item.dateF == None):
+                return True
+        return False
+
+    def recupererVehicule(self):
+        from Developpement.DreamPark.Model.Parking.Placement import Placement
+
+        for pc in Placement.tous:
+            if (pc.client == self and pc.dateF != None):
+                pc.dateF = "FINI"
