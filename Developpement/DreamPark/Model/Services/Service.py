@@ -38,5 +38,4 @@ class Service:
         self.__rapport += "Entretien effectué"
 
     def effectuerLivraison(self):
-        #TODO retirer la voiture
-        ...
+        self.__client.recupererVehicule()
