@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>549</width>
-    <height>411</height>
+    <height>408</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -47,7 +47,7 @@
        <x>0</x>
        <y>0</y>
        <width>551</width>
-       <height>341</height>
+       <height>411</height>
       </rect>
      </property>
      <property name="toolTip">
@@ -741,10 +741,10 @@ Veuillez insérer les coordonnées de votre carte bancaire:</string>
      </property>
     </widget>
    </widget>
+   <zorder>guest</zorder>
    <zorder>guest_recover</zorder>
    <zorder>home</zorder>
    <zorder>subscribed</zorder>
-   <zorder>guest</zorder>
   </widget>
  </widget>
  <resources/>
