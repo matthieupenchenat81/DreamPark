@@ -10,7 +10,5 @@ Place.loadAll()
 Placement.loadAll()
 
 
-
-
 hc = HomeControler()
 

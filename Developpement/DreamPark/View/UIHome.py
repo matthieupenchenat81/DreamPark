@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '/home/malibu/Git/DreamPark/UI/UIHome.ui'
 #
-# Created: Sun Jan 25 20:02:25 2015
+# Created: Thu Jan 29 16:31:01 2015
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,12 +26,12 @@ except AttributeError:
 class Ui_consumer_home(object):
     def setupUi(self, consumer_home):
         consumer_home.setObjectName(_fromUtf8("consumer_home"))
-        consumer_home.resize(549, 398)
+        consumer_home.resize(549, 411)
         self.centralwidget = QtGui.QWidget(consumer_home)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.subscribed = QtGui.QFrame(self.centralwidget)
         self.subscribed.setEnabled(True)
-        self.subscribed.setGeometry(QtCore.QRect(0, 0, 551, 341))
+        self.subscribed.setGeometry(QtCore.QRect(0, 0, 551, 411))
         self.subscribed.setAccessibleDescription(_fromUtf8(""))
         self.subscribed.setAutoFillBackground(True)
         self.subscribed.setFrameShape(QtGui.QFrame.Panel)
@@ -106,7 +106,7 @@ class Ui_consumer_home(object):
         self.btn_packGaranti.setObjectName(_fromUtf8("btn_packGaranti"))
         self.tabWidget.addTab(self.tab_settings, _fromUtf8(""))
         self.home = QtGui.QFrame(self.centralwidget)
-        self.home.setGeometry(QtCore.QRect(-1, -1, 551, 341))
+        self.home.setGeometry(QtCore.QRect(-1, -1, 551, 411))
         self.home.setAutoFillBackground(True)
         self.home.setFrameShape(QtGui.QFrame.StyledPanel)
         self.home.setFrameShadow(QtGui.QFrame.Raised)
@@ -218,9 +218,9 @@ class Ui_consumer_home(object):
         self.adresseLivraisonLabel = QtGui.QLabel(self.formLayoutWidget)
         self.adresseLivraisonLabel.setObjectName(_fromUtf8("adresseLivraisonLabel"))
         self.formLayout.setWidget(2, QtGui.QFormLayout.LabelRole, self.adresseLivraisonLabel)
-        self.input_adressel = QtGui.QLineEdit(self.formLayoutWidget)
-        self.input_adressel.setObjectName(_fromUtf8("input_adressel"))
-        self.formLayout.setWidget(2, QtGui.QFormLayout.FieldRole, self.input_adressel)
+        self.input_adresse = QtGui.QLineEdit(self.formLayoutWidget)
+        self.input_adresse.setObjectName(_fromUtf8("input_adresse"))
+        self.formLayout.setWidget(2, QtGui.QFormLayout.FieldRole, self.input_adresse)
         self.label_5 = QtGui.QLabel(self.tab_5)
         self.label_5.setGeometry(QtCore.QRect(30, 20, 311, 16))
         self.label_5.setObjectName(_fromUtf8("label_5"))
@@ -259,7 +259,7 @@ class Ui_consumer_home(object):
         self.pushButton.setObjectName(_fromUtf8("pushButton"))
         self.tabWidget_2.addTab(self.tab_5, _fromUtf8(""))
         self.guest_recover = QtGui.QFrame(self.centralwidget)
-        self.guest_recover.setGeometry(QtCore.QRect(-1, -1, 551, 341))
+        self.guest_recover.setGeometry(QtCore.QRect(-1, -1, 551, 411))
         self.guest_recover.setAutoFillBackground(True)
         self.guest_recover.setFrameShape(QtGui.QFrame.StyledPanel)
         self.guest_recover.setFrameShadow(QtGui.QFrame.Raised)
@@ -311,7 +311,7 @@ class Ui_consumer_home(object):
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_4), _translate("consumer_home", "Récupérer le véhicule", None))
         self.nomLabel.setText(_translate("consumer_home", "Nom", None))
         self.prenomLabel.setText(_translate("consumer_home", "Prenom", None))
-        self.adresseLivraisonLabel.setText(_translate("consumer_home", "Adresse Livraison", None))
+        self.adresseLivraisonLabel.setText(_translate("consumer_home", "Adresse ", None))
         self.label_5.setText(_translate("consumer_home", "Pour vous abonner veuillez remplir ces champs:", None))
         self.label_6.setText(_translate("consumer_home", "Mode de paiement:", None))
         self.numeroDeCarteLabel.setText(_translate("consumer_home", "Numero de carte", None))

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>549</width>
-    <height>398</height>
+    <height>411</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,7 +23,7 @@
       <x>0</x>
       <y>0</y>
       <width>551</width>
-      <height>341</height>
+      <height>411</height>
      </rect>
     </property>
     <property name="accessibleDescription">
@@ -298,7 +298,7 @@ disponible pour vous :</string>
       <x>-1</x>
       <y>-1</y>
       <width>551</width>
-      <height>341</height>
+      <height>411</height>
      </rect>
     </property>
     <property name="autoFillBackground">
@@ -595,12 +595,12 @@ Nous avons détecté votre véhicule, vous pouvez vous garer. </string>
         <item row="2" column="0">
          <widget class="QLabel" name="adresseLivraisonLabel">
           <property name="text">
-           <string>Adresse Livraison</string>
+           <string>Adresse </string>
           </property>
          </widget>
         </item>
         <item row="2" column="1">
-         <widget class="QLineEdit" name="input_adressel"/>
+         <widget class="QLineEdit" name="input_adresse"/>
         </item>
        </layout>
       </widget>
@@ -711,7 +711,7 @@ Nous avons détecté votre véhicule, vous pouvez vous garer. </string>
       <x>-1</x>
       <y>-1</y>
       <width>551</width>
-      <height>341</height>
+      <height>411</height>
      </rect>
     </property>
     <property name="autoFillBackground">

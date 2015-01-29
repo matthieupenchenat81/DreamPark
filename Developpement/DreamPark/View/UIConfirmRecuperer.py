@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '/home/malibu/Git/DreamPark/UI/UIConfirmRecupererVoiture.ui'
 #
-# Created: Sun Jan 25 18:09:19 2015
+# Created: Thu Jan 29 16:30:28 2015
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,11 +26,11 @@ except AttributeError:
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName(_fromUtf8("Dialog"))
-        Dialog.resize(391, 111)
+        Dialog.resize(405, 104)
         self.buttonBox = QtGui.QDialogButtonBox(Dialog)
-        self.buttonBox.setGeometry(QtCore.QRect(30, 70, 341, 32))
+        self.buttonBox.setGeometry(QtCore.QRect(50, 60, 341, 32))
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
+        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName(_fromUtf8("buttonBox"))
         self.label = QtGui.QLabel(Dialog)
         self.label.setGeometry(QtCore.QRect(20, 20, 341, 31))
@@ -43,5 +43,5 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(_translate("Dialog", "Dialog", None))
-        self.label.setText(_translate("Dialog", "Etes-vous sûr de vouloir récupérer votre véhicule?", None))
+        self.label.setText(_translate("Dialog", "Votre véhicule a bien été récupéré!", None))
 
