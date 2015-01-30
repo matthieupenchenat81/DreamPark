@@ -83,7 +83,8 @@ class Client:
             con.row_factory = sqlite3.Row
             cur = con.cursor()
             for row in cur.execute("""SELECT * FROM Client"""):
-                Client(row["nomClient"], row["prenomClient"], row["adrClient"], row["estAbonne"],
+                Client(row["nomClient"], row["prenomClient"], row["adrClient"],
+                       True if (row["estAbonne"] == 1) else False,
                        Voiture.get(row["idVoiture"]), row["numCB"], row["cryptoVisuel"], row["dateExpiration"],
                        row["placeReserve"], row["numClient"])
         con.close()
@@ -124,3 +125,19 @@ class Client:
         for pc in Placement.tous:
             if (pc.client == self and pc.dateF != None):
                 pc.dateF = "FINI"
+
+    @staticmethod
+    def getNbSuperAbonne():
+        i = 0
+        for c in Client.tous:
+            if c.placeReserve != None and c.estAbonne:
+                i = i + 1
+        return i
+
+    @staticmethod
+    def getNbAbonne():
+        i = 0
+        for c in Client.tous:
+            if c.estAbonne:
+                i = i + 1
+        return i

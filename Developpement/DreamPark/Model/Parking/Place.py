@@ -6,7 +6,6 @@ class Place:
 
     def __init__(self, niveau, hauteur, longueur, largeur, id=None):
         self.__id = id if (id != None) else len(Place.tous)
-        print("Créé avec id : " + str(self.__id))
         self.__hauteur = hauteur
         self.__largeur = largeur
         self.__longueur = longueur
@@ -71,7 +70,6 @@ class Place:
         curseur.execute("delete from Place")
         # insert places
         for c in Place.tous:
-            print(c.id)
             curseur.execute("insert into Place values (?, ?, ?, ?, ?)",
                             (c.niveau, c.hauteur, c.longueur, c.largeur, c.id))
         conn.commit()

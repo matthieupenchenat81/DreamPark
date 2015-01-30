@@ -105,12 +105,13 @@ class HomeControler:
             u = Ui_ClientRegistered()
             u.setupUi(self.Dialog)
             if self.ui.check_packGaranti.isChecked():
-                # TODO : Si il y a pas de place pour prendre un pack garenti...
-                c = Client(self.ui.input_lastName.text(), self.ui.input_firstName.text(), self.ui.input_adresseI.text(),
+                p = Place(3, self.guestVoiture.hauteur + 1, self.guestVoiture.longueur + 1,
+                          self.guestVoiture.largeur + 1)
+                c = Client(self.ui.input_lastName.text(), self.ui.input_firstName.text(), self.ui.input_adresse.text(),
                            True, self.guestVoiture, self.ui.numeroDeCarteLineEdit.text(), self.ui.input_crypto.text(),
-                           '12/01/2016', Place.getAvailablePlace(self.guestVoiture))
+                           '12/01/2016', p)
             else:
-                c = Client(self.ui.input_lastName.text(), self.ui.input_firstName.text(), self.ui.input_adresseI.text(),
+                c = Client(self.ui.input_lastName.text(), self.ui.input_firstName.text(), self.ui.input_adresse.text(),
                            True, self.guestVoiture, self.ui.numeroDeCarteLineEdit.text(), self.ui.input_crypto.text(),
                            '12/01/2016', None)
 
@@ -126,6 +127,7 @@ class HomeControler:
         Placement.saveAll()
 
     def seGarerEnAnonyme(self):
+
         c = Client(None, None, None, False, self.guestVoiture, "", "", "", None)
         print(Place.getAvailablePlace(self.guestVoiture))
         Placement(Place.getAvailablePlace(self.guestVoiture), c, "dateDébut", None)
@@ -151,3 +153,8 @@ class HomeControler:
 
     def goBackHome(self):
         self.ui.home.raise_()
+
+
+    def enleverPackGarentie(self):
+        Place.tous.remove(self.currentUser.placeReserve)
+        self.currentUser.placeReserve = None

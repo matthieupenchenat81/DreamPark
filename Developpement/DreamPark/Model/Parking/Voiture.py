@@ -19,7 +19,7 @@ class Voiture:
         self.__hauteur = Camera.capturerHauteur()
         self.__largeur = Camera.capturerLargeur()
         self.__immatriculation = Camera.capturerImmat()
-        print(Camera.capturerImmat())
+        print("Voiture instanciée avec immatrictulation " + Camera.capturerImmat())
 
     @property
     def hauteur(self):

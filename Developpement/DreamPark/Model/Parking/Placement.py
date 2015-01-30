@@ -13,6 +13,7 @@ class Placement:
         self.__client = client
         self.__dateD = dateD
         self.__dateF = dateF
+        # TODO SERVICES
         self.tous.append(self)
 
     def partirPlace(self, dateF):
@@ -77,3 +78,11 @@ class Placement:
         if(Placement.hasParkedCar(client)): return False
         if(Place.getAvailablePlace(client.idVoiture) == None): return False
         return True
+
+    @staticmethod
+    def nbPlaceOccupes():
+        i = 0
+        for p in Placement.tous:
+            if p.dateF == None:
+                ++i
+        return i
