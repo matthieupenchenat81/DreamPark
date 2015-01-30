@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '/home/malibu/Git/DreamPark/UI/UIHome.ui'
 #
-# Created: Thu Jan 29 16:31:01 2015
+# Created: Thu Jan 29 16:39:16 2015
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,7 +26,7 @@ except AttributeError:
 class Ui_consumer_home(object):
     def setupUi(self, consumer_home):
         consumer_home.setObjectName(_fromUtf8("consumer_home"))
-        consumer_home.resize(549, 411)
+        consumer_home.resize(549, 408)
         self.centralwidget = QtGui.QWidget(consumer_home)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.subscribed = QtGui.QFrame(self.centralwidget)
@@ -39,7 +39,7 @@ class Ui_consumer_home(object):
         self.subscribed.setObjectName(_fromUtf8("subscribed"))
         self.tabWidget = QtGui.QTabWidget(self.subscribed)
         self.tabWidget.setEnabled(True)
-        self.tabWidget.setGeometry(QtCore.QRect(0, 0, 551, 341))
+        self.tabWidget.setGeometry(QtCore.QRect(0, 0, 551, 411))
         self.tabWidget.setToolTip(_fromUtf8(""))
         self.tabWidget.setObjectName(_fromUtf8("tabWidget"))
         self.tab = QtGui.QWidget()
