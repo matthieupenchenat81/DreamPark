@@ -1,6 +1,7 @@
 import random
 import sqlite3
 import string
+from Developpement.DreamPark.Model.Parking import Place
 
 from Developpement.DreamPark.Model.Parking.Voiture import Voiture
 
@@ -86,7 +87,7 @@ class Client:
                 Client(row["nomClient"], row["prenomClient"], row["adrClient"],
                        True if (row["estAbonne"] == 1) else False,
                        Voiture.get(row["idVoiture"]), row["numCB"], row["cryptoVisuel"], row["dateExpiration"],
-                       row["placeReserve"], row["numClient"])
+                       Place.get(row["placeReserve"]), row["numClient"])
         con.close()
 
     @staticmethod
