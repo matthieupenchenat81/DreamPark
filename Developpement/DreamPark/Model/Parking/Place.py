@@ -20,10 +20,6 @@ class Place:
         return self.__id
 
     @property
-    def estLibre(self):
-        return self.__estLibre
-
-    @property
     def hauteur(self):
         return self.__hauteur
 
@@ -44,9 +40,6 @@ class Place:
         for item in Place.tous:
             if (item.id == key): return item
         return None
-
-    def toogleAvailable(self):
-        self.__estLibre = not self.__estLibre
 
     @staticmethod
     def loadAll():

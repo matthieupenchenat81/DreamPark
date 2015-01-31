@@ -8,7 +8,8 @@ class Placement:
 
     tous = []
 
-    def __init__(self, place, client, dateD, services, dateF=None):
+    def __init__(self, id, place, client, dateD, services, dateF=None):
+        self.__id = id if (id != None) else len(Placement.tous)
         self.__place = place
         self.__client = client
         self.__dateD = dateD
@@ -27,12 +28,12 @@ class Placement:
         return (self.__dateF == None)
 
     @property
-    def id(self):
-        return self.__id
-
-    @property
     def place(self):
         return self.__place
+
+    @property
+    def id(self):
+        return self.__id
 
     @property
     def services(self):
@@ -63,7 +64,7 @@ class Placement:
             cur.execute("SELECT * FROM Placement")
             rows = cur.fetchall()
             for row in rows:
-                Placement(Place.get(row["place"]), Client.get(row["client"]), row["dateD"], row["dateF"])
+                Placement(row["id"], Place.get(row["place"]), Client.get(row["client"]), row["dateD"], row["dateF"])
         con.close()
 
     @staticmethod
@@ -75,11 +76,16 @@ class Placement:
         curseur.execute("delete from Placement")
         # insert Placement
         for c in Placement.tous:
-            curseur.execute("insert into Placement values (?, ?, ?, ?)", (c.place.id, c.client.num, c.dateD,
+            curseur.execute("insert into Placement values (?, ?, ?, ?, ?)", (c.id, c.place.id, c.client.num, c.dateD,
                                                                           "" if c.dateF == None else c.dateF))
         conn.commit()
         conn.close()
 
+    @staticmethod
+    def get(id):
+        for p in Placement.tous:
+            if p.id == id: return p
+        return None
 
     @staticmethod
     def canPark(client):
