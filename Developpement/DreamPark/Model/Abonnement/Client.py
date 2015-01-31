@@ -1,8 +1,8 @@
 import random
 import sqlite3
 import string
-from Developpement.DreamPark.Model.Parking import Place
 
+from Developpement.DreamPark.Model.Parking.Place import Place
 from Developpement.DreamPark.Model.Parking.Voiture import Voiture
 
 
@@ -124,14 +124,15 @@ class Client:
         from Developpement.DreamPark.Model.Parking.Placement import Placement
 
         for pc in Placement.tous:
-            if (pc.client == self and pc.dateF != None):
-                pc.dateF = "FINI"
-
+            if (pc.client == self and not pc.dateF):
+                pc.dateF = "FINI"  # mettre vrai date
+                return True
+        return False
     @staticmethod
     def getNbSuperAbonne():
         i = 0
         for c in Client.tous:
-            if c.placeReserve != None and c.estAbonne:
+            if not c.placeReserve and c.estAbonne:
                 i = i + 1
         return i
 
