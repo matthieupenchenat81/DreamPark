@@ -2,6 +2,7 @@ import datetime
 from enum import Enum
 import sqlite3
 
+
 class Service:
 
     tous = []
@@ -27,7 +28,8 @@ class Service:
     def argument(self):
         return self.__argument
 
-    def __init__(self, dateDemande, dateFin, typeService, argument=None):
+    def __init__(self, placement, dateDemande, dateFin, typeService, argument=None):
+        self.__placement = placement
         self.__dateD = dateDemande
         self.__dateF = dateFin
         self.__typeService = typeService
@@ -40,6 +42,7 @@ class Service:
 
     @staticmethod
     def loadAll():
+        from Developpement.DreamPark.Model.Parking import Placement
         con = sqlite3.connect("test.db")
         with con:
             con.row_factory = sqlite3.Row
@@ -47,7 +50,7 @@ class Service:
             cur.execute("SELECT * FROM Service")
             rows = cur.fetchall()
             for row in rows:
-                Service(row["dateDemande"], row["dateFin"], row["typeService"], row["argument"])
+                Service(Placement.get(row["placement"]), row["dateDemande"], row["dateFin"], row["typeService"], row["argument"])
         con.close()
 
     @staticmethod
@@ -59,6 +62,6 @@ class Service:
         curseur.execute("delete from Service")
         # insert Service
         for c in Service.tous:
-            curseur.execute("insert into Service values (?, ?, ?, ?)", (c.dateDemande, c.dateFin, c.typeService, c.argument))
+            curseur.execute("insert into Service values (?, ?, ?, ?, ?)", (c.placement.id, c.dateDemande, c.dateFin, c.typeService, c.argument))
         conn.commit()
         conn.close()
