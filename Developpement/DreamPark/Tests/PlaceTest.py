@@ -16,6 +16,7 @@ class PlaceTest(unittest.TestCase):
     def test_get(self):
         p = Place(1, 300, 200, 500, 777)
         self.assertEqual(Place.get(7797), None)
+        self.assertEqual(str(Place.get(777)), str(p))
 
 if __name__ == '__main__':
     unittest.main()

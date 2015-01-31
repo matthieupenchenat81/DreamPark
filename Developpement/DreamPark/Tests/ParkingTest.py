@@ -9,9 +9,9 @@ class ParkingTest(unittest.TestCase):
         p = Parking()
         self.assertEqual(p.places, [])
 
-        places = [Place(1, 100, 200, 300), Place(2, 200, 100, 350)]
+        places = [Place(1, 300, 200, 500, 777), Place(2, 300, 129, 500, 999)]
         p2 = Parking(places)
-        self.assertEqual(p.places, places)
+        self.assertEqual(p2.places, places)
 
 if __name__ == '__main__':
     unittest.main()

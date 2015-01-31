@@ -1,7 +1,6 @@
 import string
 import random
 from random import uniform
-
 from Developpement.DreamPark.Model.Parking.Voiture import Voiture
 
 
