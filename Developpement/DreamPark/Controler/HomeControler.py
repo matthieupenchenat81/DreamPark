@@ -39,6 +39,10 @@ class HomeControler:
         self.ui.input_lastName.setValidator(validatorName)
         self.ui.numeroDeCarteLineEdit.setValidator(validatorCB)
         self.ui.input_crypto.setValidator(validatorCrypto)
+
+        self.ui.input_numCarte.setValidator(validatorCB)
+        self.ui.input_cryptogrammeVisuel.setValidator(validatorCrypto)
+
         #show main
         self.ui.home.raise_()
         self.view.show()
