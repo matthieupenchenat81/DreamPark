@@ -86,6 +86,6 @@ class Placement:
     def nbPlaceOccupes():
         i = 0
         for p in Placement.tous:
-            if p.dateF == None:
-                ++i
+            if not p.dateF:
+                i = i + 1
         return i

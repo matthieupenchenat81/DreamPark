@@ -28,15 +28,15 @@ def initTable():
 
 initTable()
 
-print("Création des Voitures...")
-v1 = Voiture()
-v2 = Voiture()
-Voiture.saveAll()
-
-print("Définition des Clients...")
-Client("PEREIRA", "Alexandre", "4 Boulevard Koenings 31300 Toulouse", True, v1, 12363663, 144, "12/12/1212", None)
-Client("PENCHENAT", "Matthieu", "2 Impasse Louis Tharaud 31300 Toulouse", False, v2, 12363669, 147, "12/12/1212", None)
-Client.saveAll()
+# print("Création des Voitures...")
+# v1 = Voiture()
+# v2 = Voiture()
+# Voiture.saveAll()
+#
+# print("Définition des Clients...")
+# Client("PEREIRA", "Alexandre", "4 Boulevard Koenings 31300 Toulouse", True, v1, 12363663, 144, "12/12/1212", None)
+# Client("PENCHENAT", "Matthieu", "2 Impasse Louis Tharaud 31300 Toulouse", False, v2, 12363669, 147, "12/12/1212", None)
+# Client.saveAll()
 
 for client in Client.tous:
     print(client)

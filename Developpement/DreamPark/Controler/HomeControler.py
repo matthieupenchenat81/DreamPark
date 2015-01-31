@@ -15,8 +15,8 @@ class HomeControler:
     def __init__(self):
         print(datetime.today().strftime("%H:%M:%S"))
         QtGui.QApplication.setStyle(QtGui.QStyleFactory.create("Cleanlooks"))
-        app = QtGui.QApplication(sys.argv)
-        app.aboutToQuit.connect(self.exitProgram)
+        self.app = QtGui.QApplication(sys.argv)
+        self.app.aboutToQuit.connect(self.exitProgram)
         self.view = QtGui.QMainWindow()
         self.ui = Ui_consumer_home()
         self.ui.setupUi(self.view)
@@ -42,7 +42,7 @@ class HomeControler:
         #show main
         self.ui.home.raise_()
         self.view.show()
-        sys.exit(app.exec_())
+        sys.exit(self.app.exec_())
 
     def chooseInterface(self, type):
         if type==0:
@@ -127,7 +127,7 @@ class HomeControler:
         Client.saveAll()
         Place.saveAll()
         Placement.saveAll()
-
+        print("Goodbye !")
     def seGarerEnAnonyme(self):
 
         c = Client(None, None, None, False, self.guestVoiture, self.ui.input_numCarte.text(),
@@ -153,13 +153,16 @@ class HomeControler:
         c = Client.get(self.ui.input_numTicket.text())
         if c != None:
             c.recupererVehicule()
-            self.goBackHome()
+            self.goBackHome()  # TODO Verifier pas 2 ofis
 
 
     def goBackHome(self):
-        self.emit(QtCore.SIGNAL("RESTARTREQUIRED"), True)
+        self.exitProgram()
+        import subprocess
 
-
+        self.view.close()
+        python = sys.executable
+        subprocess.call(python + " app.py", shell=True)
     def enleverPackGarentie(self):
         Place.tous.remove(self.currentUser.placeReserve)
         self.currentUser.placeReserve = None
