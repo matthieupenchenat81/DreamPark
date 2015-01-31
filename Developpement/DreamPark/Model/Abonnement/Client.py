@@ -1,7 +1,7 @@
 import random
 import sqlite3
 import string
-from Developpement.DreamPark.Model.Parking import Place
+from Developpement.DreamPark.Model.Parking.Place import Place
 
 from Developpement.DreamPark.Model.Parking.Voiture import Voiture
 
