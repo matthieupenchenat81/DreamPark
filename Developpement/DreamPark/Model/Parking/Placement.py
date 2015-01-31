@@ -46,6 +46,9 @@ class Placement:
     def dateF(self):
         return self.__dateF
 
+    @dateF.setter
+    def dateF(self, value):
+        self.__dateF = value
     @staticmethod
     def loadAll():
         con = sqlite3.connect("test.db")

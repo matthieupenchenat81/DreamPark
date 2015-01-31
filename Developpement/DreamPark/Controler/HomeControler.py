@@ -1,4 +1,5 @@
 import sys
+from datetime import datetime
 
 from Developpement.DreamPark.View.UIHome import *
 from Developpement.DreamPark.View.UIClientConnection import *
@@ -12,6 +13,7 @@ from Developpement.DreamPark.Model.Parking.Place import *
 class HomeControler:
 
     def __init__(self):
+        print(datetime.today().strftime("%H:%M:%S"))
         QtGui.QApplication.setStyle(QtGui.QStyleFactory.create("Cleanlooks"))
         app = QtGui.QApplication(sys.argv)
         app.aboutToQuit.connect(self.exitProgram)
@@ -128,8 +130,11 @@ class HomeControler:
 
     def seGarerEnAnonyme(self):
 
-        c = Client(None, None, None, False, self.guestVoiture, "", "", "", None)
+        c = Client(None, None, None, False, self.guestVoiture, self.ui.input_numCarte.text(),
+                   self.ui.input_cryptogrammeVisuel.text(),
+                   self.ui.input_dateExpiration.text(), None)  # TODO
         print(Place.getAvailablePlace(self.guestVoiture))
+        print("test " + self.ui.input_crypto.text())
         Placement(Place.getAvailablePlace(self.guestVoiture), c, "dateDébut", None)
         self.Dialog = QtGui.QDialog()
         u = Ui_GuestTicket()
@@ -152,7 +157,7 @@ class HomeControler:
 
 
     def goBackHome(self):
-        self.ui.home.raise_()
+        self.emit(QtCore.SIGNAL("RESTARTREQUIRED"), True)
 
 
     def enleverPackGarentie(self):
