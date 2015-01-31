@@ -2,19 +2,20 @@ import sqlite3
 
 from Developpement.DreamPark.Model.Abonnement.Client import Client
 from Developpement.DreamPark.Model.Parking.Place import Place
+from Developpement.DreamPark.Model.Services import Service
 
 
 class Placement:
 
     tous = []
 
-    def __init__(self, id, place, client, dateD, services, dateF=None):
+    def __init__(self, id, place, client, dateD, dateF=None):
         self.__id = id if (id != None) else len(Placement.tous)
         self.__place = place
         self.__client = client
         self.__dateD = dateD
         self.__dateF = dateF
-        self.__services = services
+        self.__services = self.getServices()
         self.tous.append(self)
 
     def partirPlace(self, dateF):
@@ -34,6 +35,12 @@ class Placement:
     @property
     def id(self):
         return self.__id
+
+    def getServices(self):
+        services = []
+        for s in Service.tous:
+            if (s.placement == self): services.append(s)
+        return services
 
     @property
     def services(self):

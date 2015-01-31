@@ -1,6 +1,8 @@
-from random import randint
 import unittest
+from Developpement.DreamPark.Model.Abonnement.Client import Client
 from Developpement.DreamPark.Model.Parking.Place import Place
+from Developpement.DreamPark.Model.Parking.Placement import Placement
+from Developpement.DreamPark.Model.Parking.Voiture import Voiture
 
 
 class PlaceTest(unittest.TestCase):
@@ -20,7 +22,13 @@ class PlaceTest(unittest.TestCase):
 
     def test_isAvailable(self):
         p = Place(1, 300, 200, 500, 777)
-        self.assertEqual()
+        self.assertEqual(p.isAvailable(), True)
+
+        # la place a été réservé
+        c = Client("PEREIRA", "Alexandre", "4 Boulevard Koenings 31300 Toulouse", True, Voiture(), 12363663, 144, "12/12/1212", p, None)
+        self.assertEqual(p.isAvailable(), False)
+
+        Placement(None, p, c, "date..", services, None)
 
 if __name__ == '__main__':
     unittest.main()
