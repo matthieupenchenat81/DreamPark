@@ -76,8 +76,9 @@ class Placement:
         curseur.execute("delete from Placement")
         # insert Placement
         for c in Placement.tous:
+            print(c.place)
             curseur.execute("insert into Placement values (?, ?, ?, ?, ?)", (c.id, c.place.id, c.client.num, c.dateD,
-                                                                          "" if c.dateF == None else c.dateF))
+                                                                             "" if c.dateF == None else c.dateF))
         conn.commit()
         conn.close()
 

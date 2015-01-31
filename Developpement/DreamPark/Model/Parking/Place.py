@@ -81,7 +81,6 @@ class Place:
 
     @staticmethod
     def getAvailablePlace(voiture):
-        # TODO : Soustraire les places réservées
         for i in Place.tous:
             if (i.hauteur >= voiture.hauteur and i.largeur >= voiture.largeur and i.hauteur >= voiture.hauteur):
                 if i.isAvailable(): return i

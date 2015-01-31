@@ -4,6 +4,7 @@ from datetime import datetime
 from Developpement.DreamPark.View.UIHome import *
 from Developpement.DreamPark.View.UIClientConnection import *
 from Developpement.DreamPark.View.UIClientRegistered import *
+from Developpement.DreamPark.View.UIConfirmRecuperer import *
 from Developpement.DreamPark.View.UIGuestTicket import *
 from Developpement.DreamPark.Model.Parking.Placement import *
 from Developpement.DreamPark.Model.Parking.Voiture import *
@@ -139,7 +140,7 @@ class HomeControler:
                    self.ui.input_dateExpiration.text(), None)  # TODO
         print(Place.getAvailablePlace(self.guestVoiture))
         print("test " + self.ui.input_crypto.text())
-        Placement(Place.getAvailablePlace(self.guestVoiture), c, "dateDébut", None)
+        Placement(None, Place.getAvailablePlace(self.guestVoiture), c, "dateDébut", None, None)
         self.Dialog = QtGui.QDialog()
         u = Ui_GuestTicket()
         u.setupUi(self.Dialog)
@@ -149,15 +150,20 @@ class HomeControler:
 
     def seGarerClient(self):
         if self.currentUser.placeReserve != None:
-            Placement(self.currentUser.placeReserve, self.currentUser, "dated", "datef")
+            Placement(None, self.currentUser.placeReserve, self.currentUser, "dated", "datef")
         else:
-            Placement(Place.getAvailablePlace(self.currentUser.voiture), self.currentUser, "dated", "datef")
+            Placement(None, Place.getAvailablePlace(self.currentUser.voiture), self.currentUser, "dated", "datef")
 
     def recupererEnAnonyme(self):
         c = Client.get(self.ui.input_numTicket.text())
         if c != None:
-            c.recupererVehicule()
-            self.goBackHome()  # TODO Verifier pas 2 ofis
+            if (c.recupererVehicule()):
+                self.Dialog = QtGui.QDialog()
+                u = Ui_Dialog()
+                u.setupUi(self.Dialog)
+                self.Dialog.finished.connect(self.goBackHome)
+                u.label.setText("Votre véhicule va sortir...")
+                self.Dialog.exec_()
 
 
     def goBackHome(self):
@@ -167,6 +173,7 @@ class HomeControler:
         self.view.close()
         python = sys.executable
         subprocess.call(python + " app.py", shell=True)
+
     def enleverPackGarentie(self):
         Place.tous.remove(self.currentUser.placeReserve)
         self.currentUser.placeReserve = None

@@ -1,8 +1,8 @@
 import random
 import sqlite3
 import string
-from Developpement.DreamPark.Model.Parking import Place
 
+from Developpement.DreamPark.Model.Parking.Place import Place
 from Developpement.DreamPark.Model.Parking.Voiture import Voiture
 
 
@@ -102,7 +102,7 @@ class Client:
         for c in Client.tous:
             curseur.execute("insert into Client values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (
                 c.num, c.nom, c.prenom, c.adr, c.estAbonne, c.voiture.immatriculation, c.numCB, c.cryptoVisuel,
-                c.dateExpiration, None if (c.placeReserve == None) else c.placeReserve.id))
+                c.dateExpiration, "" if (c.placeReserve == None) else c.placeReserve.id))
         conn.commit()
         conn.close()
 
@@ -116,7 +116,7 @@ class Client:
         from Developpement.DreamPark.Model.Parking.Placement import Placement
 
         for item in Placement.tous:
-            if (item.client == self and item.dateF == None):
+            if (item.client == self and not item.dateF):
                 return True
         return False
 
@@ -124,14 +124,16 @@ class Client:
         from Developpement.DreamPark.Model.Parking.Placement import Placement
 
         for pc in Placement.tous:
-            if (pc.client == self and pc.dateF != None):
+            if (pc.client == self and not pc.dateF):
                 pc.dateF = "FINI"
+                return True
+        return False
 
     @staticmethod
     def getNbSuperAbonne():
         i = 0
         for c in Client.tous:
-            if c.placeReserve != None and c.estAbonne:
+            if not c.placeReserve and c.estAbonne:
                 i = i + 1
         return i
 
