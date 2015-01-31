@@ -18,7 +18,11 @@ class Service:
 
     @property
     def dateDemande(self):
-        return self.__typeService
+        return self.__dateDemande
+
+    @property
+    def placement(self):
+        return self.__placement
 
     @property
     def dateFin(self):
