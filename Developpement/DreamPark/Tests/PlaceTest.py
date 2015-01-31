@@ -18,5 +18,9 @@ class PlaceTest(unittest.TestCase):
         self.assertEqual(Place.get(7797), None)
         self.assertEqual(str(Place.get(777)), str(p))
 
+    def test_isAvailable(self):
+        p = Place(1, 300, 200, 500, 777)
+        self.assertEqual()
+
 if __name__ == '__main__':
     unittest.main()
