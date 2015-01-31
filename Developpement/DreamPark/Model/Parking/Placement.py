@@ -8,12 +8,12 @@ class Placement:
 
     tous = []
 
-    def __init__(self, place, client, dateD, dateF=None):
+    def __init__(self, place, client, dateD, services, dateF=None):
         self.__place = place
         self.__client = client
         self.__dateD = dateD
         self.__dateF = dateF
-        # TODO SERVICES
+        self.__services = services
         self.tous.append(self)
 
     def partirPlace(self, dateF):
@@ -35,6 +35,10 @@ class Placement:
         return self.__place
 
     @property
+    def services(self):
+        return self.__services
+
+    @property
     def client(self):
         return self.__client
 
@@ -49,6 +53,7 @@ class Placement:
     @dateF.setter
     def dateF(self, value):
         self.__dateF = value
+
     @staticmethod
     def loadAll():
         con = sqlite3.connect("test.db")
