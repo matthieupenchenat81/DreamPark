@@ -1,14 +1,27 @@
 import unittest
 
-class CameraTest(unittest.TestCase):
+class PlacementTest(unittest.TestCase):
 
-    def test_caturerHauteur(self):
-        for i in range(1, 5000):
-            # -> random
-            self.assertNotEqual(Camera.capturerHauteur(), Camera.capturerHauteur())
-            self.assertNotEqual(Camera.capturerImmat(), Camera.capturerImmat())
-            self.assertNotEqual(Camera.capturerLargeur(), Camera.capturerLargeur())
-            self.assertNotEqual(Camera.capturerLongueur(), Camera.capturerLongueur())
+    def test_creer(self):
+        ...
+
+    def test_partirPlace(self):
+        ...
+
+    def test_estEnCours(self):
+        ...
+
+    def test_getServices(self):
+        ...
+
+    def test_get(self):
+        ...
+
+    def test_canPark(self):
+        ...
+
+    def test_nbPlaceOccupes(self):
+        ...
 
 if __name__ == '__main__':
     unittest.main()
