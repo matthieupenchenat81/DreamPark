@@ -15,7 +15,6 @@ from Developpement.DreamPark.Model.Services.Service import Service
 class HomeControler:
 
     def __init__(self):
-
         QtGui.QApplication.setStyle(QtGui.QStyleFactory.create("Cleanlooks"))
         self.app = QtGui.QApplication(sys.argv)
         self.app.aboutToQuit.connect(self.exitProgram)

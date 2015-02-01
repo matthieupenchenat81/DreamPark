@@ -1,6 +1,8 @@
 import sys
 
 from Developpement.DreamPark.View.UIAdmin import *
+
+from Developpement.DreamPark.View.UIAdminServices import *
 from Developpement.DreamPark.Model.Parking.Placement import *
 
 
@@ -31,4 +33,11 @@ class AdminControler:
 
 
     def showServices(self):
-        ...
+        d = QtGui.QDialog()
+        self.uis = Ui_Services()
+        self.uis.setupUi(d)
+        self.uis.tableWidget.insertRow(1)
+
+
+        # self.Dialog.accepted.connect(lambda: self.tryLogin(u.idCard.text()))
+        d.exec_()
