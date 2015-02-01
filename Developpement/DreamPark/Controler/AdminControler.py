@@ -1,6 +1,8 @@
 import sys
 
 from Developpement.DreamPark.View.UIAdmin import *
+
+from Developpement.DreamPark.View.UIAdminServices import *
 from Developpement.DreamPark.Model.Parking.Placement import *
 
 
@@ -14,6 +16,10 @@ class AdminControler:
         self.ui.setupUi(self.view)
         self.view.setWindowIcon(QtGui.QIcon("icon.png"))
         self.refreshMainPage()
+
+        self.ui.pushButton.clicked.connect(self.showServices)
+
+
         self.view.show()
         sys.exit(app.exec_())
 
@@ -24,3 +30,14 @@ class AdminControler:
         self.ui.lcdNumber_3.display(len(Client.tous))
         self.ui.lcdNumber_4.display(Client.getNbSuperAbonne())
         self.ui.lcdNumber_5.display(Client.getNbAbonne())
+
+
+    def showServices(self):
+        d = QtGui.QDialog()
+        self.uis = Ui_Services()
+        self.uis.setupUi(d)
+        self.uis.tableWidget.insertRow(1)
+
+
+        # self.Dialog.accepted.connect(lambda: self.tryLogin(u.idCard.text()))
+        d.exec_()

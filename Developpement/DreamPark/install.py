@@ -24,7 +24,7 @@ def initTable():
     curseur.execute("""create table Placement (id int, place int, client int, dateD date, dateF date)""")
     #Service
     curseur.execute("DROP TABLE IF EXISTS Service")
-    curseur.execute("""create table Service (placement int, dateDemande date, dateFin date, typeService int, argument varchar(100))""")
+    curseur.execute("""create table Service (placement int, dateFin date, typeService int, argument varchar(100))""")
 
     conn.commit()
     conn.close()

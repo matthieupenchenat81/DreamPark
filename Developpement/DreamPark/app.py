@@ -8,6 +8,7 @@ Voiture.loadAll()
 Client.loadAll()
 Place.loadAll()
 Placement.loadAll()
+Service.loadAll()
 
 
 hc = HomeControler()

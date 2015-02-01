@@ -17,24 +17,19 @@ class Service:
         return self.__typeService
 
     @property
-    def dateDemande(self):
-        return self.__dateDemande
-
-    @property
     def placement(self):
         return self.__placement
 
     @property
-    def dateFin(self):
-        return self.__dateFin
+    def dateF(self):
+        return self.__dateF
 
     @property
     def argument(self):
         return self.__argument
 
-    def __init__(self, placement, dateDemande, dateFin, typeService, argument=None):
+    def __init__(self, placement, dateFin, typeService, argument=None):
         self.__placement = placement
-        self.__dateD = dateDemande
         self.__dateF = dateFin
         self.__typeService = typeService
         self.__argument = argument
@@ -46,7 +41,7 @@ class Service:
 
     @staticmethod
     def loadAll():
-        from Developpement.DreamPark.Model.Parking import Placement
+        from Developpement.DreamPark.Model.Parking.Placement import Placement
         con = sqlite3.connect("test.db")
         with con:
             con.row_factory = sqlite3.Row
@@ -54,7 +49,8 @@ class Service:
             cur.execute("SELECT * FROM Service")
             rows = cur.fetchall()
             for row in rows:
-                Service(Placement.get(row["placement"]), row["dateDemande"], row["dateFin"], row["typeService"], row["argument"])
+                Service(Placement.get(row["placement"]), row["dateFin"], Service.TypeService(row["typeService"]),
+                        row["argument"])
         con.close()
 
     @staticmethod
@@ -66,6 +62,8 @@ class Service:
         curseur.execute("delete from Service")
         # insert Service
         for c in Service.tous:
-            curseur.execute("insert into Service values (?, ?, ?, ?, ?)", (c.placement.id, c.dateDemande, c.dateFin, c.typeService, c.argument))
+            print(str(c.typeService.value))
+            curseur.execute("insert into Service values (?, ?, ?, ?)",
+                            (c.placement.id, "" if not c.dateF else c.dateF, c.typeService.value, c.argument))
         conn.commit()
         conn.close()

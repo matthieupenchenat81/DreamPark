@@ -115,7 +115,7 @@ class Client:
         from Developpement.DreamPark.Model.Parking.Placement import Placement
 
         for item in Placement.tous:
-            if (item.client == self and item.dateF == None):
+            if (item.client == self and not item.dateF):
                 return True
         return False
 
@@ -124,7 +124,9 @@ class Client:
 
         for pc in Placement.tous:
             if (pc.client == self and not pc.dateF):
-                pc.dateF = "FINI"  # mettre vrai date
+                from datetime import datetime
+
+                pc.dateF = datetime.today().strftime("%d/%m/%Y %H:%M:%S")
                 return True
         return False
 
