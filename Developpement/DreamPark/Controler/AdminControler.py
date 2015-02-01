@@ -14,6 +14,10 @@ class AdminControler:
         self.ui.setupUi(self.view)
         self.view.setWindowIcon(QtGui.QIcon("icon.png"))
         self.refreshMainPage()
+
+        self.ui.pushButton.clicked.connect(self.showServices)
+
+
         self.view.show()
         sys.exit(app.exec_())
 
@@ -24,3 +28,7 @@ class AdminControler:
         self.ui.lcdNumber_3.display(len(Client.tous))
         self.ui.lcdNumber_4.display(Client.getNbSuperAbonne())
         self.ui.lcdNumber_5.display(Client.getNbAbonne())
+
+
+    def showServices(self):
+        ...

@@ -121,11 +121,11 @@ class HomeControler:
                           self.guestVoiture.largeur + 1)
                 c = Client(self.ui.input_lastName.text(), self.ui.input_firstName.text(), self.ui.input_adresse.text(),
                            True, self.guestVoiture, self.ui.numeroDeCarteLineEdit.text(), self.ui.input_crypto.text(),
-                           datetime.today().strftime("%d/%m/%Y %H:%M:%S"), p)
+                           self.ui.input_date.text(), p)
             else:
                 c = Client(self.ui.input_lastName.text(), self.ui.input_firstName.text(), self.ui.input_adresse.text(),
                            True, self.guestVoiture, self.ui.numeroDeCarteLineEdit.text(), self.ui.input_crypto.text(),
-                           datetime.today().strftime("%d/%m/%Y %H:%M:%S"), None)
+                           self.ui.input_date.text(), None)
 
             u.label.setText("Félicitation " + c.prenom +",\nVous êtes dorénavant membre du DreamPark parking!\n\nVotre numéro d'abonné est le suivant: ")
             u.label_2.setText(c.num)
@@ -137,6 +137,7 @@ class HomeControler:
         Client.saveAll()
         Place.saveAll()
         Placement.saveAll()
+        Service.saveAll()
         print("Goodbye !")
     def seGarerEnAnonyme(self):
 
@@ -164,9 +165,9 @@ class HomeControler:
         else:
             p = Placement(None, Place.getAvailablePlace(self.currentUser.voiture), self.currentUser, dateD, None)
 
-
-        # groupBox
-        #input_adrLivaison + "; " + input_timeLivraison
+        if self.ui.groupBox.isChecked():
+            Service(p, None, Service.TypeService.LIVRAISON,
+                    self.ui.input_adrLivaison.text() + "; " + self.ui.input_timeLivraison.text())
         if self.ui.check_Entretien.isChecked():
             Service(p, None, Service.TypeService.ENTRETIEN)
         if self.ui.check_Maintenir.isChecked():
@@ -202,3 +203,6 @@ class HomeControler:
     def enleverPackGarentie(self):
         Place.tous.remove(self.currentUser.placeReserve)
         self.currentUser.placeReserve = None
+
+    def supprimerCompte(self):
+        ...
