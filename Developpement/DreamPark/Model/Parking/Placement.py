@@ -2,7 +2,7 @@ import sqlite3
 
 from Developpement.DreamPark.Model.Abonnement.Client import Client
 from Developpement.DreamPark.Model.Parking.Place import Place
-from Developpement.DreamPark.Model.Services import Service
+from Developpement.DreamPark.Model.Services.Service import Service
 
 
 class Placement:

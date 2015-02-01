@@ -9,12 +9,13 @@ from Developpement.DreamPark.View.UIGuestTicket import *
 from Developpement.DreamPark.Model.Parking.Placement import *
 from Developpement.DreamPark.Model.Parking.Voiture import *
 from Developpement.DreamPark.Model.Parking.Place import *
+from Developpement.DreamPark.Model.Services.Service import Service
 
 
 class HomeControler:
 
     def __init__(self):
-        print(datetime.today().strftime("%H:%M:%S"))
+
         QtGui.QApplication.setStyle(QtGui.QStyleFactory.create("Cleanlooks"))
         self.app = QtGui.QApplication(sys.argv)
         self.app.aboutToQuit.connect(self.exitProgram)
@@ -60,17 +61,21 @@ class HomeControler:
             self.guestVoiture = Voiture()
             self.ui.pushButton.clicked.connect(self.trySubscribe)
             self.ui.btn_teleport_2.clicked.connect(self.seGarerEnAnonyme)
-            self.ui.btn_getCar_2.clicked.connect(self.recupererEnAnonyme)
+            self.ui.btn_getCar_2.clicked.connect(lambda: self.recupererVehicule(self.ui.input_numTicket.text()))
             self.ui.guest.raise_()
 
     def tryLogin(self, val):
         self.currentUser = Client.get(val)
         if self.currentUser != None and self.currentUser.estAbonne:
+            self.ui.btn_teleport.clicked.connect(self.seGarerClient)
             if self.currentUser.hasParkedCar():
                 self.ui.tabWidget.removeTab(0)
+                self.ui.label_immat.setText(
+                    "Votre véhicule immatriculé " + self.currentUser.voiture.immatriculation + " est actuellement dans notre parking.")
             else:
                 self.ui.tabWidget.removeTab(1)
             self.ui.label_name.setText("Bonjour " + self.currentUser.prenom + ",")
+            self.ui.btn_getCar.clicked.connect(lambda: self.recupererVehicule(self.currentUser.num))
             self.ui.subscribed.raise_()
 
     def trySubscribe(self):
@@ -116,11 +121,11 @@ class HomeControler:
                           self.guestVoiture.largeur + 1)
                 c = Client(self.ui.input_lastName.text(), self.ui.input_firstName.text(), self.ui.input_adresse.text(),
                            True, self.guestVoiture, self.ui.numeroDeCarteLineEdit.text(), self.ui.input_crypto.text(),
-                           '12/01/2016', p)
+                           datetime.today().strftime("%d/%m/%Y %H:%M:%S"), p)
             else:
                 c = Client(self.ui.input_lastName.text(), self.ui.input_firstName.text(), self.ui.input_adresse.text(),
                            True, self.guestVoiture, self.ui.numeroDeCarteLineEdit.text(), self.ui.input_crypto.text(),
-                           '12/01/2016', None)
+                           datetime.today().strftime("%d/%m/%Y %H:%M:%S"), None)
 
             u.label.setText("Félicitation " + c.prenom +",\nVous êtes dorénavant membre du DreamPark parking!\n\nVotre numéro d'abonné est le suivant: ")
             u.label_2.setText(c.num)
@@ -137,10 +142,12 @@ class HomeControler:
 
         c = Client(None, None, None, False, self.guestVoiture, self.ui.input_numCarte.text(),
                    self.ui.input_cryptogrammeVisuel.text(),
-                   self.ui.input_dateExpiration.text(), None)  # TODO
+                   self.ui.input_dateExpiration.text(), None)
+
+
         print(Place.getAvailablePlace(self.guestVoiture))
-        print("test " + self.ui.input_crypto.text())
-        Placement(None, Place.getAvailablePlace(self.guestVoiture), c, "dateDébut", None)
+        Placement(None, Place.getAvailablePlace(self.guestVoiture), c, datetime.today().strftime("%d/%m/%Y %H:%M:%S"),
+                  None)
         self.Dialog = QtGui.QDialog()
         u = Ui_GuestTicket()
         u.setupUi(self.Dialog)
@@ -149,13 +156,31 @@ class HomeControler:
         self.Dialog.exec_()
 
     def seGarerClient(self):
-        if self.currentUser.placeReserve != None:
-            Placement(None, self.currentUser.placeReserve, self.currentUser, "dated", "datef")
-        else:
-            Placement(None, Place.getAvailablePlace(self.currentUser.voiture), self.currentUser, "dated", "datef")
 
-    def recupererEnAnonyme(self):
-        c = Client.get(self.ui.input_numTicket.text())
+        dateD = datetime.today().strftime("%d/%m/%Y %H:%M:%S")
+
+        if self.currentUser.placeReserve != None:
+            p = Placement(None, self.currentUser.placeReserve, self.currentUser, dateD, None)
+        else:
+            p = Placement(None, Place.getAvailablePlace(self.currentUser.voiture), self.currentUser, dateD, None)
+
+
+        # groupBox
+        #input_adrLivaison + "; " + input_timeLivraison
+        if self.ui.check_Entretien.isChecked():
+            Service(p, None, Service.TypeService.ENTRETIEN)
+        if self.ui.check_Maintenir.isChecked():
+            Service(p, None, Service.TypeService.MAINTENANCE)
+
+        self.Dialog = QtGui.QDialog()
+        u = Ui_Dialog()
+        u.setupUi(self.Dialog)
+        self.Dialog.finished.connect(self.goBackHome)
+        u.label.setText("Votre véhicule va être garré automatiquement.")
+        self.Dialog.exec_()
+
+    def recupererVehicule(self, numClient):
+        c = Client.get(numClient)
         if c != None:
             if (c.recupererVehicule()):
                 self.Dialog = QtGui.QDialog()
