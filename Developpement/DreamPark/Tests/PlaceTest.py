@@ -33,15 +33,18 @@ class PlaceTest(unittest.TestCase):
         self.assertEqual(p2.isAvailable(), False)
 
     def test_getAvailablePlace(self):
-        v= Voiture("IMMAT", 100, 200, 300)
-        c = Client("PEREIRA", "Alexandre", "4 Boulevard Koenings 31300 Toulouse", True, v, 12363663, 144, "12/12/1212", None, None)
+        Place.tous = []
+        p2 = Place(1, 300, 200, 500, 788)
+        c = Client("PEREIRA", "Alexandre", "4 Boulevard Koenings 31300 Toulouse", True, Voiture(), 12363663, 144, "12/12/1212", p2, None)
 
-        p = Place(1, 300, 200, 500, 777)
-        Placement(None, p, c, "date..", None)
-        #print(Place.getAvailablePlace(v))
+        Placement(None, p2, c, "date..", None)
+        self.assertEqual(p2.isAvailable(), False)
+        v= Voiture("IMMAT", 100, 200, 40)
+        self.assertEqual(Place.getAvailablePlace(v), None)
 
-        p3 = Place(1, 300, 200, 500, 778)
-        ...
+        p2 = Place(1, 300, 200, 500, 788)
+        self.assertNotEqual(Place.getAvailablePlace(v), None)
+        self.assertEqual(Place.getAvailablePlace(v), p2)
 
 if __name__ == '__main__':
     unittest.main()
