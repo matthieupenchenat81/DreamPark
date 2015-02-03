@@ -18,12 +18,6 @@ class Placement:
         self.__services = self.getServices()
         self.tous.append(self)
 
-    def partirPlace(self, dateF):
-        self.__dateF = dateF
-
-        # on libere la place
-        self.__place.toogleAvailable()
-
     @property
     def estEnCours(self):
         return (self.__dateF == None)
@@ -94,12 +88,6 @@ class Placement:
         for p in Placement.tous:
             if p.id == id: return p
         return None
-
-    @staticmethod
-    def canPark(client):
-        if(Placement.hasParkedCar(client)): return False
-        if(Place.getAvailablePlace(client.idVoiture) == None): return False
-        return True
 
     @staticmethod
     def nbPlaceOccupes():
