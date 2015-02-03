@@ -24,6 +24,10 @@ class Service:
     def dateF(self):
         return self.__dateF
 
+    @dateF.setter
+    def dateF(self, value):
+        self.__dateF = value
+
     @property
     def argument(self):
         return self.__argument

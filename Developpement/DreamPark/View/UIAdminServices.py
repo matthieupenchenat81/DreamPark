@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UIAdminServices.ui'
 #
-# Created: Sun Feb  1 21:41:01 2015
+# Created: Tue Feb  3 15:11:04 2015
 # by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,20 +17,22 @@ except AttributeError:
 
 try:
     _encoding = QtGui.QApplication.UnicodeUTF8
-
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig, _encoding)
 except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
-
 class Ui_Services(object):
     def setupUi(self, Services):
         Services.setObjectName(_fromUtf8("Services"))
         Services.resize(433, 249)
         self.tableWidget = QtGui.QTableWidget(Services)
+        self.tableWidget.setEnabled(True)
         self.tableWidget.setGeometry(QtCore.QRect(10, 10, 411, 171))
+        self.tableWidget.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
+        self.tableWidget.setSelectionMode(QtGui.QAbstractItemView.SingleSelection)
+        self.tableWidget.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
         self.tableWidget.setObjectName(_fromUtf8("tableWidget"))
         self.tableWidget.setColumnCount(4)
         self.tableWidget.setRowCount(0)
@@ -51,6 +53,7 @@ class Ui_Services(object):
 
     def retranslateUi(self, Services):
         Services.setWindowTitle(_translate("Services", "Services", None))
+        self.tableWidget.setSortingEnabled(True)
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("Services", "Type de service", None))
         item = self.tableWidget.horizontalHeaderItem(1)

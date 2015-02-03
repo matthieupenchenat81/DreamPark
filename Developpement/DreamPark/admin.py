@@ -5,8 +5,8 @@ from Developpement.DreamPark.Model.Parking.Place import *
 
 # on charge la bdd
 Voiture.loadAll()
-Client.loadAll()
 Place.loadAll()
+Client.loadAll()
 Placement.loadAll()
 Service.loadAll()
 
