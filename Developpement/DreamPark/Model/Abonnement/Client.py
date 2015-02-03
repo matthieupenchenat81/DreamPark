@@ -134,7 +134,8 @@ class Client:
     def getNbSuperAbonne():
         i = 0
         for c in Client.tous:
-            if not c.placeReserve and c.estAbonne:
+            print(c.placeReserve)
+            if c.placeReserve:
                 i = i + 1
         return i
 
