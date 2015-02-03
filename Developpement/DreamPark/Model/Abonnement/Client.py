@@ -111,7 +111,6 @@ class Client:
         tmpN = "-" if self.__nom == None else self.__nom
         return "( " + self.__num + ", " + tmpN + " " + tmpP + " )"
 
-
     def hasParkedCar(self):
         from Developpement.DreamPark.Model.Parking.Placement import Placement
 
@@ -130,6 +129,7 @@ class Client:
                 pc.dateF = datetime.today().strftime("%d/%m/%Y %H:%M:%S")
                 return True
         return False
+
     @staticmethod
     def getNbSuperAbonne():
         i = 0
