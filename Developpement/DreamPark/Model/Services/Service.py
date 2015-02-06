@@ -87,8 +87,8 @@ class Service:
     @staticmethod
     def loadAll():
         """
-        Cette méthode permet de charger la
-
+        Cette méthode permet de charger la totalité des services de la base de données dans l'application.
+        Chaque service est alors instancié dans l'application.
         """
         from Developpement.DreamPark.Model.Parking.Placement import Placement
         con = sqlite3.connect("test.db")
@@ -104,7 +104,9 @@ class Service:
 
     @staticmethod
     def saveAll():
-        # connect table
+        """
+        Cette méthode permet de sauvegarder la totalité des instances services de l'application dans la base de données
+        """
         conn = sqlite3.connect("test.db")
         curseur = conn.cursor()
         #reset table Service
