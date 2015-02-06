@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b440f61-fb3b-4844-bb89-85f24a8b28c2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Developpement/DreamPark/Model/Parking/Camera.py" afterPath="$PROJECT_DIR$/Developpement/DreamPark/Model/Parking/Camera.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Developpement/DreamPark/Model/Abonnement/Client.py" afterPath="$PROJECT_DIR$/Developpement/DreamPark/Model/Abonnement/Client.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Developpement/DreamPark/Model/Parking/Parking.py" afterPath="$PROJECT_DIR$/Developpement/DreamPark/Model/Parking/Parking.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Developpement/DreamPark/Model/Parking/Place.py" afterPath="$PROJECT_DIR$/Developpement/DreamPark/Model/Parking/Place.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Developpement/DreamPark/Model/Parking/Placement.py" afterPath="$PROJECT_DIR$/Developpement/DreamPark/Model/Parking/Placement.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Developpement/DreamPark/Model/Services/Service.py" afterPath="$PROJECT_DIR$/Developpement/DreamPark/Model/Services/Service.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Developpement/DreamPark/Model/Parking/Voiture.py" afterPath="$PROJECT_DIR$/Developpement/DreamPark/Model/Parking/Voiture.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="dbe73f02-403c-4805-bc7f-8226ae9b8cab" name="without idea settings" comment="without idea settings" />
@@ -33,9 +32,21 @@
       <file leaf-file-name="Voiture.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Developpement/DreamPark/Model/Parking/Voiture.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1110">
-              <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
+              <caret line="104" column="101" selection-start-line="104" selection-start-column="101" selection-end-line="104" selection-end-column="101" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Service.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Developpement/DreamPark/Model/Services/Service.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.63821894" vertical-offset="991" max-vertical-offset="1845">
+              <caret line="89" column="43" selection-start-line="89" selection-start-column="43" selection-end-line="89" selection-end-column="43" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -60,12 +71,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Placement.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Placement.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Developpement/DreamPark/Model/Parking/Placement.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.5881262" vertical-offset="0" max-vertical-offset="1485">
-              <caret line="97" column="16" selection-start-line="97" selection-start-column="16" selection-end-line="97" selection-end-column="16" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2655">
+              <caret line="163" column="80" selection-start-line="163" selection-start-column="80" selection-end-line="163" selection-end-column="80" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,7 +127,6 @@
         <option value="$PROJECT_DIR$/Developpement/DreamPark/Controler/HomeControler.py" />
         <option value="$USER_HOME$/Documents/Cours/MIASHS/Reseau Systeme/sigusr1.py" />
         <option value="$USER_HOME$/Documents/Cours/MIASHS/Reseau Systeme/compile.py" />
-        <option value="$PROJECT_DIR$/Developpement/DreamPark/Model/Services/Service.py" />
         <option value="$PROJECT_DIR$/Developpement/DreamPark/Tests/VoitureTest.py" />
         <option value="$PROJECT_DIR$/Developpement/DreamPark/Tests/CameraTest.py" />
         <option value="$PROJECT_DIR$/Developpement/DreamPark/Tests/ParkingTest.py" />
@@ -122,14 +134,15 @@
         <option value="$PROJECT_DIR$/Developpement/DreamPark/Tests/ClientTest.py" />
         <option value="$PROJECT_DIR$/Developpement/DreamPark/install.py" />
         <option value="$PROJECT_DIR$/Developpement/DreamPark/Tests/PlacementTest.py" />
-        <option value="$PROJECT_DIR$/Developpement/DreamPark/Model/Parking/Placement.py" />
         <option value="$PROJECT_DIR$/Developpement/DreamPark/Tests/ServiceTest.py" />
         <option value="$PROJECT_DIR$/Developpement/DreamPark/Controler/AdminControler.py" />
-        <option value="$PROJECT_DIR$/Developpement/DreamPark/Model/Parking/Voiture.py" />
         <option value="$PROJECT_DIR$/Developpement/DreamPark/Model/Abonnement/Client.py" />
         <option value="$PROJECT_DIR$/Developpement/DreamPark/Model/Parking/Camera.py" />
         <option value="$PROJECT_DIR$/Developpement/DreamPark/Model/Parking/Parking.py" />
         <option value="$PROJECT_DIR$/Developpement/DreamPark/Model/Parking/Place.py" />
+        <option value="$PROJECT_DIR$/Developpement/DreamPark/Model/Parking/Placement.py" />
+        <option value="$PROJECT_DIR$/Developpement/DreamPark/Model/Parking/Voiture.py" />
+        <option value="$PROJECT_DIR$/Developpement/DreamPark/Model/Services/Service.py" />
       </list>
     </option>
   </component>
@@ -235,6 +248,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamPark" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamPark" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Developpement" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamPark" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1031,16 +1070,21 @@
       <created>1422980222216</created>
       <updated>1422980222216</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="Pydoc">
+      <created>1423251089138</created>
+      <updated>1423251089138</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="27" width="1368" height="742" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1961223" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1961223" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3339161" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32692307" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1049,7 +1093,6 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3986014" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1080,7 +1123,8 @@
     <MESSAGE value="getPlace" />
     <MESSAGE value="views" />
     <MESSAGE value="Tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tests" />
+    <MESSAGE value="Pydoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pydoc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1352,13 +1396,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Developpement/DreamPark/Model/Services/Service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9461967" vertical-offset="0" max-vertical-offset="1140">
-          <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Developpement/DreamPark/View/UIHome.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5025">
@@ -1401,14 +1438,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Developpement/DreamPark/Model/Parking/Voiture.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1110">
-          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Developpement/DreamPark/Model/Abonnement/Client.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2925" max-vertical-offset="3960">
@@ -1445,9 +1474,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Developpement/DreamPark/Model/Parking/Placement.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.5881262" vertical-offset="0" max-vertical-offset="1485">
-          <caret line="97" column="16" selection-start-line="97" selection-start-column="16" selection-end-line="97" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2655">
+          <caret line="163" column="80" selection-start-line="163" selection-start-column="80" selection-end-line="163" selection-end-column="80" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Developpement/DreamPark/Model/Parking/Voiture.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
+          <caret line="104" column="101" selection-start-line="104" selection-start-column="101" selection-end-line="104" selection-end-column="101" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Developpement/DreamPark/Model/Services/Service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63821894" vertical-offset="991" max-vertical-offset="1845">
+          <caret line="89" column="43" selection-start-line="89" selection-start-column="43" selection-end-line="89" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
